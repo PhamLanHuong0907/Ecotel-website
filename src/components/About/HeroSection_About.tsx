@@ -34,7 +34,7 @@ export const HeroSection = () => {
             <div className="w-32 h-1 mx-auto bg-gradient-to-r from-primary via-accent to-primary rounded-full mb-10 animate-shimmer" />
             <p className="text-xl text-white leading-relaxed mb-12 max-w-3xl mx-auto">
               Công ty TNHH ECOTEL là đơn vị hàng đầu tại Việt Nam trong lĩnh vực cung cấp giải pháp chuyển đổi số tổng thể, giúp doanh nghiệp tối ưu hóa vận hành, <br /> nâng cao hiệu suất và giảm thiểu chi phí với 3 lĩnh vực: <br />
-              <span className="text-accent font-semibold text-[25px]">Công nghiệp</span>,<span className="text-accent font-semibold text-[25px]"> Dân sinh</span>,<span className="text-accent font-semibold text-[25px]"> Giải pháp IOT tổng thể</span>.
+              <span className="text-accent font-semibold text-[25px]">Hệ thống ERP,</span>,<span className="text-accent font-semibold text-[25px]"> Hệ thống MES,</span>,<span className="text-accent font-semibold text-[25px]"> Hệ thống tích hợp AI & IoT</span>.
             </p>
           </div>
         </div>
