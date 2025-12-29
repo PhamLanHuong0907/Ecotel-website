@@ -13,7 +13,7 @@ const services = [
     description: `Giải pháp Data Lakehouse được thiết kế mục đích đồng bộ dữ liệu tại một nơi giúp khai thác tối đa giá trị dữ liệu trong quá trình chuyển đổi số`,
     image: "https://vdigital.vn/wp-content/uploads/2022/11/nha-may-thong-minh-1.png",
     icon: Factory,
-    path: '/industrial/smart_factory'
+    path: '/industrial/giaiphapkho'
   },
   {
     id: 2,

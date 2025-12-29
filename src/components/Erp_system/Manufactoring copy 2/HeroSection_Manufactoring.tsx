@@ -3,12 +3,7 @@ import { Factory } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import manufacturingHero from "@/assets/nganh-cong-nghiep.jpeg.jpg";
 
-const benefits = [
-  { title: "Tăng năng suất", value: "40%", desc: "Cải thiện hiệu suất sản xuất" },
-  { title: "Giảm chi phí", value: "30%", desc: "Tiết kiệm chi phí vận hành" },
-  { title: "Giảm lỗi", value: "95%", desc: "Độ chính xác cao" },
-  { title: "ROI nhanh", value: "18", desc: "Tháng hoàn vốn" },
-];
+
 
 export const HeroSection = () => {
   const navigate = useNavigate();

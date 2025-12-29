@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/Introduce";
 import Leadership from "./pages/Leadership";
 import Customers from "./pages/Customer";
-import ManufacturingDetail from "./pages/Manufactoring";
+import Giaiphapkho from "./pages/Giaiphapkho";
 import ERP from "./pages/ERP_system";
 import Professor from "./pages/Professor";
 import Partners from "./pages/Partners";
@@ -38,7 +38,7 @@ const App = () => (
           <Route path="/about/professors" element={<Professor />} />
           <Route path="/about/customers" element={<Customers />} />
           <Route path="/about/partners" element={<Partners />} />
-          <Route path="/industrial/manufacturing" element={<ManufacturingDetail />} />
+          <Route path="/industrial/giaiphapkho" element={<Giaiphapkho />} />
           <Route path="/industrial/smart_factory" element={<Smart_Factory/>}/>
           <Route path="/erp" element={<ERP />} />
           <Route path="/mes" element={<MES/>}/>
