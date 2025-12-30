@@ -13,12 +13,13 @@ import ERP from "./pages/ERP_system";
 import Professor from "./pages/Professor";
 import Partners from "./pages/Partners";
 import ScrollToTop from "./components/Scrolltotop";
-import Smart_Factory from "./pages/Smart_Factory";
+import Hethongql from "./pages/Hethongql";
 import AI_IoT from "./pages/AI&IoT_system";
 import MES from "./pages/MES_system";
 // [NEW] Import ThemeToggle
 import ThemeToggle from "./components/ThemeToogle"; 
 import ChristmasIntro from "./components/ChiristmasIntro";
+import Erp_Bi from "./pages/ERP&BI";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -38,16 +39,14 @@ const App = () => (
           <Route path="/about/professors" element={<Professor />} />
           <Route path="/about/customers" element={<Customers />} />
           <Route path="/about/partners" element={<Partners />} />
-          <Route path="/industrial/giaiphapkho" element={<Giaiphapkho />} />
-          <Route path="/industrial/smart_factory" element={<Smart_Factory/>}/>
+          <Route path="/erp/giaiphapkho" element={<Giaiphapkho />} />
+          <Route path="/erp/hethongql" element={<Hethongql/>}/>
           <Route path="/erp" element={<ERP />} />
           <Route path="/mes" element={<MES/>}/>
     
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="/AI&IoT" element={<AI_IoT/>}/>
-        
-         
-        
+          <Route path="/erp/erp_bi" element={<Erp_Bi/>} />
   
         
           <Route path="*" element={<NotFound />} />

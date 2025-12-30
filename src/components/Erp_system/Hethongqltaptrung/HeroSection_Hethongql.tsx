@@ -1,20 +1,12 @@
 import { motion } from "framer-motion";
 import { Factory } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import erp_bi from "@/assets/erp&bi2.jpg";
-
-const benefits = [
-  { title: "Tăng năng suất", value: "40%", desc: "Cải thiện hiệu suất sản xuất" },
-  { title: "Giảm chi phí", value: "30%", desc: "Tiết kiệm chi phí vận hành" },
-  { title: "Giảm lỗi", value: "95%", desc: "Độ chính xác cao" },
-  { title: "ROI nhanh", value: "18", desc: "Tháng hoàn vốn" },
-];
-
+import manufacturingHero from "@/assets/nganh-cong-nghiep.jpeg.jpg";
 export const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative pt-24 pb-0 overflow-hidden ">
+    <section className="relative pt-24 pb-0 overflow-hidden h-screen">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
       <div className="absolute top-0 left-1/5 w-100 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
@@ -45,9 +37,7 @@ export const HeroSection = () => {
           
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-[60px]">
-            <span className="gradient-text">Giải pháp ERP & BI </span>
-            <br/> 
-            <span className="text-4xl text-white [.light_&]:text-gray-500">Tối ưu hóa vận hành doanh nghiệp</span>
+            <span className="gradient-text">Hệ thống quản lý tập trung</span>
           </h1>
         </motion.div>
 
@@ -59,29 +49,19 @@ export const HeroSection = () => {
           className="max-w-5xl mx-auto mt-8 text-center"
         >
           <div className="glass-card p-8 rounded-2xl space-y-4 ">
+            <p className="text-lg leading-relaxed">
+              <span className="text-primary font-semibold">ECOTEL cung cấp giải pháp và hệ thống quản lý dữ liệutập trung cho doanh nghiệp.
+              </span>
+            </p>
             <p className="text-muted-foreground leading-relaxed text-[19px]">
-              Trong kỷ nguyên số, việc áp dụng hệ thống ERP (Enterprise Resource Planning) và BI (Business Intelligence) trở thành yếu tố quyết định giúp doanh nghiệp tối ưu hóa quy trình vận hành, tăng cường khả năng quản lý dữ liệu và ra quyết định chính xác dựa trên thông tin thời gian thực. <span className="text-foreground font-medium">ECOTEL</span> mang đến giải pháp <span className="text-foreground font-medium">ERP & BI</span> toàn diện, giúp doanh nghiệp chuẩn hóa quy trình, đồng bộ dữ liệu và nâng cao hiệu suất hoạt động.
+              Trung tâm điều hành thông minh SOC là giải pháp quản lý tập trung toàn diện, tích hợp dữ liệu đa nguồn từ IoT, Drone, AI đến hệ thống khai thác. Với khả năng phân tích Big Data và dự báo thông minh, hệ thống cung cấp các dashboard trực quan theo thời gian thực, giúp nhà quản lý nắm bắt chính xác tình hình sản xuất và đưa ra quyết định điều hành nhanh chóng, hiệu quả.
             </p>
           </div>
         </motion.div>
       </div>
 
       {/* Hero Image */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="relative mt-[235px] flex justify-center items-center"
-      >
-        <img
-          src={erp_bi}
-          alt="Dây chuyền sản xuất công nghiệp"
-          className="w-[95%] h-full md:h-[500px] object-fit justify-center"
-        />
-        
-        {/* Floating Stats */}
-       
-      </motion.div>
+      
     </section>
   );
 };

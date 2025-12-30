@@ -13,7 +13,7 @@ const services = [
     description: `Giải pháp Data Lakehouse được thiết kế mục đích đồng bộ dữ liệu tại một nơi giúp khai thác tối đa giá trị dữ liệu trong quá trình chuyển đổi số`,
     image: "https://vdigital.vn/wp-content/uploads/2022/11/nha-may-thong-minh-1.png",
     icon: Factory,
-    path: '/industrial/giaiphapkho'
+    path: '/erp/giaiphapkho'
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const services = [
     description: `Trung tâm quản lý điều hành thông minh SOC (Smart Operation Center) là giải pháp tích hợp và tổng hợp dữ liệu tập trung từ tất cả các hệ thống trong doanh nghiệp ngành than.`,
     image: "https://cncvina.com.vn/uploads/2548/day-chuyen-san-xuat-tu-dong-su-dung-robot-1-scaled.jpg",
     icon: Factory,
-    path: '/industrial/manufacturing'
+    path: '/erp/hethongql'
   },
 
   
@@ -31,7 +31,7 @@ const services = [
     description:`Trong kỷ nguyên số, việc áp dụng hệ thống ERP (Enterprise Resource Planning) và BI (Business Intelligence) trở thành yếu tố quyết định giúp doanh nghiệp tối ưu hóa quy trình vận hành, tăng cường khả năng quản lý dữ liệu và ra quyết định chính xác dựa trên thông tin thời gian thực.\n\nECOTEL mang đến giải pháp ERP & BI toàn diện, giúp doanh nghiệp chuẩn hóa quy trình, đồng bộ dữ liệu và nâng cao hiệu suất hoạt động.`,
     image: image_erp,
     icon: BarChart3,
-    path: '/industrial/eco_mes'
+    path: '/erp/erp_bi'
   },
     {
     id: 5,
