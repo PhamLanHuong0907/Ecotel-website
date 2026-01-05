@@ -12,8 +12,7 @@ const AI_IoT = () => {
       <main>
         <HeroSection />
         <ServicesSection />
-        <FeaturesSection />
-        <CTASection />
+      
       </main>
 
       <Footer />

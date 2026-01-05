@@ -6,28 +6,28 @@ const stats = [
     value: 20,
   suffix: "+",
     label: "Năm kinh nghiệm",
-    description: "Cung cấp giải pháp IoT và chuyển đổi số đa lĩnh vực",
+    description: "Tư vấn và triển khai các giải pháp chuyển đổi số đa lĩnh vực, kết hợp trí tuệ nhân tạo vạn vật ứng dụng (AIoT)",
   },
   {
     icon: Briefcase,
     value: 150,
     suffix: "+",
     label: "Dự án triển khai",
-    description: "Thành công cho TKV và nhiều doanh nghiệp lớn",
+    description: "Có kinh nghiệm triển khai thành công các dự án chuyển đổi số toàn diện cho Tập đoàn Than - Khoáng sản Việt Nam và nhiều doanh nghiệp lớn",
   },
   {
     icon: Users2,
     value: 50,
     suffix: "+",
     label: "Chuyên gia",
-    description: "Đội ngũ kỹ sư, cử nhân chuyên môn cao",
+    description: "Đội ngũ kỹ sư, cử nhân có chuyên môn cao, giàu kinh nghiệm triển khai thực tế",
   },
   {
     icon: Trophy,
     value: 4,
     suffix: "+",
     label: "Giải thưởng",
-    description: "Được công nhận về chất lượng và đổi mới sáng tạo",
+    description: "Khẳng định uy tín thông qua việc được công nhận về chất lượng và đổi mới sáng tạo trong các giải pháp cung cấp.",
   },
 ];
 

@@ -4,17 +4,17 @@ const highlights = [
   {
     icon: Zap,
     title: "Tiên phong công nghệ",
-    description: "Ứng dụng công nghệ hiện đại vào tự động hóa công nghiệp",
+    description: "Ứng dụng công nghệ hiện đại trong chuyển đổi số và tự động hóa công nghiệp",
   },
   {
     icon: Users,
     title: "Đội ngũ chuyên nghiệp",
-    description: "Hơn 50 kỹ sư, cử nhân có chuyên môn cao",
+    description: "Quy tụ hơn 50 kỹ sư, cử nhân có trình độ chuyên môn cao và kinh nghiệm thực tiễn",
   },
   {
     icon: Award,
     title: "Uy tín hàng đầu",
-    description: "Đối tác tin cậy của TKV và nhiều doanh nghiệp lớn",
+    description: "Đối tác tin cậy của Tập đoàn Than - Khoáng sản Việt Nam (TKV) và nhiều doanh nghiệp lớn ",
   },
 ];
 
@@ -37,17 +37,18 @@ export const AboutSection = () => {
               <br />
               <span className="text-foreground">chuyển đổi số tại Việt Nam</span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Công ty TNHH ECOTEL tiên phong trong việc cung cấp giải pháp chuyển đổi số tổng thể, 
-              giúp doanh nghiệp tối ưu hóa vận hành, nâng cao hiệu suất và giảm thiểu chi phí sản xuất.
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              ECOTEL - doanh nghiệp tiên phong trong chuyển đổi số ngành khai thác, sản xuất và chế biến, tối ưu hóa quy trình 
+              vận hành và quản lý dữ liệu. Ứng dụng AI, IoT và Big Data, chúng tôi mang đến giải pháp thông minh, giúp doanh nghiệp
+              nâng cao hiệu suất, giảm chi phí và đảm bảo an toàn.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Với kinh nghiệm sâu rộng triển khai các dự án quy mô lớn, độ phức tạp cao, 
-              ECOTEL cam kết mang đến những giải pháp chất lượng, tối ưu chi phí và đảm bảo tiến độ.
+              ECOTEL cam kết mang đến những giải pháp chất lượng, tối ưu chi phí và đảm bảo tiến độ thực hiện.
             </p>
 
             <div className="space-y-4">
-              {["Giải pháp chuyển đổi số toàn diện", "Tùy chỉnh theo nhu cầu khách hàng", "Khả năng mở rộng quy mô"].map((item, index) => (
+              {["Giải pháp chuyển đổi số toàn diện", "Tùy chỉnh linh hoạttheo nhu cầu khách hàng", "Khả năng mở rộng quy mô, đáp ứng quy mô phát triển dài hạn"].map((item, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
                   <span className="text-foreground">{item}</span>

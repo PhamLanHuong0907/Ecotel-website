@@ -34,7 +34,7 @@ export const HeroSection = () => {
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mt-8 mb-8 drop-shadow-lg">
             <div className="h-16"/>
-           <span className="bg-gradient-to-br pt-3 from-pink-600 via-purple-900 to-black bg-clip-text text-transparent "></span>
+           <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 pt-3bg-clip-text text-transparent "></span>
             <div className="h-5"/>
           </h1>
           

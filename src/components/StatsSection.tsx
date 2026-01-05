@@ -44,19 +44,19 @@ const CountUpNumber = ({ target, suffix }: { target: number; suffix: string }) =
 
 export const StatsSection = ({ data, className }: StatsSectionProps) => {
   return (
-    <div className={`w-full py-10 ${className || ""}`}>
+    <div className={`w-[120%] ml-[-10%] py-10 ${className || ""}`}>
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-4 max-w-8xl mx-auto">
           {data.map((stat, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-6 text-center animate-scale-in hover-lift flex flex-col items-center justify-start w-full sm:w-[calc(50%-8px)] md:w-[calc(25%-12px)]"
+              className="glass-card rounded-2xl p-[13px] text-center animate-scale-in hover-lift flex flex-col items-center justify-start w-full sm:w-[calc(50%-8px)] md:w-[calc(25%-12px)]"
               style={{ animationDelay: `${0.2 + index * 0.15}s` }}
             >
               {/* TRƯỜNG HỢP CÓ SỐ (VALUE LÀ NUMBER) */}
               {typeof stat.value === "number" && (
                 <>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-2 transition-transform group-hover:scale-110">
                     <stat.icon className="w-6 h-6 text-primary" />
                   </div>
 
@@ -66,12 +66,12 @@ export const StatsSection = ({ data, className }: StatsSectionProps) => {
                   </div>
 
                   {/* Label */}
-                  <p className="text-sm font-semibold text-foreground mb-2">
+                  <p className="text-sm font-semibold text-foreground mb-1">
                     {stat.label}
                   </p>
 
                   {/* --- ĐÃ THÊM ĐOẠN NÀY ĐỂ HIỆN DESCRIPTION --- */}
-                  <p className="text-[12px] text-muted-foreground mt-auto">
+                  <p className="text-[12px] text-muted-foreground ">
                     {stat.description}
                   </p>
                 </>

@@ -49,7 +49,7 @@ export const ServicesSection = () => {
 
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-cyan-600 whitespace-pre-line">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-blue-900 whitespace-pre-line">
                   {service.title}
                 </h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">

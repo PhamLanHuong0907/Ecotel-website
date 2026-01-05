@@ -16,7 +16,7 @@ export const HeroSection = () => {
       }}
     >
       
-      <section ref={ref} className="py-24 relative overflow-hidden h-screen">
+      <section ref={ref} className="py-24 relative overflow-hidden min-h-screen">
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-primary/10 blur-3xl animate-pulse-slow" />
           <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-accent/10 blur-3xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
@@ -33,8 +33,8 @@ export const HeroSection = () => {
             </h1>
             <div className="w-32 h-1 mx-auto bg-gradient-to-r from-primary via-accent to-primary rounded-full mb-10 animate-shimmer" />
             <p className="text-xl text-white leading-relaxed mb-12 max-w-3xl mx-auto">
-              Công ty TNHH ECOTEL là đơn vị hàng đầu tại Việt Nam trong lĩnh vực cung cấp giải pháp chuyển đổi số tổng thể, giúp doanh nghiệp tối ưu hóa vận hành, <br /> nâng cao hiệu suất và giảm thiểu chi phí với 3 lĩnh vực: <br />
-              <span className="text-accent font-semibold text-[25px]">Hệ thống ERP,</span>,<span className="text-accent font-semibold text-[25px]"> Hệ thống MES,</span>,<span className="text-accent font-semibold text-[25px]"> Hệ thống tích hợp AI & IoT</span>.
+              Công ty TNHH ECOTEL là đơn vị hàng đầu tại Việt Nam trong lĩnh vực cung cấp giải pháp chuyển đổi số tổng thể, giúp doanh nghiệp tối ưu hóa vận hành, <br /> nâng cao hiệu suất và giảm thiểu chi phí.<br />
+             
             </p>
           </div>
         </div>

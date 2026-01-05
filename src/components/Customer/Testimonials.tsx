@@ -8,15 +8,15 @@ import { TestimonialsSection } from "../Testimonials";
 const testimonials = [
   {
     content: "ECOTEL đã mang đến cho chúng tôi giải pháp IoT hoàn hảo, giúp tối ưu hóa quy trình vận hành và tiết kiệm chi phí đáng kể.",
-    author: "Nguyễn Văn A", position: "Giám đốc CNTT", company: "Công ty ABC"
+    author: "Dương Văn Hoàng", position: "Trưởng phòng kế toán", company: "Công ty Than Uông Bí - TKB"
   },
   {
     content: "Đội ngũ kỹ thuật chuyên nghiệp và hỗ trợ tận tình. Chúng tôi rất hài lòng với dịch vụ của ECOTEL.",
-    author: "Trần Thị B", position: "Trưởng phòng Kỹ thuật", company: "Tập đoàn XYZ"
+    author: "Nguyễn Ngọc Toàn", position: "Phó giám đốc", company: "Công ty Than Cao Sơn - TKV"
   },
   {
     content: "Giải pháp quản lý năng lượng của ECOTEL giúp chúng tôi tiết kiệm 30% chi phí điện năng hàng tháng. Rất ấn tượng!",
-    author: "Lê Minh C", position: "Giám đốc Vận hành", company: "Khu công nghiệp DEF"
+    author: "Nguyễn Đức Thành", position: "Giám đốc", company: "Công ty TNHH MTV Hoa Tiêu Hoàng Hải miền bắc"
   },
   {
     content: "Hệ thống giám sát thông minh hoạt động ổn định 24/7. Đội ngũ hỗ trợ phản hồi nhanh chóng mọi vấn đề.",

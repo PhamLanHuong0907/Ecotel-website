@@ -92,7 +92,7 @@ export const ServicesSection = () => {
 
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-blue-700 whitespace-pre-line">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-blue-500 whitespace-pre-line">
                   {service.title}
                 </h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -101,7 +101,7 @@ export const ServicesSection = () => {
                   ))}
                 </div>
                 <Link to={service.path}>
-                    <Button className="group bg-gradient-to-br  from-blue-500 to-blue-900 mt-3">
+                    <Button className="group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 mt-3">
                       <ScrollToTop/>
                       Xem chi tiết
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/components/Erp_system/Giaiphapkho/HeroSection_Giaiphapkho";
+import { HeroSection } from "@/components/Erp_system/Quantringuonluc/HeroSection_Giaiphapkho";
 import { FeatureSection } from "@/components/FeatureSection";
 import { CTASection } from "@/components/CTASection";
 import { Cog, Cpu, Zap, Target, Settings, Shield, Wrench, Factory, CheckCircle2 } from "lucide-react";

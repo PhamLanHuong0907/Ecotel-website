@@ -11,13 +11,13 @@ export const HeroSection = () => {
         backgroundImage: `url(${customer})`,
         height: "auto",
         width: "100%",
-        backgroundSize: "100%",
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         opacity: "1",
       }}
     >
     <div className="absolute inset-0 bg-black/60"></div>
-    <section ref={ref} className="relative pt-32 pb-20 overflow-hidden mb-5 h-screen">
+    <section ref={ref} className="relative pt-32 pb-20 overflow-hidden mb-5 min-h-screen">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
@@ -46,7 +46,7 @@ export const HeroSection = () => {
           </p>
         </div>
       </div>
-      <div className="h-[20%]"/>
+      <div className="h-24"/>
       <Customer_StatsSection />
     </section>
     </div>

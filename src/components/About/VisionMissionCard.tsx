@@ -17,14 +17,20 @@ const coreValues = [
 
 const VisionMissionCard = ({ item, index, isVisible }: { item: typeof visionMission[0]; index: number; isVisible: boolean }) => (
   <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: `${index * 200}ms` }}>
-    <div className="glass-card rounded-3xl p-8 hover-lift group h-full relative overflow-hidden">
+    <div className="glass-card rounded-3xl p-8 hover-lift group h-full relative overflow-hidden flex flex-col">
       <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-primary/30 transition-colors duration-500" />
-      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative`}>
-        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.gradient} opacity-50 blur-xl group-hover:blur-2xl transition-all`} />
-        <item.icon className="w-10 h-10 text-white relative z-10" />
+      
+      {/* Header: Icon + Title nằm ngang */}
+      <div className="flex items-center gap-5 mb-6 relative z-10">
+        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg relative`}>
+          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.gradient} opacity-50 blur-xl group-hover:blur-2xl transition-all`} />
+          <item.icon className="w-8 h-8 text-white relative z-10" />
+        </div>
+        <h3 className="text-2xl font-bold gradient-text">{item.title}</h3>
       </div>
-      <h3 className="text-2xl font-bold mb-4 gradient-text">{item.title}</h3>
-      <p className="text-muted-foreground leading-relaxed">{item.content}</p>
+
+      <p className="text-muted-foreground leading-relaxed relative z-10">{item.content}</p>
+      
       <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-2xl group-hover:scale-150 transition-transform duration-700" />
     </div>
   </div>
@@ -52,7 +58,7 @@ export const VisionMissionSection = () => {
           ))}
         </div>
         <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold text-foreground mb-2">5 Đức tính cốt lõi</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-2">Giá trị cốt lõi</h3>
           <p className="text-muted-foreground">Tập hợp những niềm tin, lý tưởng và định hướng của ECOTEL</p>
         </div>
         <div className="flex justify-center">
@@ -78,9 +84,6 @@ export const VisionMissionSection = () => {
               );
             })}
           </div>
-        </div>
-        <div>
-            <p></p>
         </div>
       </div>
     </section>

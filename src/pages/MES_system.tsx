@@ -11,8 +11,7 @@ const MES = () => {
       <main>
         <HeroSection />
         <ServicesSection />
-        <FeaturesSection />
-        <CTASection />
+   
       </main>
 
       <Footer />

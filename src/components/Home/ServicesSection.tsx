@@ -14,8 +14,13 @@ const services = [
   {
     icon: Factory,
     title: "Hệ thống ERP",
-    description: "Giải pháp tự động hóa cho nhà máy và doanh nghiệp, từ gia công chế tạo máy, tối ưu vận hành đến xây dựng nhà máy thông minh.",
-    features: ["Giải pháp gia công chế tạo máy & dây chuyền sản xuất", "Giải pháp ERP & BI - Tối ưu hóa vận hành doanh nghiệp", "Nhà máy thông minh"],
+    description: <>Cung cấp giải pháp ERP tổng thể cho doanh nghiệp và nhà máy, giúp chuẩn hóa quy trình, tích hợp dữ liệu tập trung và tối ưu hóa quản trị - vận hành trên toàn bộ chuỗi giá trị
+                <br/> Giải pháp ERP của ECOTEL hỗ trợ doanh nghiệp từ sản xuất, gia công - chế tạo, quản lý nguồn lực, kiểm soát chi phí, đến phân tích dữ liệu và ra quyết định,
+                hướng tới mô hình nhà máy và doanh nghiệp thông minh</>,
+    features: ["ERP cho doanh nghiệp và nhà máy sản xuất", 
+      "ERP & BI - Phân tích dữ liệu, báo cáo quản trị, hỗ trợ ra quyết định", 
+      "Tích hợp hệ thống sản xuất, dây chuyền và tự động hóa (MES/SCADA)",
+      "Giải pháp Nhà máy thông minh (Smart Factory)"],
     gradient: "from-blue-500 to-cyan-500",
     images: [
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
@@ -26,8 +31,18 @@ const services = [
   {
     icon: Home,
     title: "Hệ thống MES",
-    description: "Trong lĩnh vực dân sinh, ECOTEL cung cấp nhiều giải pháp, thiết bị công nghệ nhằm phục vụ cho đời sống xã hội, bao gồm: Hệ thống đỗ xe tự động, sạc pin xe điện, và giám sát an ninh (giải pháp Camera AI). Chúng tôi cũng không ngừng cập nhật các dòng sản phẩm phù hợp với mục tiêu giúp cuộc sống tiện ích, thông minh và xanh hơn.",
-    features: ["Giải pháp đỗ xe thông minh & Kiểm soát xe ra vào", "Dịch vụ & Giải pháp sạc pin ô tô điện thông minh", "Giải pháp giám sát an ninh thông minh - Camera AI"],
+    description: <>
+    ECOTEL cung cấp giải pháp MES (Manufacturing Execution System) giúp doanh nghiệp quản lý, giám sát và điều hành hoạt động sản xuất theo thời gian thực,
+    kết nối trực tiếp giữa hệ thống quản trị (ERP) và tầng thiết bị, dây chuyển sản xuất.
+    <br/> Hệ thống MES hỗ trợ doanh nghiệp chuẩn hóa quy trình sản xuất, theo dõi tiến độ - năng suất - chất lượng, giảm sai lỗi,
+    tối ưu nguồn lực và nâng cao khả năng kiểm soát trong môi trường sản xuất hiện đại, hướng tới mô hình nhà máy thông minh.
+    <br/>Chức năng chính của MES
+    </>,
+    features: ["Quản lý và giám sát lệnh sản xuất theo thời gian thực",
+       "Theo dõi tiến độ, năng suất, hiệu quả thiết bị (OEE)",
+        "Quản lý chất lượng, truy xuất nguồn gốc sản phẩm"
+      , "Kết nối máy móc, dây chuyền (PLC/SCADA/IoT)",
+        "Tích hợp ERP, BI và các hệ thống quản trị doanh nghiệp"],
     gradient: "from-emerald-500 to-teal-500",
     images: [
       "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80",
@@ -38,8 +53,17 @@ const services = [
   {
     icon: Globe,
     title: "Hệ thống tích hợp AI & IoT",
-    description: "ECOTEL không ngừng phát triển và triển khai các ứng dụng IoT tiên tiến ngay tại công ty, xem đây là nền tảng quan trọng để tối ưu hóa giải pháp cho ngành sản xuất, nâng cao hiệu suất và tính linh hoạt trong vận hành.",
-    features: ["Thiết kế mạch in PCB", "Giải pháp IoT tổng thể"],
+    description: 
+    <>ECOTEL cung cấp giải pháp AIoT tích hợp IoT và trí tuệ nhân tạo (AI), cho phép kết nối thiết bị, thu thập dữ liệu thời gian 
+    thực và phân tích thông minh, giúp doanh nghiệp tối ưu vận hành, nâng cao hiệu suất và tăng khả năng ra quyết định.
+    <br/> Giải pháp AIoT của ECOTEL được triển khai đồng bộ từ thiết bị - nền tảng IoT - mô hình AI, đóng vai trò nền tảng trong hệ 
+    sinh thái ERP - MES - Nhà máy thông minh, đáp ứng yêu cầu mở rộng và tích hợp linh hoạt.
+    <br/> Phạm vi giải pháp AIoT:
+    </>,
+    features: ["Thiết kế, phát triển phần cứng IoT và mạch điện tử (PCB)",
+       "Giải pháp IoT tổng thể: thiết bị, kết nối, nền tảng quản lý",
+      "Ứng dụng AI trong giám sát, phân tích, dự báo và tối ưu vận hành",
+      "Tích hợp với ERP, MES, SCADA và các hệ thống hiện có"],
     gradient: "from-violet-500 to-purple-500",
     images: [
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
@@ -66,7 +90,7 @@ export const ServicesSection = () => {
             <span className="gradient-text">chuyên môn</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Đa dạng giải pháp IoT và chuyển đổi số phù hợp với mọi quy mô doanh nghiệp
+            Đa dạng giải pháp chuyển đổi số và AIoT phù hợp với mọi quy mô và đặc thù doanh nghiệp
           </p>
         </div>
 

@@ -22,9 +22,7 @@ const navItems: NavItem[] = [
     dropdown: [
       { label: "Giới thiệu chung", href: "/about" },
       { label: "Đội ngũ lãnh đạo", href: "/about/leadership" },
-      { label: "Đội ngũ chuyên gia", href: "/about/professors" },
       { label: "Khách hàng", href: "/about/customers" },
-      { label: "Đối tác", href: "/about/partners" },
     ],
   },
   {

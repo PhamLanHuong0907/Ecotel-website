@@ -13,8 +13,6 @@ const ERP = () => {
       <main>
         <HeroSection />
         <ServicesSection />
-        <FeaturesSection />
-        <CTASection />
       </main>
 
       <Footer />

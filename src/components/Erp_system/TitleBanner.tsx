@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 
 export const TitleBanner = () => {
   return (
-    <section className="py-12 bg-teal-500 shadow-lg">
+    <section className="py-12 bg-gradient-to-br from-blue-500 to-blue-900 shadow-lg">
+
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

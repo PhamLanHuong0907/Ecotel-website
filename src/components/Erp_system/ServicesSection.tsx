@@ -9,7 +9,7 @@ import ScrollToTop from "../Scrolltotop";
 const services = [
   {
     id: 1,
-    title: "Giải pháp kho dữ liệu tập trung",
+    title: "Quản trị nguồn lực",
     description: `Giải pháp Data Lakehouse được thiết kế mục đích đồng bộ dữ liệu tại một nơi giúp khai thác tối đa giá trị dữ liệu trong quá trình chuyển đổi số`,
     image: "https://vdigital.vn/wp-content/uploads/2022/11/nha-may-thong-minh-1.png",
     icon: Factory,
@@ -17,40 +17,30 @@ const services = [
   },
   {
     id: 2,
-    title: "Hệ thống quản lý tập trung",
+    title: "Vận hành - Sản xuất",
     description: `Trung tâm quản lý điều hành thông minh SOC (Smart Operation Center) là giải pháp tích hợp và tổng hợp dữ liệu tập trung từ tất cả các hệ thống trong doanh nghiệp ngành than.`,
     image: "https://cncvina.com.vn/uploads/2548/day-chuyen-san-xuat-tu-dong-su-dung-robot-1-scaled.jpg",
     icon: Factory,
     path: '/erp/hethongql'
   },
 
-  
+  {
+    id: 3,
+    title: "Kinh doanh & Dịch vụ",
+    description:``,
+    image: image_erp,
+    icon: BarChart3,
+    path: '/industrial/eco_mes'
+  },
   {
     id: 4,
-    title: "Hệ thống quản trị doanh nghiệp ERP-BI",
+    title: "Dashboard & BI",
     description:`Trong kỷ nguyên số, việc áp dụng hệ thống ERP (Enterprise Resource Planning) và BI (Business Intelligence) trở thành yếu tố quyết định giúp doanh nghiệp tối ưu hóa quy trình vận hành, tăng cường khả năng quản lý dữ liệu và ra quyết định chính xác dựa trên thông tin thời gian thực.\n\nECOTEL mang đến giải pháp ERP & BI toàn diện, giúp doanh nghiệp chuẩn hóa quy trình, đồng bộ dữ liệu và nâng cao hiệu suất hoạt động.`,
     image: image_erp,
     icon: BarChart3,
     path: '/erp/erp_bi'
-  },
-    {
-    id: 5,
-    title: "Phần mềm kế hoạch và định mức sản xuất",
-    description:``,
-    image: image_erp,
-    icon: BarChart3,
-    path: '/industrial/eco_mes'
-  },
-   {
-    id: 6,
-    title: "Hệ thống quản lý tài sản",
-    description:``,
-    image: image_erp,
-    icon: BarChart3,
-    path: '/industrial/eco_mes'
-  },
-
-];
+  }
+   ];
 
 export const ServicesSection = () => {
   return (
@@ -83,7 +73,7 @@ export const ServicesSection = () => {
 
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-pre-line text-teal-500">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-pre-line text-blue-500">
                   {service.title}
                 </h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -92,7 +82,7 @@ export const ServicesSection = () => {
                   ))}
                 </div>
                 <Link to={service.path}>
-                    <Button className="group bg-gradient-to-br from-emerald-500 via-teal-400 to-teal-600mt-3">
+                    <Button className="group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 mt-3">
                       <ScrollToTop/>
                       Xem chi tiết
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
