@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
 import { Factory } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import manufacturingHero from "@/assets/nganh-cong-nghiep.jpeg.jpg";
-
-
-
 export const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative pt-24 pb-0 overflow-hidden ">
+    <section className="relative pt-24 pb-0 overflow-hidden h-screen">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
       <div className="absolute top-0 left-1/5 w-100 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
@@ -40,9 +36,7 @@ export const HeroSection = () => {
           
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-[60px]">
-            <span className="gradient-text">Giải pháp gia công chế tạo máy</span>
-            <br />
-            <span className="gradient-text">& dây chuyền sản xuất</span>
+            <span className="gradient-text">Kinh doanh & Dịch vụ</span>
           </h1>
         </motion.div>
 
@@ -54,33 +48,19 @@ export const HeroSection = () => {
           className="max-w-5xl mx-auto mt-8 text-center"
         >
           <div className="glass-card p-8 rounded-2xl space-y-4 ">
-            <p className="text-lg leading-relaxed">
-              <span className="text-primary font-semibold">ECOTEL là đơn vị tiên phong cung cấp các giải pháp về gia công máy và dây chuyền sản xuất.</span>
-            </p>
             <p className="text-muted-foreground leading-relaxed text-[19px]">
-              Trong bối cảnh công nghiệp hiện đại, việc tối ưu hóa dây chuyền sản xuất và gia công chế tạo máy đóng vai trò then chốt trong việc nâng cao năng suất, giảm chi phí và cải thiện chất lượng sản phẩm. <span className="text-foreground font-medium">ECOTEL</span> mang đến giải pháp <span className="text-foreground font-medium">thiết kế, chế tạo máy và dây chuyền sản xuất</span> theo nhu cầu đặc thù của từng doanh nghiệp, giúp tối ưu hiệu quả vận hành và đẩy mạnh tự động hóa trong sản xuất.
-            </p>
+              Thúc đẩy tăng trưởng doanh thu và nâng tầm trải nghiệm khách hàng thông qua việc chuẩn hóa quy trình bán hàng và kiểm soát chặt chẽ tính pháp lý trong giao dịch thương mại.</p>
+            <p className="text-muted-foreground leading-relaxed text-[19px]">
+              Hệ thống kết nối liền mạch quy trình kinh doanh từ giai đoạn tiếp cận, nuôi dưỡng cơ hội (CRM) đến khâu chốt ký và quản lý các điều khoản cam kết (Hợp đồng), đảm bảo mọi tương tác với đối tác đều được ghi nhận và xử lý chuyên nghiệp.
+Nhờ đó, doanh nghiệp không chỉ tối đa hóa tỷ lệ chuyển đổi cơ hội thành doanh số mà còn xây dựng được lòng tin bền vững nơi khách hàng, đồng thời thiết lập rào chắn an toàn để giảm thiểu mọi rủi ro pháp lý trong quá trình thực thi hợp đồng.
+</p>
           </div>
         </motion.div>
       </div>
 
       {/* Hero Image */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="relative mt-[235px] flex justify-center items-center"
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10 text-center justify-center flex items-center" />
-        <img
-          src={manufacturingHero}
-          alt="Dây chuyền sản xuất công nghiệp"
-          className="w-[95%] h-auto md:h-[500px] object-cover justify-center"
-        />
-        
-        {/* Floating Stats */}
-       
-      </motion.div>
+      
     </section>
+   
   );
 };

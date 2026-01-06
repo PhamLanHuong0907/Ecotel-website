@@ -39,7 +39,20 @@ export const HeroSection = () => {
           
           <div className="glass-card p-8 rounded-2xl text-left space-y-4 bg-background/60 backdrop-blur-md border border-white/10 shadow-xl">
             <p className="text-foreground/90 leading-relaxed text-sm md:text-base lg:text-lg">
-              Trong lĩnh vực dân sinh, <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold">ECOTEL</span> cung cấp nhiều giải pháp, thiết bị công nghệ nhằm phục vụ cho đời sống xã hội 
+              Hệ thống 
+              <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> AIoT của ECOTEL</span> 
+              là nền tảng tích hợp
+              <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> IoT và trí tuệ nhân tạo (AI)</span>
+              , cho phép 
+              <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> kết nối thiết bị - thu thập dữ liệu thời gian thực - phân tích thông minh, </span>
+              giúp doanh nghiệp
+              <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> giám sát, dự báo và tối ưu vận hành </span>
+                trong môi trường sản xuất và công nghiệp hiện đại.
+            </p>
+            <p className="text-foreground/90 leading-relaxed text-sm md:text-base lg:text-lg">
+            Giải pháp AIoT đóng vai trò hạ tầng dữ liệu quan trọng trong hệ sinh thái 
+            <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> ERP - MES - Nhà máy thông minh, </span>
+            hỗ trợ doanh nghiệp ra quyết định chính xác và nâng cao hiệu quả vận hành.
             </p>
           </div>
         </motion.div>

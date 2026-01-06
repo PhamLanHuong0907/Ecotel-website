@@ -2,11 +2,12 @@ import { motion } from "framer-motion";
 import { LucideIcon, ArrowRight, ChevronRight } from "lucide-react"; 
 import { useNavigate } from "react-router-dom";
 
-// 1. Thêm path vào từng Item
+// 1. Cập nhật Interface: Thêm subText
 interface FeatureItem {
-  text: string;
+  text: string;      // Tiêu đề chính
+  subText?: string;   // Nội dung ngắn (MỚI)
   icon: LucideIcon;
-  path?: string; // Đường dẫn riêng cho từng item (tùy chọn)
+  path?: string;     // Đường dẫn riêng
 }
 
 interface FeatureSectionProps {
@@ -23,7 +24,6 @@ interface FeatureSectionProps {
     iconBgClass: string;
     iconColorClass: string;
   };
-  // path?: string; -> Đã xóa path chung ở đây
   reverse?: boolean;
   backgroundClass?: string;
   glowClass?: string;
@@ -45,7 +45,6 @@ export const FeatureSection = ({
   const BadgeIcon = floatingBadge.icon;
   const navigate = useNavigate();
 
-  // Hàm xử lý khi click vào item
   const handleItemClick = (path?: string) => {
     if (path) {
       navigate(path);
@@ -74,7 +73,7 @@ export const FeatureSection = ({
             className="w-full lg:w-1/2 space-y-8"
           >
             <div>
-              {/* Tag Section (Giữ nguyên tĩnh) */}
+              {/* Tag Section */}
               <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm mb-4 ${tag.colorClass}`}>
                 <TagIcon className="w-4 h-4" />
                 <span>{tag.text}</span>
@@ -97,9 +96,9 @@ export const FeatureSection = ({
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
-                  onClick={() => handleItemClick(feature.path)} // Sự kiện click
+                  onClick={() => handleItemClick(feature.path)}
                   className={`
-                    glass-card p-5 rounded-xl flex items-center gap-4 hover-lift group 
+                    glass-card p-4 rounded-xl flex items-center gap-4 hover-lift group 
                     ${feature.path ? "cursor-pointer hover:border-primary/50" : ""} 
                   `}
                 >
@@ -107,15 +106,18 @@ export const FeatureSection = ({
                     <feature.icon className={`w-6 h-6 transition-colors`} />
                   </div>
                   
+                  {/* 2. Cập nhật phần hiển thị Text */}
                   <div className="flex-grow">
-                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors font-medium">
+                    <h4 className="text-foreground font-semibold text-base group-hover:text-primary transition-colors">
                       {feature.text}
+                    </h4>
+                    <p className="text-sm text-muted-foreground mt-0.5 line-clamp-2 leading-snug">
+                      {feature.subText}
                     </p>
                   </div>
 
-                  {/* Nếu có path thì hiện mũi tên chỉ dẫn ở cuối dòng */}
                   {feature.path && (
-                    <ChevronRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                    <ChevronRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex-shrink-0" />
                   )}
                 </motion.div>
               ))}

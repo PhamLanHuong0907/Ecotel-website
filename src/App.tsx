@@ -20,6 +20,7 @@ import MES from "./pages/MES_system";
 import ThemeToggle from "./components/ThemeToogle"; 
 import ChristmasIntro from "./components/ChiristmasIntro";
 import Erp_Bi from "./pages/ERP&BI";
+import KDDV from "./pages/KDDV";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -47,8 +48,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="/AI&IoT" element={<AI_IoT/>}/>
           <Route path="/erp/erp_bi" element={<Erp_Bi/>} />
-  
-        
+          <Route path="/erp/kddv" element={<KDDV/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

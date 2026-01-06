@@ -36,7 +36,7 @@ export const HeroSection = () => {
           
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-[60px]">
-            <span className="gradient-text">Giải pháp kho dữ liệu tập trung</span>
+            <span className="gradient-text">Quản trị nguồn lực</span>
           </h1>
         </motion.div>
 
@@ -49,7 +49,10 @@ export const HeroSection = () => {
         >
           <div className="glass-card p-8 rounded-2xl space-y-4 ">
             <p className="text-muted-foreground leading-relaxed text-[19px]">
-             Data Lakehouse là giải pháp đồng bộ dữ liệu tập trung, giúp doanh nghiệp khai thác tối đa giá trị trong quá trình chuyển đổi số. Với kiến trúc linh hoạt hỗ trợ mạnh mẽ cho AI/ML và Big Data, hệ thống đảm bảo dữ liệu luôn sạch, có cấu trúc và dễ dàng truy xuất. Giải pháp tích hợp sẵn công cụ BI thời gian thực, trao quyền cho doanh nghiệp đưa ra các quyết định nhanh chóng, chính xác dựa trên nguồn dữ liệu đáng tin cậy.</p>
+             Tối ưu hóa nguồn lực là nền tảng cốt lõi giúp doanh nghiệp vận hành hiệu quả, giảm thiểu lãng phí và duy trì lợi thế cạnh tranh bền vững trong môi trường kinh doanh số.</p>
+            <p className="text-muted-foreground leading-relaxed text-[19px]">
+              Hệ thống giúp doanh nghiệp kiểm soát tập trung hai nguồn lực huyết mạch là Nhân sự và Tài chính trên một nền tảng duy nhất, thay thế hoàn toàn các phương thức quản lý thủ công rời rạc để đảm bảo dòng tiền thông suốt.
+            Ngoài ra, việc minh bạch hóa dữ liệu toàn hệ thống sẽ cung cấp cho Ban lãnh đạo các chỉ số đo lường chính xác, tạo tiền đề vững chắc cho việc ra quyết định điều phối ngân sách và hoạch định chiến lược mở rộng quy mô.</p>
           </div>
         </motion.div>
       </div>

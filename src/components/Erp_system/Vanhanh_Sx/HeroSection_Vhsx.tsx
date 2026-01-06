@@ -37,7 +37,7 @@ export const HeroSection = () => {
           
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-[60px]">
-            <span className="gradient-text">Hệ thống quản lý tập trung</span>
+            <span className="gradient-text">Vận hành - Sản xuất</span>
           </h1>
         </motion.div>
 
@@ -50,11 +50,19 @@ export const HeroSection = () => {
         >
           <div className="glass-card p-8 rounded-2xl space-y-4 ">
             <p className="text-lg leading-relaxed">
-              <span className="text-primary font-semibold">ECOTEL cung cấp giải pháp và hệ thống quản lý dữ liệutập trung cho doanh nghiệp.
+              <span className="text-primary font-semibold">
+                Thiết lập quy trình vận hành đồng bộ và kiểm soát chặt chẽ dây chuyền sản xuất là chìa khóa để doanh nghiệp 
+                đảm bảo chất lượng sản phẩm, tối ưu chi phí giá thành và đáp ứng tiến độ giao hàng.
               </span>
             </p>
             <p className="text-muted-foreground leading-relaxed text-[19px]">
-              Trung tâm điều hành thông minh SOC là giải pháp quản lý tập trung toàn diện, tích hợp dữ liệu đa nguồn từ IoT, Drone, AI đến hệ thống khai thác. Với khả năng phân tích Big Data và dự báo thông minh, hệ thống cung cấp các dashboard trực quan theo thời gian thực, giúp nhà quản lý nắm bắt chính xác tình hình sản xuất và đưa ra quyết định điều hành nhanh chóng, hiệu quả.
+             Giải pháp giúp kiến tạo một hệ sinh thái sản xuất thông minh, liên kết chặt chẽ các mắt xích từ Lập kế hoạch, 
+             Cung ứng vật tư đến Quản lý kho và Bảo trì thiết bị, giúp loại bỏ hoàn toàn các điểm nghẽn làm gián đoạn dòng chảy 
+             công việc.
+            
+              Thông qua việc số hóa toàn diện nhà máy, Ban lãnh đạo sẽ nắm bắt chính xác năng lực sản xuất thực tế theo thời gian 
+              thực để tối ưu hóa nguồn lực, giảm thiểu các lãng phí vô hình và gia tăng năng lực cạnh tranh nhờ tốc độ đáp ứng đơn 
+              hàng vượt trội.
             </p>
           </div>
         </motion.div>

@@ -36,9 +36,8 @@ export const HeroSection = () => {
           
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-[60px]">
-            <span className="gradient-text">Giải pháp ERP & BI </span>
-            <br/> 
-            <span className="text-4xl text-white [.light_&]:text-gray-500">Tối ưu hóa vận hành doanh nghiệp</span>
+            <span className="gradient-text">Dashboard & BI </span>
+
           </h1>
         </motion.div>
 
@@ -50,8 +49,11 @@ export const HeroSection = () => {
           className="max-w-5xl mx-auto mt-8 text-center"
         >
           <div className="glass-card p-8 rounded-2xl space-y-4 ">
+            <p className="text-primary font-semibold text-[19px] leading-relaxed">
+               Hệ thống phân tích dữ liệu kinh doanh thông minh (BI) chuyển đổi các con số thô thành thông tin quản trị giá trị, giúp Ban lãnh đạo có cái nhìn toàn cảnh về sức khỏe doanh nghiệp theo thời gian thực.</p>
             <p className="text-muted-foreground leading-relaxed text-[19px]">
-              Trong kỷ nguyên số, việc áp dụng hệ thống ERP (Enterprise Resource Planning) và BI (Business Intelligence) trở thành yếu tố quyết định giúp doanh nghiệp tối ưu hóa quy trình vận hành, tăng cường khả năng quản lý dữ liệu và ra quyết định chính xác dựa trên thông tin thời gian thực. <span className="text-foreground font-medium">ECOTEL</span> mang đến giải pháp <span className="text-foreground font-medium">ERP & BI</span> toàn diện, giúp doanh nghiệp chuẩn hóa quy trình, đồng bộ dữ liệu và nâng cao hiệu suất hoạt động.
+              Giải pháp hoạt động như một trung tâm chỉ huy số, tự động thu thập và tổng hợp dữ liệu đa chiều từ mọi phòng ban (Tài chính, Kinh doanh, Sản xuất, Nhân sự) để hiển thị dưới dạng các biểu đồ trực quan, thay thế hoàn toàn các báo cáo thủ công chậm trễ.
+Dựa trên nền tảng dữ liệu chính xác và cập nhật từng phút, nhà quản trị có thể đưa ra các quyết định chiến lược tức thì (Data-driven), dễ dàng nhận diện sớm các xu hướng rủi ro hoặc cơ hội tăng trưởng để điều hướng doanh nghiệp đi đúng quỹ đạo.
             </p>
           </div>
         </motion.div>

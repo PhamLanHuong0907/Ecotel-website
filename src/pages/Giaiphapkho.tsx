@@ -1,24 +1,48 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/components/Erp_system/Quantringuonluc/HeroSection_Giaiphapkho";
+import { HeroSection } from "@/components/Erp_system/Quantringuonluc/HeroSection_Qtnguonluc";
 import { FeatureSection } from "@/components/FeatureSection";
 import { CTASection } from "@/components/CTASection";
-import { Cog, Cpu, Zap, Target, Settings, Shield, Wrench, Factory, CheckCircle2 } from "lucide-react";
-import feature1 from "@/assets/giaiphapkho.png";
-import feature2 from "@/assets/giaiphapkho1.png";
-import { Button } from "@/components/ui/button";// Data
+// Đã cập nhật lại bộ icon phù hợp với HR và Kế toán
+import { 
+  Users, // Icon cho nhân sự
+  Clock, // Icon chấm công
+  Calculator, // Icon tính lương
+  FileCheck, // Icon báo cáo
+  PieChart, // Icon tài chính
+  Wallet, // Icon ngân sách
+  RefreshCw, // Icon tự động hóa
+  BarChart3, // Icon báo cáo đa chiều
+  UserCheck, // Icon badge nhân sự
+  TrendingUp // Icon badge tài chính
+} from "lucide-react";
+import feature1 from "@/assets/quanlynhansu_luong.png";
+import feature2 from "@/assets/quanlyketoan.png";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/khodulieutaptrung.png";
+import manufacturingHero from "@/assets/quantringuonluc.png";
+import { sub } from "date-fns";
+
 const designFeatures = [
-  { text: "Cung cấp hệ thống lưu trữ linh hoạt", icon: Cog },
-  { text: "Hỗ trợ AI/ML, phân tích dữ liệu lớn", icon: Cpu },
-  { text: "Đảm bảo dữ liệu sạch, có cấu trúc và dễ truy xuất", icon: Zap },
+  { text: "Chấm công và quản lý thời gian tự động", subText: "Theo dõi giờ làm việc, tăng ca, đi muộn – về sớm và nghỉ phép theo thời gian thực.",icon: Clock },
+  { text: "Tính lương chính xác, linh hoạt", 
+    subText:"Tự động tổng hợp chấm công, KPI, phụ cấp và khấu trừ theo nhiều chính sách lương.",
+    icon: Calculator },
+  { text: "Quy trình lương và báo cáo tập trung", 
+    subText:"Chuẩn hóa quy trình duyệt – chi trả lương, cung cấp báo cáo trực quan cho nhà quản lý.",
+    icon: FileCheck },
 ];
 
 const setupFeatures = [
-  { text: "Tích hợp công cụ BI", icon: Target },
-  { text: "Phân tích dữ liệu thời gian thực", icon: Settings },
-  { text: "Đưa ra quyết định nhanh chóng, chính xác dựa trên dữ liệu đáng tin cậy", icon: Shield },
+  { text: "Quản lý dòng tiền và ngân sách hiệu quả",
+    subText: "Kiểm soát thu - chi theo thời gian thực, cảnh báo vượt ngân sách và tối ưu dòng vốn.",
+    icon: Wallet },
+  { text: "Tự động hóa nghiệp vụ kế toán",
+    subText:"Kết nối Thuế, hóa đơn điện tử và ngân hàng, tự động hạch toán, giảm mạnh thao tác thủ công.",
+     icon: RefreshCw },
+  { text: "Báo cáo tài chính & quản trị đa chiều", 
+    subText:"Cung cấp tức thì P&L, cân đối kế toán và các báo cáo phân tích phục vụ quyết định chiến lược.",
+    icon: BarChart3 },
 ];
 
 const Giaiphapkho = () => {
@@ -45,40 +69,40 @@ const Giaiphapkho = () => {
        
       </motion.div>
 
-        {/* Section 1: Thiết kế & Chế tạo máy */}
+        {/* Section 1: Quản lý nhân sự - Badge cập nhật về HRM */}
         <FeatureSection
-          tag={{ icon: Wrench, text: "Tính năng kho dữ liệu", colorClass: "bg-primary/10 text-primary" }}
+          tag={{ icon: Users, text: "Phần mềm quản lý", colorClass: "bg-primary/10 text-primary" }}
           title={
-            <span className="gradient-text">Đối với chuyên gia dữ liệu</span>
+            <span className="gradient-text">Quản lý nhân sự, tiền lương</span>
           }
-          description="Cung cấp hạ tầng lưu trữ linh hoạt và mạnh mẽ, giúp đội ngũ kỹ thuật dễ dàng làm sạch, cấu trúc hóa dữ liệu lớn và triển khai các mô hình phân tích chuyên sâu hiệu quả."
+          description="Chuyển đổi số toàn diện công tác quản trị nguồn nhân lực, giúp tự động hóa quy trình chấm công - tính lương phức tạp và xây dựng đội ngũ gắn kết."
           features={designFeatures}
           imageSrc={feature1}
-          imageAlt="Thiết kế và chế tạo máy"
+          imageAlt="Quản lý nhân sự"
           floatingBadge={{
-            icon: CheckCircle2,
-            title: "Công nghệ tiên tiến",
-            subtitle: "IoT • AI • SCADA",
+            icon: UserCheck,
+            title: "Tối ưu nguồn lực",
+            subtitle: "HRM • KPI • Payroll",
             iconBgClass: "bg-primary",
             iconColorClass: "text-primary-foreground"
           }}
           glowClass="from-primary/20 to-accent/20"
         />
 
-        {/* Section 2: Set-up nhà máy */}
+        {/* Section 2: Quản lý kế toán - Badge cập nhật về Tài chính */}
         <FeatureSection
-          tag={{ icon: Factory, text: "Tính ứng dụng", colorClass: "bg-accent/10 text-accent" }}
+          tag={{ icon: PieChart, text: "Phần mềm quản lý", colorClass: "bg-accent/10 text-accent" }}
           title={
-            <span className="gradient-text">Đối với chuyên gia kinh doanh</span>
+            <span className="gradient-text">Quản lý tài chính, kế toán</span>
           }
-          description="Tối ưu hóa hiệu quả quản trị thông qua việc tích hợp các công cụ báo cáo thông minh (BI), cho phép theo dõi chỉ số thời gian thực và ra quyết định chiến lược dựa trên nguồn dữ liệu chuẩn xác."
+          description="Đảm bảo tính minh bạch và chính xác tuyệt đối trong dòng chảy tài chính, cung cấp số liệu thực giúp ban lãnh đạo đưa ra các quyết định chiến lược kịp thời."
           features={setupFeatures}
           imageSrc={feature2}
-          imageAlt="Set-up nhà máy thông minh"
+          imageAlt="Quản lý tài chính"
           floatingBadge={{
-            icon: Cpu,
-            title: "Công nghệ 4.0",
-            subtitle: "MES • PLC • SCADA",
+            icon: TrendingUp,
+            title: "Tài chính thông minh",
+            subtitle: "Cashflow • ROI • VAS",
             iconBgClass: "bg-accent",
             iconColorClass: "text-accent-foreground"
           }}
@@ -86,7 +110,7 @@ const Giaiphapkho = () => {
           backgroundClass="bg-gradient-to-b from-secondary/30 to-background"
           glowClass="from-accent/20 to-primary/20"
         />
-        <a href="/industrial"><Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 ">Trở về</Button></a>
+        <a href="/erp"><Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 ">Trở về</Button></a>
         <CTASection />
       </main>
 

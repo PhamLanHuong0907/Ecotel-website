@@ -1,69 +1,35 @@
 import React from 'react';
-import Vinacomin from "@/assets/Vinacomin.png";
-import Vangdanh from "@/assets/thanvangdanh_2.png";
-import VUBC from "@/assets/uongbi_3.png";
-import Vimico from "@/assets/vimico_4.png";
-import DH from "@/assets/duonghuy_5.png";
-import Deonai from "@/assets/thandeonai_6.png";
-import Caoson from "@/assets/thancaoson_7.png";
-import HL from "@/assets/halam_8.png";
-import TMK from "@/assets/thanmaokhe_9.png";
-import HaLong from "@/assets/thanhalong.png";
-import VMC from "@/assets/vmc_11.png";
-import LoTri from "@/assets/lotri_12.png";
-import CamPha from "@/assets/campha_13.png";
-import HaTu from "@/assets/thanhatu.png";
-import QuangHanh from "@/assets/quanghanh.png";
-// Giả lập danh sách logo (Bạn thay thế 'src' bằng đường dẫn ảnh thật của bạn)
-const logos = [
-  { id: 1, name: 'Vinacomin', src: Vinacomin },
-  { id: 2, name: 'Vangdanh', src: Vangdanh },
-  { id: 3, name: 'VUBC', src: VUBC },
-  { id: 4, name: 'Vimico', src: Vimico },
-  { id: 5, name: 'Logo 5', src: DH },
-  { id: 6, name: 'Logo 6', src: Deonai },
-  { id: 7, name: 'Than Cao Son', src: Caoson },
-  { id: 8, name: 'Logo 8', src: HL },
-  { id: 9, name: 'TMK', src: TMK },
-  { id: 10, name: 'Logo 10', src: HaLong },
-  { id: 11, name: 'VMC', src: VMC },
-  { id: 12, name: 'Lo Tri', src: LoTri },
-  { id: 13, name: 'Cam Pha Port', src: CamPha },
-  { id: 14, name: 'Logo 14', src: HaTu },
-  { id: 15, name: 'Quang Hanh', src: QuangHanh },
-];
+// Thay thế dòng này bằng đường dẫn đến file ảnh to (ghép 15 logo) của bạn
+import AllPartnersImage from "@/assets/Screenshot 2026-01-05 125315.png";
 
 const CustomerCard = () => {
   return (
-    // Container chính: w-full để full chiều rộng
-    // bg-transparent: Để lộ màu nền của bạn (hoặc xóa class này đi nó mặc định là trong suốt)
-    <section className="py-20 relative ">
+    <section className="py-20 relative w-full">
+      {/* Giữ lại hiệu ứng nền gradient mờ của bạn */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
-      {/* Grid Layout:
-          - grid-cols-2: 2 cột trên mobile
-          - md:grid-cols-3: 3 cột trên tablet
-          - lg:grid-cols-5: 5 cột trên màn hình PC (giống hệt ảnh của bạn)
-          - gap-x-8 gap-y-12: Khoảng cách giữa các logo
-      */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 items-center justify-items-center">
-        
-        {logos.map((logo) => (
-          <div 
-            key={logo.id} 
-            className="w-full flex justify-center items-center transition-transform hover:scale-105 duration-300"
-          >
-            {/* img class:
-               - h-24: Chiều cao cố định (khoảng 96px) để tất cả bằng nhau
-               - w-auto: Chiều rộng tự động theo tỉ lệ
-               - object-contain: Đảm bảo ảnh không bị cắt hay méo dù là hình tròn hay hình thoi
-            */}
-            <img
-              src={logo.src} // Thay bằng đường dẫn thực tế hoặc placeholder
-              alt={logo.name}
-              className="h-20 sm:h-24 w-auto object-contain filter drop-shadow-sm" 
-            />
-          </div>
-        ))}
+      
+      {/* Container chính */}
+      <div className="container mx-auto px-4 relative z-10">
+  
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+            <span className="gradient-text">Danh sách khách hàng</span>
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Những doanh nghiệp đã tin tưởng và lựa chọn giải pháp của chúng tôi
+          </p>
+          <div className="h-12" />
+        {/* Vùng chứa ảnh: Căn giữa */}
+        <div className="flex justify-center items-center">
+          <img
+            src={AllPartnersImage} 
+            alt="Danh sách khách hàng"
+            // w-full: Chiếm hết chiều rộng cho phép
+            // h-auto: Tự động chỉnh chiều cao theo tỉ lệ ảnh (không bị méo)
+            // max-w-6xl: Giới hạn chiều rộng tối đa để ảnh không bị quá to trên màn hình 4k
+            // object-contain: Đảm bảo hiển thị trọn vẹn
+            className="w-full h-auto max-w-7xl object-contain hover:scale-[1.02] transition-transform duration-500"
+          />
+        </div>
 
       </div>
     </section>

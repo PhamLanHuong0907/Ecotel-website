@@ -10,7 +10,7 @@ const services = [
   {
     id: 1,
     title: "Quản trị nguồn lực",
-    description: `Giải pháp Data Lakehouse được thiết kế mục đích đồng bộ dữ liệu tại một nơi giúp khai thác tối đa giá trị dữ liệu trong quá trình chuyển đổi số`,
+    description: `Tối ưu hóa nguồn lực là nền tảng cốt lõi giúp doanh nghiệp vận hành hiệu quả, giảm thiểu lãng phí và duy trì lợi thế cạnh tranh bền vững trong môi trường kinh doanh số.`,
     image: "https://vdigital.vn/wp-content/uploads/2022/11/nha-may-thong-minh-1.png",
     icon: Factory,
     path: '/erp/giaiphapkho'
@@ -18,7 +18,7 @@ const services = [
   {
     id: 2,
     title: "Vận hành - Sản xuất",
-    description: `Trung tâm quản lý điều hành thông minh SOC (Smart Operation Center) là giải pháp tích hợp và tổng hợp dữ liệu tập trung từ tất cả các hệ thống trong doanh nghiệp ngành than.`,
+    description: `Thiết lập quy trình vận hành đồng bộ và kiểm soát chặt chẽ dây chuyền sản xuất là chìa khóa để doanh nghiệp đảm bảo chất lượng sản phẩm, tối ưu chi phí giá thành và đáp ứng tiến độ giao hàng.`,
     image: "https://cncvina.com.vn/uploads/2548/day-chuyen-san-xuat-tu-dong-su-dung-robot-1-scaled.jpg",
     icon: Factory,
     path: '/erp/hethongql'
@@ -27,10 +27,10 @@ const services = [
   {
     id: 3,
     title: "Kinh doanh & Dịch vụ",
-    description:``,
+    description:`Thúc đẩy tăng trưởng doanh thu và nâng tầm trải nghiệm khách hàng thông qua việc chuẩn hóa quy trình bán hàng và kiểm soát chặt chẽ tính pháp lý trong giao dịch thương mại.`,
     image: image_erp,
     icon: BarChart3,
-    path: '/industrial/eco_mes'
+    path: '/erp/kddv'
   },
   {
     id: 4,
