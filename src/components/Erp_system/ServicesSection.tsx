@@ -1,46 +1,62 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Factory, BarChart3, Cpu, ArrowRight } from "lucide-react";
+
 import image_qlsx from "@/assets/Quanlysxtongthe.png";
 import image_qlsx1 from "@/assets/qlsx1.png";
 import image_erp from "@/assets/erp&bi1.png";
 import ScrollToTop from "../Scrolltotop";
+import { 
+  Briefcase,   // Dùng cho Quản trị nguồn lực (Hành chính/Tổng hợp)
+  Factory,     // Dùng cho Vận hành - Sản xuất (Nhà máy)
+  ShoppingCart,// Dùng cho Kinh doanh (Bán hàng)
+  BarChart3,    // Dùng cho BI (Biểu đồ/Báo cáo)
+  ArrowRight
+} from 'lucide-react';
+
+
 const services = [
   {
     id: 1,
     title: "Quản trị nguồn lực",
-    description: `Tối ưu hóa nguồn lực là nền tảng cốt lõi giúp doanh nghiệp vận hành hiệu quả, giảm thiểu lãng phí và duy trì lợi thế cạnh tranh bền vững trong môi trường kinh doanh số.`,
+    description: `Sự phân tán dữ liệu giữa Nhân sự, Tài chính và Kho vận thường dẫn đến lãng phí nguồn lực và thiếu cái nhìn tổng quan. Tối ưu hóa nguồn lực là bài toán sống còn để duy trì lợi thế cạnh tranh.
+
+\n\nECOTEL cung cấp nền tảng quản trị hợp nhất, giúp doanh nghiệp quy hoạch và phân bổ nguồn lực chính xác. Hệ thống đảm bảo dòng chảy thông tin xuyên suốt, giảm thiểu chi phí ẩn và tối đa hóa hiệu quả sử dụng tài sản doanh nghiệp.`,
     image: "https://vdigital.vn/wp-content/uploads/2022/11/nha-may-thong-minh-1.png",
-    icon: Factory,
-    path: '/erp/giaiphapkho'
+    icon: Briefcase,
+    path: '/erp/resource-management'
   },
   {
     id: 2,
     title: "Vận hành - Sản xuất",
-    description: `Thiết lập quy trình vận hành đồng bộ và kiểm soát chặt chẽ dây chuyền sản xuất là chìa khóa để doanh nghiệp đảm bảo chất lượng sản phẩm, tối ưu chi phí giá thành và đáp ứng tiến độ giao hàng.`,
+    description: `Quy trình vận hành rời rạc là nguyên nhân chính gây ra chậm tiến độ và khó kiểm soát chi phí giá thành. Để mở rộng quy mô, doanh nghiệp cần một hệ thống kiểm soát chặt chẽ từng công đoạn.
+
+\n\nECOTEL thiết lập quy trình sản xuất số hóa, kết nối đồng bộ từ nguyên vật liệu đầu vào đến thành phẩm đầu ra. Giải pháp giúp tự động hóa điều phối, giảm thiểu thời gian chết và đảm bảo chất lượng sản phẩm ổn định theo tiêu chuẩn.`,
     image: "https://cncvina.com.vn/uploads/2548/day-chuyen-san-xuat-tu-dong-su-dung-robot-1-scaled.jpg",
     icon: Factory,
-    path: '/erp/hethongql'
+    path: '/erp/manufacturing-operations'
   },
-
   {
     id: 3,
     title: "Kinh doanh & Dịch vụ",
-    description:`Thúc đẩy tăng trưởng doanh thu và nâng tầm trải nghiệm khách hàng thông qua việc chuẩn hóa quy trình bán hàng và kiểm soát chặt chẽ tính pháp lý trong giao dịch thương mại.`,
+    description: `Trong thị trường cạnh tranh, tốc độ phản hồi và trải nghiệm khách hàng là yếu tố then chốt. Các quy trình bán hàng thủ công dễ dẫn đến sai sót trong hợp đồng và bỏ lỡ cơ hội kinh doanh tiềm năng.
+
+\n\nGiải pháp của ECOTEL chuẩn hóa toàn bộ phễu bán hàng (Sales Pipeline) và dịch vụ sau bán. Hệ thống hỗ trợ quản lý chặt chẽ tính pháp lý trong giao dịch, giúp đội ngũ kinh doanh chốt đơn nhanh chóng và nâng cao sự hài lòng của khách hàng.`,
     image: image_erp,
-    icon: BarChart3,
-    path: '/erp/kddv'
+    icon: ShoppingCart,
+    path: '/erp/sales-services'
   },
   {
     id: 4,
     title: "Dashboard & BI",
-    description:`Trong kỷ nguyên số, việc áp dụng hệ thống ERP (Enterprise Resource Planning) và BI (Business Intelligence) trở thành yếu tố quyết định giúp doanh nghiệp tối ưu hóa quy trình vận hành, tăng cường khả năng quản lý dữ liệu và ra quyết định chính xác dựa trên thông tin thời gian thực.\n\nECOTEL mang đến giải pháp ERP & BI toàn diện, giúp doanh nghiệp chuẩn hóa quy trình, đồng bộ dữ liệu và nâng cao hiệu suất hoạt động.`,
+    description: `Trong kỷ nguyên số, dữ liệu phân mảnh là rào cản lớn nhất cho việc ra quyết định. Lãnh đạo doanh nghiệp cần nhìn thấy bức tranh toàn cảnh về sức khỏe tài chính và vận hành ngay tại thời điểm thực.
+
+\n\nECOTEL mang đến giải pháp ERP & BI toàn diện, biến dữ liệu thô thành thông tin chiến lược. Hệ thống Dashboard trực quan giúp chuẩn hóa báo cáo, hỗ trợ phân tích xu hướng và ra quyết định kinh doanh chính xác, kịp thời.`,
     image: image_erp,
     icon: BarChart3,
-    path: '/erp/erp_bi'
+    path: '/erp/dashboard-bi'
   }
-   ];
+];
 
 export const ServicesSection = () => {
   return (

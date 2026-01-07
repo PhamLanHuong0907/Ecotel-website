@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/components/Erp_system/Kinhdoanh_DV/HeroSection_KDDV";
+import { HeroSection } from "@/components/Erp_system/Sales_services/HeroSection_sales";
 import { FeatureSection } from "@/components/FeatureSection";
 import { CTASection } from "@/components/CTASection";
 // Đã cập nhật lại bộ icon phù hợp với HR và Kế toán

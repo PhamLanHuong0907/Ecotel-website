@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/components/Erp_system/Vanhanh_Sx/HeroSection_Vhsx";
+import { HeroSection } from "@/components/Erp_system/Manufacturing_operations/HeroSection_manufacturing";
 import { FeatureSection } from "@/components/FeatureSection";
 import { CTASection } from "@/components/CTASection";
 // Giữ nguyên các icon đã tối ưu cho từng nghiệp vụ
@@ -131,7 +131,7 @@ const Hethongql = () => {
           // Đã revert colorClass về bg-primary/10 text-primary
           tag={{ icon: MonitorCheck, text: "Quản trị nguồn lực", colorClass: "bg-accent/10 text-accent" }}
           title={
-            <span className="gradient-text">Quản lý tài sản & Thiết bị</span>
+            <span className="gradient-text">Quản lý tài sản</span>
           }
           description="Giải pháp Quản lý tài sản giúp tự động hóa việc theo dõi, kiểm soát và phân tích tài sản doanh nghiệp, đảm bảo sử dụng hiệu quả, giảm hao hụt và tối ưu chi phí."
           features={Property_Features}
@@ -154,12 +154,12 @@ const Hethongql = () => {
           // Đã revert colorClass về bg-primary/10 text-primary
           tag={{ icon: Package, text: "Logistics thông minh", colorClass: "bg-primary/10 text-primary" }}
           title={
-            <span className="gradient-text">Quản lý kho vận (WMS)</span>
+            <span className="gradient-text">Quản lý kho vật tư</span>
           }
           description="Giải pháp quản lý kho bằng mã vạch (Barcode, QR Code) giúp tự động hóa quy trình nhập - xuất - kiểm kê, nâng cao tốc độ xử lý và độ chính xác trong quản lý hàng hóa."
           features={Database_Features}
           imageSrc={feature1}
-          imageAlt="Quản lý kho vận"
+          imageAlt="Quản lý kho"
           floatingBadge={{
             icon: ScanBarcode,
             title: "Kho vận 4.0",
