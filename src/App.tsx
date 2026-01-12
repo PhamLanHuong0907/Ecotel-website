@@ -27,6 +27,10 @@ import OEEManagement from "./pages/Oee_management";
 import QualityManagement from "./pages/Qms";
 import EnvironmentMonitoring from "./pages/Enviroment_monitor";
 import ConveyorMonitoring from "./pages/Convayor";
+import Central_management from "./pages/Central_management";
+import Safety_security from "./pages/Safety_security";
+import VisionSensor from "./pages/Vision_sensor";
+import SmartSurvey from "./pages/Smartsurvey";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -46,7 +50,7 @@ const App = () => (
           <Route path="/about/professors" element={<Professor />} />
           <Route path="/about/customers" element={<Customers />} />
           <Route path="/about/partners" element={<Partners />} />
-          <Route path="/erp/resource-managemen" element={<Giaiphapkho />} />
+          <Route path="/erp/resource-management" element={<Giaiphapkho />} />
           <Route path="/erp/manufacturing-operations" element={<Hethongql/>}/>
           <Route path="/erp" element={<ERP />} />
           <Route path="/erp/erp_bi" element={<Erp_Bi/>} />
@@ -59,6 +63,10 @@ const App = () => (
           <Route path="/mes/environment-monitoring" element={<EnvironmentMonitoring/>}/>
           <Route path="/mes/conveyor-monitoring" element={<ConveyorMonitoring/>}/>
           <Route path="/AI&IoT" element={<AI_IoT/>}/>
+          <Route path="/AI&IoT/smart-survey" element= {<SmartSurvey/>}/>
+          <Route path="/AIoT/safety_security" element={<Safety_security/>}/>
+          <Route path="/AI&IoT/vision-sensor" element={<VisionSensor/>}/>
+          <Route path="/AI&IoT/central-management" element={<Central_management/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
 

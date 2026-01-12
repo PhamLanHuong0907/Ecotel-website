@@ -6,58 +6,40 @@ import ScrollToTop from "../Scrolltotop";
 import image_kiemsoatxe from "@/assets/kiemsoatxe.png"
 import image_sacxe from "@/assets/sacxe.jpg"
 import image_camera from "@/assets/cameraAI.jpg"
+import { Map, ShieldCheck, ScanEye, LayoutDashboard } from 'lucide-react';
+
 const services = [
   {
     id: 1,
-    title: "Hệ thống giám sát phương tiện ứng dụng Camera AI",
-    description: `Với sự phát triển nhanh chóng của đô thị và nhu cầu tối ưu không gian đỗ xe, ECOTEL cung cấp các giải pháp đỗ xe tự động & kiểm soát phương tiện hiện đại, giúp nâng cao hiệu suất vận hành, tiết kiệm diện tích và đảm bảo an toàn cho các bãi đỗ xe tại khu đô thị, tòa nhà, trung tâm thương mại, khu công nghiệp.`,
-    image: image_kiemsoatxe ,
-    icon: Factory,
-    path: '/AI&IoT/garagage'
+    title: "Khảo sát & Thăm dò thông minh",
+    description: "ECOTEL tiên phong ứng dụng tổ hợp công nghệ Drone và hệ thống phân tích dữ liệu địa lý để hiện đại hóa quy trình khảo sát. Giải pháp của chúng tôi cho phép lập bản đồ 3D giám sát thực thể và đánh giá tiềm năng khoáng sản với độ chính xác cao, giúp doanh nghiệp tối ưu hóa công tác quy hoạch cũng như quản lý tài nguyên hiệu quả.",
+    image: image_kiemsoatxe, // Cần đổi ảnh minh họa phù hợp (Drone/Bản đồ)
+    icon: Map,
+    path: '/AI&IoT/smart-survey'
   },
   {
     id: 2,
-    title: "Hệ thống giám sát thực thể",
-    description: `Với sự phát triển mạnh mẽ của xe điện (EV), nhu cầu về hạ tầng trạm sạc trở nên cấp thiết hơn bao giờ hết. ECOTEL cung cấp giải pháp sạc pin xe điện thông minh, giúp tối ưu hóa trải nghiệm sạc, tăng hiệu suất vận hành, đảm bảo an toàn và hỗ trợ các doanh nghiệp, khu đô thị, trung tâm thương mại, bãi đỗ xe, nhà máy triển khai hệ thống sạc hiện đại, linh hoạt và tiết kiệm chi phí.`,
-    image: image_sacxe,
-    icon: Factory,
-    path: '/AI&IoT/electric_power'
+    title: "Giám sát & An toàn ứng dụng AI",
+    description: "Nâng tầm hệ thống an ninh truyền thống với công nghệ AI tiên tiến, giải pháp của ECOTEL không chỉ kiểm soát chặt chẽ phương tiện và nhân sự ra vào mà còn tự động phát hiện các vi phạm về bảo hộ lao động. Đây là chìa khóa để kiến tạo môi trường sản xuất an toàn tuyệt đối và giảm thiểu rủi ro tai nạn trong các khu công nghiệp.",
+    image: image_sacxe, // Cần đổi ảnh minh họa phù hợp (Camera AI/An ninh)
+    icon: ShieldCheck,
+    path: '/AIoT/safety_security'
   },
   {
     id: 3,
     title: "Cảm biến hình ảnh với AI tích hợp",
-    description: `Trong bối cảnh công nghệ 4.0, việc áp dụng trí tuệ nhân tạo (AI) vào hệ thống giám sát an ninh đã trở thành xu hướng tất yếu, giúp nâng cao hiệu quả quản lý và đảm bảo an toàn cho các khu vực quan trọng như nhà máy, khu công nghiệp, tòa nhà, trường học, bệnh viện, trung tâm thương mại.
-
-ECOTEL mang đến giải pháp Camera AI với công nghệ phân tích hình ảnh tiên tiến, giúp phát hiện nhanh chóng các mối nguy hiểm, cảnh báo kịp thời, giám sát chặt chẽ 24/7, hỗ trợ ra quyết định chính xác trong thời gian thực.`,
+    description: "Sở hữu dòng cảm biến IV4 thế hệ mới, chúng tôi mang đến giải pháp kiểm tra chất lượng tự động với khả năng phân loại, đếm sản phẩm và đọc ký tự (OCR) vượt trội. Hệ thống tích hợp AI giúp doanh nghiệp phát hiện lỗi sai hỏng nhanh chóng, đảm bảo tính ổn định cho dây chuyền sản xuất mà không đòi hỏi quy trình thiết lập phức tạp.",
     image: image_camera,
-    icon: BarChart3,
-    path: '/AI&IoT/cameraAI'
+    icon: ScanEye,
+    path: '/AI&IoT/vision-sensor'
   },
   {
     id: 4,
-    title: "Phần mềm nhân sự, tiền lương tích hợp AI",
-    description: `Trong bối cảnh công nghệ 4.0, việc áp dụng trí tuệ nhân tạo (AI) vào hệ thống giám sát an ninh đã trở thành xu hướng tất yếu, giúp nâng cao hiệu quả quản lý và đảm bảo an toàn cho các khu vực quan trọng như nhà máy, khu công nghiệp, tòa nhà, trường học, bệnh viện, trung tâm thương mại.
-
-ECOTEL mang đến giải pháp Camera AI với công nghệ phân tích hình ảnh tiên tiến, giúp phát hiện nhanh chóng các mối nguy hiểm, cảnh báo kịp thời, giám sát chặt chẽ 24/7, hỗ trợ ra quyết định chính xác trong thời gian thực.`,
-    image: image_camera,
-    icon: BarChart3,
-    path: '/AI&IoT/cameraAI'
-  },
-  {
-    id: 5,
-    title: "Giải pháp kết nối máy móc thiết bị IoT - ECOMES",
-    description: '',
-    image: image_camera,
-    icon: BarChart3,
-    path: '/iot/ecomes'
-  },
-   {
-    id: 6,
-    title: "Quản lý, giám sát tài sản và hiệu suất",
-    description: `ECOTEL cung cấp giải pháp IoT toàn diện, từ tư vấn, thiết kế, triển khai hệ thống IoT đến tích hợp với hệ thống hiện có, giúp doanh nghiệp tối ưu vận hành, giám sát thông minh và nâng cao năng suất.`,
-    image: image_camera,
-    icon: Factory,
-    path: '/iot/ecovision'
+    title: "Hệ thống quản lý tập trung",
+    description: "Trung tâm điều hành thông minh (SOC) là giải pháp cốt lõi giúp số hóa toàn diện quy trình quản trị. Bằng cách tích hợp dữ liệu đa nguồn từ IoT, Drone đến Camera và ứng dụng Big Data để phân tích, hệ thống cung cấp bức tranh toàn cảnh trực quan theo thời gian thực, hỗ trợ ban lãnh đạo ra quyết định chính xác và kịp thời.",
+    image: image_camera, // Cần đổi ảnh minh họa phù hợp (Dashboard SOC)
+    icon: LayoutDashboard,
+    path: '/AI&IoT/central-management'
   },
 ];
 
