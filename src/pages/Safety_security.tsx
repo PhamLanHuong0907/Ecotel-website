@@ -19,7 +19,7 @@ import feature1 from "@/assets/Cloudera.png"; // Ảnh minh họa
 import feature2 from "@/assets/Cloudera.png"; // Ảnh minh họa
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/giamsoatantoanAI.png";
 
 // Feature 1: Giám sát phương tiện
 const Vehicle_Features = [

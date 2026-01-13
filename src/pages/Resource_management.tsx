@@ -17,7 +17,7 @@ import {
   TrendingUp // Icon badge tài chính
 } from "lucide-react";
 import feature1 from "@/assets/quanlynhansu_luong.png";
-import feature2 from "@/assets/quanlyketoan.png";
+import feature2 from "@/assets/ketoan.png";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import manufacturingHero from "@/assets/quantringuonluc.png";

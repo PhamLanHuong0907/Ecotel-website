@@ -15,11 +15,11 @@ import {
   Cpu // Icon xử lý trung tâm
 } from "lucide-react";
 
-import feature1 from "@/assets/Cloudera.png"; // Ảnh băng tải vận hành
-import feature2 from "@/assets/Cloudera.png"; // Ảnh phân tích Camera AI
+import feature1 from "@/assets/giamsatbangtai_1.png"; // Ảnh băng tải vận hành
+import feature2 from "@/assets/giamsatbangtai_2.jpg"; // Ảnh phân tích Camera AI
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/giamsatbangtai.png";
 
 // Feature 1: Vận hành cơ khí (Mechanical Operation)
 const Operation_Features = [
@@ -66,7 +66,7 @@ const ConveyorMonitoring = () => {
         <img
           src={manufacturingHero}
           alt="Hệ thống băng tải công nghiệp"
-          className="w-[95%] h-auto md:h-[500px] object-cover justify-center"
+          className="w-[95%] h-auto md:h-[500px] object-fit justify-center"
         />
       </motion.div>
 

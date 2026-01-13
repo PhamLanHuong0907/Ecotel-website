@@ -15,11 +15,11 @@ import {
   Microscope // Icon phân tích sâu
 } from "lucide-react";
 
-import feature1 from "@/assets/Cloudera.png"; // Ảnh minh họa Dashboard OEE (cần thay thế ảnh thực tế)
-import feature2 from "@/assets/Cloudera.png"; // Ảnh minh họa Phân tích lỗi/Bảo trì
+import feature1 from "@/assets/Screenshot 2025-12-10 154157.png"; // Ảnh minh họa Dashboard OEE (cần thay thế ảnh thực tế)
+import feature2 from "@/assets/qlhstb.png"; // Ảnh minh họa Phân tích lỗi/Bảo trì
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/qlhstb_big.png";
 
 // Feature 1: Ba chỉ số cốt lõi (The 3 OEE Metrics)
 const OEE_Metrics_Features = [
@@ -71,7 +71,7 @@ const OEEManagement = () => {
         <img
           src={manufacturingHero}
           alt="Quản lý hiệu suất thiết bị OEE"
-          className="w-[95%] h-auto md:h-[500px] object-cover justify-center"
+          className="w-[95%] h-auto md:h-[500px] object-fit justify-center"
         />
       </motion.div>
 

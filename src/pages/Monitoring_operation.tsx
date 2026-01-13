@@ -15,11 +15,11 @@ import {
   Zap // Icon badge hiệu suất/tức thì
 } from "lucide-react";
 
-import feature1 from "@/assets/iiot(1).jpg"; // Nên dùng ảnh sơ đồ kết nối IoT/SCADA
-import feature2 from "@/assets/Cloudera.png"; // Nên dùng ảnh Dashboard biểu đồ sản lượng
+import feature1 from "@/assets/giamsatvhsx1.png"; // Nên dùng ảnh sơ đồ kết nối IoT/SCADA
+import feature2 from "@/assets/giamsatvhsx2.png"; // Nên dùng ảnh Dashboard biểu đồ sản lượng
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/giamsatvhsx.png";
 
 // Feature 1: Thu thập dữ liệu (Data Collection)
 const Data_Features = [
@@ -67,11 +67,11 @@ const ManufacturingMonitoring = () => {
         transition={{ duration: 1, delay: 0.4 }}
         className="relative flex justify-center items-center"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10 text-center justify-center flex items-center" />
+        
         <img
           src={manufacturingHero}
           alt="Hệ thống giám sát sản xuất"
-          className="w-[95%] h-auto md:h-[500px] object-cover justify-center"
+          className="w-[95%] h-auto md:h-[600px] object-fit justify-center"
         />
       </motion.div>
 

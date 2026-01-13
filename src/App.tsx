@@ -53,7 +53,7 @@ const App = () => (
           <Route path="/erp/resource-management" element={<Giaiphapkho />} />
           <Route path="/erp/manufacturing-operations" element={<Hethongql/>}/>
           <Route path="/erp" element={<ERP />} />
-          <Route path="/erp/erp_bi" element={<Erp_Bi/>} />
+          <Route path="/erp/dashboard-bi" element={<Erp_Bi/>} />
           <Route path="/erp/sales-services" element={<KDDV/>} />
           <Route path="/mes" element={<MES/>}/>
           <Route path="/mes/production-management" element={<ProductionManagement/>} />

@@ -29,9 +29,13 @@ const designFeatures = [
   { text: "Phê duyệt & theo dõi tiến độ hợp đồng", 
     subText:"Thiết lập quy trình phê duyệt linh hoạt, theo dõi trạng thái ký kết và thực hiện hợp đồng theo thời gian thực.",
     icon: RefreshCw }, // Đổi từ Calculator -> RefreshCw (Quy trình/Tiến độ)
-  { text: "Quản lý rủi ro & cảnh báo pháp lý", 
+  { text: "Tích hợp chữ ký điện tử", 
+    subText:"Cho phép chèn chữ ký viết tay hoặc chữ ký số lên hợp đồng",
+    icon: Clock }, // Đổi từ FileCheck -> Clock (Thời gian/Hạn)
+    { text: "Quản lý rủi ro & cảnh báo pháp lý", 
     subText:"Tự động nhắc hạn hiệu lực, thanh toán, gia hạn hợp đồng, giúp giảm thiểu rủi ro và sai sót pháp lý.",
     icon: Clock }, // Đổi từ FileCheck -> Clock (Thời gian/Hạn)
+
 ];
 
 const KDDV = () => {

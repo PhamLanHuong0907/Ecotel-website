@@ -19,11 +19,13 @@ import {
   Search // Icon cho thăm dò
 } from "lucide-react";
 
-import feature1 from "@/assets/Cloudera.png"; // Ảnh băng tải vận hành (Cần thay ảnh phù hợp với Drone/Bản đồ)
-import feature2 from "@/assets/Cloudera.png"; // Ảnh phân tích Camera AI (Cần thay ảnh phù hợp với Hệ thống/3D)
+import feature1 from "@/assets/khaosathamdo1_drone.png"; // Ảnh băng tải vận hành (Cần thay ảnh phù hợp với Drone/Bản đồ)
+import feature2 from "@/assets/khaosathamdo2_httd.png"; // Ảnh phân tích Camera AI (Cần thay ảnh phù hợp với Hệ thống/3D)
+import feature3 from "@/assets/khaosathamdo3_khoangsan.png";
+import feature4 from "@/assets/khaosatthamdo4_3D.png"
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/khaosatthamdo.webp";
 
 // Feature 1: Drone Khảo sát
 const Drone_Features = [
@@ -162,7 +164,7 @@ const SmartSurvey= () => {
           }
           description="Hệ thống giúp doanh nghiệp khai thác tối ưu tài nguyên bằng cách phân tích địa vật lý và địa chất. Dự báo khu vực có trữ lượng cao thông qua đánh giá từ tính, tính dẫn điện và phân tích đứt gãy."
           features={MineralsMap_Features}
-          imageSrc={feature1}
+          imageSrc={feature3}
           imageAlt="Bản đồ tiềm năng khoáng sản"
           floatingBadge={{
             icon: Search,
@@ -182,7 +184,7 @@ const SmartSurvey= () => {
           }
           description="Ứng dụng công nghệ hiện đại để mô phỏng không gian, theo dõi và phân tích các đối tượng trong môi trường thực tế. Tái tạo mỏ và công trình với độ chính xác cao nhờ công nghệ quét 3D và LiDAR."
           features={Map3D_Features}
-          imageSrc={feature2}
+          imageSrc={feature4}
           imageAlt="Bản đồ 3D giám sát thực thể"
           floatingBadge={{
             icon: Activity,

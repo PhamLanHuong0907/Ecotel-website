@@ -18,7 +18,9 @@ import {
   TrendingDown, 
   BarChart4 
 } from "lucide-react";
-import feature1 from "@/assets/Hethongql1.png";
+import feature1 from "@/assets/quanlydinhmuc.png";
+import feature2 from "@/assets/Quanlytaisan.png";
+import feature3 from "@/assets/qlkhovattu (2).png";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import manufacturingHero from "@/assets/vanhanh_sx.png";
@@ -135,7 +137,7 @@ const Hethongql = () => {
           }
           description="Giải pháp Quản lý tài sản giúp tự động hóa việc theo dõi, kiểm soát và phân tích tài sản doanh nghiệp, đảm bảo sử dụng hiệu quả, giảm hao hụt và tối ưu chi phí."
           features={Property_Features}
-          imageSrc={feature1}
+          imageSrc={feature2}
           imageAlt="Quản lý tài sản"
           floatingBadge={{
             icon: Wrench,
@@ -158,7 +160,7 @@ const Hethongql = () => {
           }
           description="Giải pháp quản lý kho bằng mã vạch (Barcode, QR Code) giúp tự động hóa quy trình nhập - xuất - kiểm kê, nâng cao tốc độ xử lý và độ chính xác trong quản lý hàng hóa."
           features={Database_Features}
-          imageSrc={feature1}
+          imageSrc={feature3}
           imageAlt="Quản lý kho"
           floatingBadge={{
             icon: ScanBarcode,

@@ -15,11 +15,11 @@ import {
   Timer // Icon badge thời gian thực
 } from "lucide-react";
 
-import feature1 from "@/assets/quanlynhansu_luong.png"; // Lưu ý: Nên thay ảnh này bằng ảnh dashboard sản xuất nếu có
-import feature2 from "@/assets/quanlyketoan.png"; // Lưu ý: Nên thay ảnh này bằng ảnh báo cáo năng suất nếu có
+import feature1 from "@/assets/qllenhsanxuat.png"; // Lưu ý: Nên thay ảnh này bằng ảnh dashboard sản xuất nếu có
+import feature2 from "@/assets/qllenhsx1.png"; // Lưu ý: Nên thay ảnh này bằng ảnh báo cáo năng suất nếu có
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/quanly.png";
 
 // Feature 1: Quản lý lệnh sản xuất (Work Order Management)
 const Work_Features = [

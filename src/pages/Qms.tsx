@@ -15,11 +15,11 @@ import {
   CheckCircle2 // Icon hoàn thành/pass
 } from "lucide-react";
 
-import feature1 from "@/assets/Cloudera.png"; // Ảnh minh họa quy trình QMS
-import feature2 from "@/assets/Cloudera.png"; // Ảnh minh họa kiểm tra sản phẩm
+import feature1 from "@/assets/qms_1.jpg"; // Ảnh minh họa quy trình QMS
+import feature2 from "@/assets/qms_2.jpg"; // Ảnh minh họa kiểm tra sản phẩm
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/qlqms.png";
 
 // Feature 1: Kiểm soát toàn trình (Process Control)
 const Control_Features = [
@@ -71,7 +71,7 @@ const QualityManagement = () => {
         <img
           src={manufacturingHero}
           alt="Quản lý chất lượng QMS"
-          className="w-[95%] h-auto md:h-[500px] object-cover justify-center"
+          className="w-[95%] h-auto md:h-[600px] object-fit justify-center"
         />
       </motion.div>
 

@@ -29,10 +29,8 @@ export const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          
-          
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold  mb-8 drop-shadow-lg">
-           <div className="h-20"/>
+           <div className="h-5"/>
            <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent pt-5">HỆ THỐNG ERP</span>
             <br/>
             <span className="text-white pt-5 text-4xl">(Enterprise Resource Planning)</span>

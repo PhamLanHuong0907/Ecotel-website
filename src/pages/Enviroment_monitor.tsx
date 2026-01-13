@@ -15,11 +15,11 @@ import {
   Radio // Icon trạm quan trắc
 } from "lucide-react";
 
-import feature1 from "@/assets/Cloudera.png"; // Ảnh minh họa trạm quan trắc
-import feature2 from "@/assets/Cloudera.png"; // Ảnh minh họa hệ thống cảnh báo
+import feature1 from "@/assets/giamsatmoitruong.png"; // Ảnh minh họa trạm quan trắc
+import feature2 from "@/assets/giamsatmoitruong_2.png"; // Ảnh minh họa hệ thống cảnh báo
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/giamsatmoitruong_1.png";
 
 // Feature 1: Chỉ số môi trường (Environmental Metrics)
 const Environment_Features = [
@@ -66,7 +66,7 @@ const EnvironmentMonitoring = () => {
         <img
           src={manufacturingHero}
           alt="Giám sát môi trường hầm lò"
-          className="w-[95%] h-auto md:h-[500px] object-cover justify-center"
+          className="w-[95%] h-auto md:h-[500px] object-fit justify-center"
         />
       </motion.div>
 
