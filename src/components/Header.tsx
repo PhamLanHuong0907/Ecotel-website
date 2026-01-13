@@ -32,7 +32,7 @@ const navItems: NavItem[] = [
       { label: "Hệ thống ERP (Enterprise Resource Planning)", href: "/erp" },
       { label: "Hệ thống MES (Manufacturing Execution System)", href: "/mes"},
       { label: "Hệ thống AIoT \n (Artificial Intelligence of Things)", href: "/AI&IoT" },
-      { label: "Kho dữ liệu tập trung", href:"/datalakehouse" }
+      { label: "Kho dữ liệu tập trung", href:"/datawarehouse" }
     ],
   },
   {

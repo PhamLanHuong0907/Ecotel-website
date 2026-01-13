@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Factory } from "lucide-react";
 // Đừng quên import file video của bạn vào đây
 import industrialVideo from "@/assets/erp_bi1.png"; 
-import { TitleBanner } from "./TitleBanner";
+import { TitleBanner } from "../TitleBanner";
 export const HeroSection = () => {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden h-screen">
