@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Factory, BarChart3, Cpu, ArrowRight } from "lucide-react";
+import { Factory, BarChart3, Cpu, ArrowRight, Wrench } from "lucide-react";
 import image_conveyor from "@/assets/giamsatbangtai.png";
 import image_enviroment from "@/assets/giamsatmoitruong.png";
 import image_oee from "@/assets/qlhstb_big.png";
 import image_product from "@/assets/qllenhsanxuat.png";
 import image_qms from "@/assets/qlqms.png";
+import image_repair from "@/assets/repair.png";
 import ScrollToTop from "../Scrolltotop";
 import { 
   ClipboardList, 
@@ -16,6 +17,7 @@ import {
   Wind, 
   Eye 
 } from 'lucide-react';
+import { Description } from "@radix-ui/react-toast";
 
 const services = [
   {
@@ -54,6 +56,17 @@ Hệ thống QMS từ ECOTEL giúp số hóa quy trình kiểm tra, giám sát c
   },
   {
     id: 5,
+    title : "Phần mềm Giám sát, bảo trì & bảo dưỡng thiết bị",
+    description: `Việc thiếu kiểm soát về hiệu suất thực tế và tình trạng sức khỏe của máy móc thường dẫn đến những sự cố dừng máy bất ngờ, gây lãng phí năng lượng và gián đoạn dây chuyền sản xuất.
+    \n\n Hệ thống cung cấp giải pháp quản lý toàn diện bao gồm: Giám sát hiệu suất tổng thể (OEE), Dự báo lỗi thiết bị (SM), Quản lý tiêu thụ điện năng (EM) và Định vị tài sản thời gian thực (LM). 
+    Nền tảng giúp doanh nghiệp chuyển đổi từ bảo trì thụ động sang chủ động, tối ưu hóa 
+    vòng đời tài sản.`,
+    image: image_repair,
+    icon: Wrench,
+    path: '/mes/repair'
+  },
+  {
+    id: 6,
     title: "Giám sát môi trường",
     description: `Trong môi trường đặc thù như hầm lò hay nhà máy hóa chất, việc kiểm soát các biến động môi trường là yếu tố sống còn. Những rủi ro vô hình như khí độc hay thay đổi nhiệt độ đột ngột cần được phát hiện trước khi chúng trở thành sự cố.
     \n\nECOTEL cung cấp hệ thống quan trắc môi trường thông minh, tích hợp cảm biến IoT để đo lường liên tục nồng độ khí và điều kiện vi khí hậu. 
@@ -63,7 +76,7 @@ Hệ thống QMS từ ECOTEL giúp số hóa quy trình kiểm tra, giám sát c
     path: '/mes/environment-monitoring'
   },
   {
-    id: 6,
+    id: 7,
     title: "Giám sát băng tải",
     description: `Nâng cấp quy trình vận hành với công nghệ giám sát băng tải thông minh. Thay vì kiểm tra thủ công, doanh nghiệp cần một "đôi mắt" công nghệ hoạt động 24/7 để phát hiện các bất thường nhỏ nhất.
 

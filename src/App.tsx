@@ -31,6 +31,7 @@ import VisionSensor from "./pages/Vision_sensor";
 import SmartSurvey from "./pages/Smartsurvey";
 import DataWarehouse from "./pages/DataWarehouse";
 import MoudleDataWarehouse from "./pages/ModuleDataWarehouse";
+import MaintenanceMonitor from "./pages/Maintenance";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -58,6 +59,7 @@ const App = () => (
           <Route path='/mes/monitoring-operation' element={<ManufacturingMonitoring/>}/>
           <Route path="/mes/oee-management" element={<OEEManagement/>}/>
           <Route path="/mes/qms" element={<QualityManagement/>}/>
+          <Route path="/mes/repair" element={<MaintenanceMonitor/>}/>
           <Route path="/mes/environment-monitoring" element={<EnvironmentMonitoring/>}/>
           <Route path="/mes/conveyor-monitoring" element={<ConveyorMonitoring/>}/>
           <Route path="/AI&IoT" element={<AI_IoT/>}/>
