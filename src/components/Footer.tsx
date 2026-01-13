@@ -8,9 +8,10 @@ const footerLinks = {
     { label: "Tuyển dụng", href: "#careers" },
   ],
   services: [
-    { label: "Công nghiệp", href: "#industrial" },
-    { label: "Dân sinh", href: "#residential" },
-    { label: "Giải pháp IoT", href: "#iot-solutions" },
+    { label: "Hệ thống ERP", href: "#industrial" },
+    { label: "Hệ thống MES", href: "#residential" },
+    { label: "Hệ thống AIoT", href: "#iot-solutions" },
+    { label: "Kho dữ liệu tập trung", href: "#iot-solutions" },
     { label: "Tư vấn", href: "#consulting" },
   ],
   resources: [
