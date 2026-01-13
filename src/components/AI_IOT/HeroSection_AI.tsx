@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 // 1. Import component TitleBanner (đảm bảo đường dẫn đúng)
 import { TitleBanner } from "./TitleBanner"; 
-import industrialVideo from "@/assets/cameraAI.png"; 
+import industrialVideo from "@/assets/AIot.jpg"; 
 
 export const HeroSection = () => {
   return (
@@ -33,15 +33,16 @@ export const HeroSection = () => {
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-8 drop-shadow-lg flex flex-col gap-2">
             <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent pt-11 pb-3">
-              HỆ THỐNG <br className="hidden md:block" /><div className="h-5"/> TÍCH HỢP AI & IOT
+              HỆ THỐNG AIoT<br className="hidden md:block" />
+              <div className="h-5"/>  
             </span>
+            <span className="text-white text-4xl">(Artificial Intelligence of Things)</span>
           </h1>
           
           <div className="glass-card p-8 rounded-2xl text-left space-y-4 bg-background/60 backdrop-blur-md border border-white/10 shadow-xl">
             <p className="text-foreground/90 leading-relaxed text-sm md:text-base lg:text-lg">
               Hệ thống 
-              <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> AIoT của ECOTEL</span> 
-              là nền tảng tích hợp
+              <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> AIoT của ECOTEL</span> là nền tảng tích hợp
               <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> IoT và trí tuệ nhân tạo (AI)</span>
               , cho phép 
               <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> kết nối thiết bị - thu thập dữ liệu thời gian thực - phân tích thông minh, </span>

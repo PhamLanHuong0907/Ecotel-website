@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Factory } from "lucide-react";
 // Đừng quên import file video của bạn vào đây
-import industrialVideo from "@/assets/erp_bi1.png"; 
+import industrialVideo from "@/assets/erp_background.png"; 
 import { TitleBanner } from "../TitleBanner";
 export const HeroSection = () => {
   return (

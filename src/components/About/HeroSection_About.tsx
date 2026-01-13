@@ -1,5 +1,5 @@
 import background_logo from "@/assets/Picture2.png";
-import background_about1 from "@/assets/background-about1.png";
+import background_about1 from "@/assets/about_background.jpg";
 import { useSectionInView } from "@/hooks/useSectionInView";
 
 export const HeroSection = () => {
@@ -25,9 +25,9 @@ export const HeroSection = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <img src={background_logo} alt="ECOTEL Background" className="mx-auto mt-[-40px] mb-[-10px] w-48 h-auto" />
+          
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-              <span className="gradient-text animate-text-glow inline-block">ECOTEL</span>
+              <span className="text-white animate-text-glow inline-block">ECOTEL</span>
               <br />
               <span className="text-foreground text-3xl md:text-4xl lg:text-5xl [.light&]: text-white ">Connected Ecosystem</span>
             </h1>
