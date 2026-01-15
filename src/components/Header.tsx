@@ -40,7 +40,7 @@ const navItems: NavItem[] = [
     href: "#highlights",
     dropdown: [
       { label: "Dự án", href: "#projects" },
-      { label: "Giải thưởng", href: "#awards" },
+      { label: "Giải thưởng", href: "/prize" },
       { label: "Triển lãm", href: "#exhibitions" },
     ],
   },

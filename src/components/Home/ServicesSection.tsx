@@ -9,6 +9,20 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ScrollToTop from "../Scrolltotop";
+import image_qtnl from "@/assets/quantringuonluc_outside.png";
+import image_vhsx from "@/assets/vanhanh_sx.png";
+import image_kddv from "@/assets/KDDV.png";
+import image_bi from "@/assets/DashboardBI.png";
+import image_conveyor from "@/assets/giamsatbangtai.png";
+import image_enviroment from "@/assets/giamsatmoitruong.png";
+import image_oee from "@/assets/qlhstb_big.png";
+import image_product from "@/assets/qllenhsanxuat.png";
+import image_qms from "@/assets/qlqms.png";
+import image_repair from "@/assets/repair.png";
+import image_centralmanagement from "@/assets/Hethongql.png";
+import image_security from "@/assets/giamsoatantoanAI.png";
+import image_smartsurvey from "@/assets/khaosatthamdo.webp";
+import image_visionsensor from "@/assets/cambienhinhanh.png"
 
 const services = [
   {
@@ -23,9 +37,7 @@ const services = [
       "Giải pháp Nhà máy thông minh (Smart Factory)"],
     gradient: "from-blue-500 to-cyan-500",
     images: [
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-      "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+     image_qtnl, image_vhsx, image_kddv, image_bi
     ],
   },
   {
@@ -45,14 +57,13 @@ const services = [
         "Tích hợp ERP, BI và các hệ thống quản trị doanh nghiệp"],
     gradient: "from-emerald-500 to-teal-500",
     images: [
-      "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80",
-      "https://images.unsplash.com/photo-1585503418537-88331351ad99?w=800&q=80",
-      "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80",
+      image_conveyor, image_enviroment, image_oee, 
+      image_product, image_qms, image_repair  
     ],
   },
   {
     icon: Globe,
-    title: "Hệ thống tích hợp AI & IoT",
+    title: "Hệ thống AIoT",
     description: 
     <>ECOTEL cung cấp giải pháp AIoT tích hợp IoT và trí tuệ nhân tạo (AI), cho phép kết nối thiết bị, thu thập dữ liệu thời gian 
     thực và phân tích thông minh, giúp doanh nghiệp tối ưu vận hành, nâng cao hiệu suất và tăng khả năng ra quyết định.
@@ -66,9 +77,8 @@ const services = [
       "Tích hợp với ERP, MES, SCADA và các hệ thống hiện có"],
     gradient: "from-violet-500 to-purple-500",
     images: [
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      image_centralmanagement, image_security,
+      image_smartsurvey, image_visionsensor
     ],
   },
 ];

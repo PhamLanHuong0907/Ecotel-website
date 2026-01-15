@@ -19,11 +19,10 @@ import {
   BoxSelect // Icon cho chọn vùng/đếm
 } from "lucide-react";
 
-import feature1 from "@/assets/Cloudera.png"; // Ảnh băng tải vận hành (Cần thay ảnh sensor AI)
-import feature2 from "@/assets/Cloudera.png"; // Ảnh phân tích Camera AI
+import feature1 from "@/assets/cambienhinhanh1.png"; // Ảnh băng tải vận hành (Cần thay ảnh sensor AI)
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/cambienhinhanh.png";
 
 // Feature 1: Cảm biến hình ảnh AI
 const VisionSensor_Features = [
@@ -58,8 +57,7 @@ const VisionSensor = () => {
         transition={{ duration: 1, delay: 0.4 }}
         className="relative flex justify-center items-center"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10 text-center justify-center flex items-center" />
-        <img
+         <img
           src={manufacturingHero}
           alt="Hệ thống cảm biến AI"
           className="w-[95%] h-auto md:h-[500px] object-cover justify-center"

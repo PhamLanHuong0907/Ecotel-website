@@ -56,7 +56,8 @@ export const TechnologiesSection = () => {
               {tech.items.map((item: string) => (
                 <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
-                  <span className="text-gray-300">{item}</span>
+                  
+<span className="text-gray-300 [.light_&]:text-gray-600">{item}</span>
                 </li>
               ))}
             </ul>
@@ -80,7 +81,7 @@ export const TechnologiesSection = () => {
           <div className="flex flex-col gap-6">
             {leftColumnItems.map((tech, index) => renderCard(tech, index))}
           </div>
-          <div className="flex flex-col gap-6 justify-center">
+          <div className="flex flex-col gap-20 ">
             {rightColumnItems.map((tech, index) => renderCard(tech, index + 3))}
           </div>
         </div>

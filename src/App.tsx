@@ -32,6 +32,7 @@ import SmartSurvey from "./pages/Smartsurvey";
 import DataWarehouse from "./pages/DataWarehouse";
 import MoudleDataWarehouse from "./pages/ModuleDataWarehouse";
 import MaintenanceMonitor from "./pages/Maintenance";
+import Award from "./pages/Prize_page";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -69,6 +70,7 @@ const App = () => (
           <Route path="/AI&IoT/central-management" element={<Central_management/>}/>
           <Route path="/datawarehouse" element={<MoudleDataWarehouse/>}/>
           <Route path="/datawarehouse/datawarehouse" element={<DataWarehouse/>}/>
+          <Route path="/prize" element={<Award/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
 

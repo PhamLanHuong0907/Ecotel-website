@@ -18,11 +18,10 @@ import {
   MonitorCheck // Thêm MonitorCheck cho giám sát/điều hành
 } from "lucide-react";
 
-import feature1 from "@/assets/Cloudera.png"; // Ảnh minh họa (Cần thay ảnh phù hợp với SOC)
-import feature2 from "@/assets/Cloudera.png"; // Ảnh minh họa
+import feature1 from "@/assets/Hethongql1.png"; // Ảnh minh họa (Cần thay ảnh phù hợp với SOC)
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import manufacturingHero from "@/assets/quantringuonluc.png";
+import manufacturingHero from "@/assets/Hethongql.png";
 
 // Feature List: Dựa trên nội dung ảnh "HỆ THỐNG QUẢN LÝ TẬP TRUNG"
 const System_Features = [
@@ -57,11 +56,10 @@ const Central_management = () => {
         transition={{ duration: 1, delay: 0.4 }}
         className="relative flex justify-center items-center"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10 text-center justify-center flex items-center" />
         <img
           src={manufacturingHero}
           alt="Trung tâm điều hành thông minh SOC"
-          className="w-[95%] h-auto md:h-[500px] object-cover justify-center"
+          className="w-[95%] h-auto md:h-[500px] object-fit justify-center"
         />
       </motion.div>
 

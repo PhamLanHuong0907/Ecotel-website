@@ -15,8 +15,9 @@ import {
   Cpu 
 } from "lucide-react";
 
-import feature1 from "@/assets/Cloudera.png"; // Ảnh minh họa
-import feature2 from "@/assets/Cloudera.png"; // Ảnh minh họa
+import feature1 from "@/assets/cameraphuongtien.png"; // Ảnh minh họa
+import feature2 from "@/assets/congravao.png"; // Ảnh minh họa
+import feature3 from "@/assets/baoholaodong.png";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import manufacturingHero from "@/assets/giamsoatantoanAI.png";
@@ -154,7 +155,7 @@ const Safety_security = () => {
           // Đã chỉnh sửa Description phù hợp với an toàn/PPE
           description="Đảm bảo an toàn lao động là ưu tiên hàng đầu. Hệ thống Vision AI hoạt động 24/7 để tự động phát hiện vi phạm trang bị bảo hộ (mũ, áo, kính) và các hành vi gây mất an toàn, giúp giảm thiểu rủi ro tai nạn lao động đáng tiếc."
           features={SafeEquipment_Features} // Đã sửa từ Vehicle_Features thành SafeEquipment_Features
-          imageSrc={feature1}
+          imageSrc={feature3}
           imageAlt="Hệ thống giám sát an toàn"
           // Đã chỉnh sửa Badge
           floatingBadge={{
