@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import image_giamsat from "@/assets/Giamsat_mes.jpg"
 import image_ketnoi from "@/assets/ketnoi2_mes.png"
 import image_toiuuhoa from "@/assets/toiuuhoa_mes.jpg"
+import { useEffect, useState } from "react";
 const highlightCards = [
   {
     id: 1,
@@ -27,6 +28,28 @@ const highlightCards = [
 ];
 
 export const HeroSection = () => {
+  const [currentTheme, setCurrentTheme] = useState('dark');
+  
+    useEffect(() => {
+      // Theo dõi sự thay đổi class trên thẻ html để cập nhật state
+      const observer = new MutationObserver(() => {
+        const isLight = document.documentElement.classList.contains('light');
+        const isNoel = document.documentElement.classList.contains('theme-noel');
+        
+        if (isNoel) setCurrentTheme('noel');
+        else if (isLight) setCurrentTheme('light');
+        else setCurrentTheme('dark');
+      });
+  
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+      
+      // Khởi tạo giá trị ban đầu
+      const initialClass = document.documentElement.className;
+      if (initialClass.includes('theme-noel')) setCurrentTheme('noel');
+      else if (initialClass.includes('light')) setCurrentTheme('light');
+  
+      return () => observer.disconnect();
+    }, []);
   return (
     <div className="flex flex-col h-screen w-full overflow-hidden">
       
@@ -66,7 +89,9 @@ export const HeroSection = () => {
         </div>
 
         {/* Gradient mờ dần ở đáy để chuyển tiếp mượt sang Section 2 */}
-        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent" />
+        {currentTheme !== 'light' && (
+          <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent" />
+        )}
       </section>
 
       {/* --- PHẦN 2: HIGHLIGHT CARDS (50vh) --- */}
