@@ -28,7 +28,7 @@ export const HeroSection = () => {
       
       {/* --- PHẦN 1: HERO BACKGROUND (65vh) --- */}
       <section 
-        className="h-[65vh] flex items-center relative overflow-hidden bg-no-repeat bg-cover bg-left"
+        className="h-[75vh] flex items-center relative overflow-hidden bg-no-repeat bg-cover bg-left"
         style={{ 
           backgroundImage: `url(https://cdn-media.sforum.vn/storage/app/media/ctvseo_15/Background%20xanh/background-xanh-1.jpg)`, // Chèn ảnh vào đây
         }}
