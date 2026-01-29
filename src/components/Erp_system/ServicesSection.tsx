@@ -6,7 +6,7 @@ import image_qtnl from "@/assets/quantringuonluc_outside.png";
 import image_vhsx from "@/assets/vanhanh_sx.png";
 import image_kddv from "@/assets/KDDV.png";
 import image_bi from "@/assets/DashboardBI.png";
-import ScrollToTop from "../Scrolltotop";
+import ScrollToTop from "../Component_mini/Scrolltotop";
 import { 
   Briefcase,   // Dùng cho Quản trị nguồn lực (Hành chính/Tổng hợp)
   Factory,     // Dùng cho Vận hành - Sản xuất (Nhà máy)
@@ -63,6 +63,11 @@ export const ServicesSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
+        <div className="text-center mb-20 mt-8">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary ">
+            Các sản phẩm của hệ thống ERP
+          </h2>
+        </div>
         <div className="space-y-20">
           {services.map((service, index) => (
             <motion.div

@@ -10,14 +10,14 @@ import Leadership from "./pages/Leadership";
 import Customers from "./pages/Customer";
 import Giaiphapkho from "./pages/Resource_management";
 import ERP from "./pages/ERP_system";
-import ScrollToTop from "./components/Scrolltotop";
+import ScrollToTop from "./components/Component_mini/Scrolltotop";
 import Hethongql from "./pages/Manufacturing_management";
 import ProductionManagement from "./pages/Production_management";
 import AI_IoT from "./pages/AI&IoT_system";
 import MES from "./pages/MES_system";
 // [NEW] Import ThemeToggle
 import ThemeToggle from "./components/ThemeToogle"; 
-import ChristmasIntro from "./components/ChiristmasIntro";
+import ChristmasIntro from "./components/Component_mini/ChiristmasIntro";
 import Erp_Bi from "./pages/ERP&BI";
 import KDDV from "./pages/Sales_service";
 import ManufacturingMonitoring from "./pages/Monitoring_operation";

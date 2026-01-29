@@ -1,8 +1,8 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Component_mini/Header";
+import { Footer } from "@/components/Component_mini/Footer";
 import { HeroSection } from "@/components/Erp_system/ERP&BI_Solutions/HeroSection_ERP&BI_Solutions";
-import { FeatureSection } from "@/components/FeatureSection";
-import { CTASection } from "@/components/CTASection";
+import { FeatureSection } from "@/components/Component_mini/FeatureSection";
+import { CTASection } from "@/components/Component_mini/CTASection";
 // Đã thêm BarChart, FileText, Users vào import để có icon phù hợp
 import { Cog, Cpu, Zap, Target, Settings, Shield, Wrench, Factory, CheckCircle2, BarChart, FileText, Users } from "lucide-react";
 import feature1 from "@/assets/Hethongql1.png";

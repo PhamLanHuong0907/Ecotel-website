@@ -1,9 +1,9 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Component_mini/Header";
+import { Footer } from "@/components/Component_mini/Footer";
 // Giả định đường dẫn component Hero mới, bạn có thể chỉnh lại cho đúng cấu trúc thư mục
 import { HeroSection } from "@/components/MES_system/Maintenance/HeroSection_Maintenance"; 
-import { FeatureSection } from "@/components/FeatureSection";
-import { CTASection } from "@/components/CTASection"; // Nếu cần dùng
+import { FeatureSection } from "@/components/Component_mini/FeatureSection";
+import { CTASection } from "@/components/Component_mini/CTASection"; // Nếu cần dùng
 // Bộ icon chuyên dụng cho Bảo trì & Giám sát
 import { 
   Activity, // Dùng cho OEE (Hiệu suất)

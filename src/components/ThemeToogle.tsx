@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SnowEffect from './snow'; 
-import ChristmasIntro from './ChiristmasIntro';
+import ChristmasIntro from './Component_mini/ChiristmasIntro';
 
 type Theme = 'dark' | 'light' | 'noel';
 

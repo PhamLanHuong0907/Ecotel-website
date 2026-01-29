@@ -23,8 +23,8 @@ const TimelineItem = ({ item, index, isVisible, totalItems }: { item: typeof tim
       {/* Icon Section (Dạng bóng đèn/que kẹo như ảnh) */}
       <div className="relative z-10 flex flex-col items-center">
         {/* Glowing Circle Icon */}
-        <div className={`relative w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg transition-all duration-500 ${isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} style={{ transitionDelay: `${index * 200}ms` }}>
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent animate-pulse-slow opacity-50 blur-md" />
+        <div className={`relative w-20 h-20 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] flex items-center justify-center shadow-lg transition-all duration-500 ${isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} style={{ transitionDelay: `${index * 200}ms` }}>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] animate-pulse-slow opacity-50 blur-md" />
           <item.icon className="w-10 h-10 text-white relative z-10" />
         </div>
         

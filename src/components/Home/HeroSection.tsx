@@ -55,7 +55,7 @@ export const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 animate-fade-up-delay-3">
             <a
               href="#services"
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-accent text-white font-semibold hover-lift shadow-lg shadow-primary/20"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] text-white font-semibold hover-lift shadow-lg shadow-primary/20"
             >
               Khám phá dịch vụ
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

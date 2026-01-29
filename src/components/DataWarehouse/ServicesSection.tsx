@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 import image_datawarehouse from "@/assets/datawarehouse.png";
 
-import ScrollToTop from "../Scrolltotop";
+import ScrollToTop from "../Component_mini/Scrolltotop";
 import { 
   Briefcase,   // Dùng cho Quản trị nguồn lực (Hành chính/Tổng hợp)
   Factory,     // Dùng cho Vận hành - Sản xuất (Nhà máy)

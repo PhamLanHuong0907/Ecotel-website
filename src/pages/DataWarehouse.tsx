@@ -1,7 +1,7 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Component_mini/Header";
+import { Footer } from "@/components/Component_mini/Footer";
 import { HeroSection } from "@/components/DataWarehouse/HeroSection_DataWarehouse";
-import { FeatureSection } from "@/components/FeatureSection";
+import { FeatureSection } from "@/components/Component_mini/FeatureSection";
 // Cập nhật bộ icon cho phù hợp với Data Warehouse
 import { 
   Factory, 

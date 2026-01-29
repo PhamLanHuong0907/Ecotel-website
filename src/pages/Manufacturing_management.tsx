@@ -1,8 +1,8 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Component_mini/Header";
+import { Footer } from "@/components/Component_mini/Footer";
 import { HeroSection } from "@/components/Erp_system/Manufacturing_operations/HeroSection_manufacturing";
-import { FeatureSection } from "@/components/FeatureSection";
-import { CTASection } from "@/components/CTASection";
+import { FeatureSection } from "@/components/Component_mini/FeatureSection";
+import { CTASection } from "@/components/Component_mini/CTASection";
 // Giữ nguyên các icon đã tối ưu cho từng nghiệp vụ
 import { 
   Cog, Cpu, Zap, 

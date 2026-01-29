@@ -8,7 +8,7 @@ import image_oee from "@/assets/qlhstb_big.png";
 import image_product from "@/assets/qllenhsanxuat.png";
 import image_qms from "@/assets/qlqms.png";
 import image_repair from "@/assets/repair.png";
-import ScrollToTop from "../Scrolltotop";
+import ScrollToTop from "../Component_mini/Scrolltotop";
 import { 
   ClipboardList, 
   Activity, 
@@ -87,10 +87,16 @@ Hệ thống QMS từ ECOTEL giúp số hóa quy trình kiểm tra, giám sát c
   },
 ];
 
+
 export const ServicesSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
+        <div className="text-center mb-20 mt-8">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary ">
+            Các sản phẩm của hệ thống MES
+          </h2>
+        </div>
         <div className="space-y-20">
           {services.map((service, index) => (
             <motion.div
@@ -118,7 +124,7 @@ export const ServicesSection = () => {
 
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-blue-900 whitespace-pre-line">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-pre-line text-blue-500">
                   {service.title}
                 </h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -127,7 +133,7 @@ export const ServicesSection = () => {
                   ))}
                 </div>
                 <Link to={service.path}>
-                    <Button className="group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400  mt-3">
+                    <Button className="group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 mt-3">
                       <ScrollToTop/>
                       Xem chi tiết
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -11,8 +11,8 @@ const awardsData = [
     title: "CUP Đồng Phần Mềm Đóng Gói", 
     description: "Đạt CUP Đồng lĩnh vực 'Phần mềm thương phẩm' xuất sắc nhất năm 2005 cho sản phẩm phân tích lương.", 
     icon: Medal,
-    color: "from-amber-400 to-yellow-600", 
-    textColor: "text-amber-500",
+    color: "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]", 
+    textColor: "text-[#4eb9e6]",
     borderColor: "border-amber-500/30"
   },
   { 
@@ -20,8 +20,8 @@ const awardsData = [
     title: "Giải Sao Khuê 4 Sao", 
     description: "Đạt giải Sao Khuê 4 sao của VINASA tổ chức cho sản phẩm phần mềm tính lương Esoft Financials.", 
     icon: Star,
-    color: "from-amber-400 to-yellow-600",
-    textColor: "text-amber-500",
+    color: "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]",
+    textColor: "text-[#4eb9e6]",
     borderColor: "border-amber-500/30"
   },
   { 
@@ -29,8 +29,8 @@ const awardsData = [
     title: "CUP Đồng Phần Mềm Đóng Gói", 
     description: "Đạt CUP Đồng lĩnh vực 'Phần mềm thương phẩm' xuất sắc nhất năm 2005 cho sản phẩm phân tích lương.", 
     icon: Medal,
-    color: "from-amber-400 to-yellow-600",
-    textColor: "text-amber-500",
+    color: "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]",
+    textColor: "text-[#4eb9e6]",
     borderColor: "border-amber-500/30"
   },
   { 
@@ -38,8 +38,8 @@ const awardsData = [
     title: "Giải Sao Khuê 4 Sao", 
     description: "Đoạt giải Sao Khuê 4 sao của Hiệp hội doanh nghiệp phần mềm Việt Nam trong lĩnh vực phần mềm tính lương.", 
     icon: Trophy,
-    color: "from-amber-400 to-yellow-600",
-    textColor: "text-amber-500",
+    color: "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]",
+    textColor: "text-[#4eb9e6]",
     borderColor: "border-amber-500/30"
   },
 ];
@@ -60,7 +60,7 @@ const AwardItem = ({ item, index, isVisible, totalItems }: { item: typeof awards
     <div className="flex-1 flex flex-col items-center relative group min-w-[280px]">
       {/* Đường nối ngang */}
       {index < totalItems - 1 && (
-        <div className={`hidden md:block absolute top-10 left-1/2 w-full h-[2px] bg-gradient-to-r from-amber-500 to-amber-500/30 transition-all duration-1000 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"} origin-left z-0`} style={{ transitionDelay: `${index * 200 + 300}ms` }}>
+        <div className={`hidden md:block absolute top-10 left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] transition-all duration-1000 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"} origin-left z-0`} style={{ transitionDelay: `${index * 200 + 300}ms` }}>
             <div className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-amber-500/50`}>
                <ChevronRight size={20} />
             </div>
@@ -75,12 +75,12 @@ const AwardItem = ({ item, index, isVisible, totalItems }: { item: typeof awards
         </div>
         
         {/* Đường nối dọc */}
-        <div className={`w-1 h-12 bg-gradient-to-b from-amber-500 to-amber-500/10 transition-all duration-500 ${isVisible ? "scale-y-100" : "scale-y-0"} origin-top`} style={{ transitionDelay: `${index * 200 + 150}ms` }} />
+        <div className={`w-1 h-12 bg-gradient-to-b from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] transition-all duration-500 ${isVisible ? "scale-y-100" : "scale-y-0"} origin-top`} style={{ transitionDelay: `${index * 200 + 150}ms` }} />
       </div>
 
       {/* Content Card */}
       <div className={`w-full mt-2 px-2 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: `${index * 200 + 300}ms` }}>
-        <div className={`glass-card rounded-2xl p-6 hover-lift relative overflow-hidden h-full border-t-4 border-t-amber-500`}>
+        <div className={`glass-card rounded-2xl p-6 hover-lift relative overflow-hidden h-full border-t-4 border-t-[#4eb9e6]`}>
           <div className="flex justify-center mb-4">
             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${item.borderColor} bg-white backdrop-blur-sm`}>
               <Award className={`w-4 h-4 ${item.textColor}`} />
@@ -115,11 +115,11 @@ export const AwardsSection = () => {
         
         {/* === PHẦN 1: HEADER & TIMELINE GIẢI THƯỞNG === */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#1e5c8b]/10 text-[#4eb9e6] dark:bg-amber-900/30 dark:text-amber-400 mb-4">
              Thành tựu & Ghi nhận
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Giải Thưởng <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600">Tiêu Biểu</span>
+            Giải Thưởng <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">Tiêu Biểu</span>
           </h2>
         </div>
         
@@ -142,7 +142,7 @@ export const AwardsSection = () => {
             
             <div className="text-center mb-10">
                  <h3 className="text-3xl font-bold text-foreground">
-                   Bản Quyền & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">Sở Hữu Trí Tuệ</span>
+                   Bản Quyền & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">Sở Hữu Trí Tuệ</span>
                  </h3>
                  <p className="text-muted-foreground mt-2">Dấu ấn công nghệ mới nhất năm 2025</p>
             </div>

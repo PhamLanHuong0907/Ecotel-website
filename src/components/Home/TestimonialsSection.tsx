@@ -1,24 +1,18 @@
 import { Quote } from "lucide-react";
-import { TestimonialsSection } from "../Testimonials";
+import { TestimonialsSection } from "../Component_mini/Testimonials";
 
 const testimonials = [
-  {
-    content: "ECOTEL đã giúp chúng tôi chuyển đổi số toàn diện hệ thống sản xuất, giảm 30% chi phí vận hành và tăng hiệu suất đáng kể.",
-    author: "Nguyễn Văn A",
-    position: "Giám đốc Sản xuất",
-    company: "Tập đoàn TKV",
+   {
+    content: "ECOTEL đã mang đến cho chúng tôi giải pháp IoT hoàn hảo, giúp tối ưu hóa quy trình vận hành và tiết kiệm chi phí đáng kể.",
+    author: "Dương Văn Hoàng", position: "Trưởng phòng kế toán", company: "Công ty Than Uông Bí - TKB"
   },
   {
-    content: "Đội ngũ kỹ sư của ECOTEL rất chuyên nghiệp, luôn đảm bảo tiến độ và chất lượng dự án. Chúng tôi rất hài lòng với kết quả.",
-    author: "Trần Thị B",
-    position: "Phó Tổng Giám đốc",
-    company: "Công ty ABC",
+    content: "Đội ngũ kỹ thuật chuyên nghiệp và hỗ trợ tận tình. Chúng tôi rất hài lòng với dịch vụ của ECOTEL.",
+    author: "Nguyễn Ngọc Toàn", position: "Phó giám đốc", company: "Công ty Than Cao Sơn - TKV"
   },
   {
-    content: "Giải pháp IoT của ECOTEL đã thay đổi hoàn toàn cách chúng tôi quản lý và vận hành. Rất đáng tin cậy và hiệu quả.",
-    author: "Lê Văn C",
-    position: "Trưởng phòng IT",
-    company: "Tập đoàn XYZ",
+    content: "Giải pháp quản lý năng lượng của ECOTEL giúp chúng tôi tiết kiệm 30% chi phí điện năng hàng tháng. Rất ấn tượng!",
+    author: "Nguyễn Đức Thành", position: "Giám đốc", company: "Công ty TNHH MTV Hoa Tiêu Hoàng Hải miền bắc"
   },
 ];
 

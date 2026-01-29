@@ -63,7 +63,7 @@ export const VisionMissionSection = () => {
         </div>
         <div className="flex justify-center">
           <div className="relative w-[500px] h-[500px]">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center z-10 animate-glow-pulse">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-gradient-to-br from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] flex items-center justify-center z-10 animate-glow-pulse">
               <span className="text-white font-bold text-xl">ECOTEL</span>
             </div>
             {coreValues.map((value, index) => {

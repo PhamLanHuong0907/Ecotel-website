@@ -1,5 +1,5 @@
 import { TrendingUp, Briefcase, Users2, Trophy } from "lucide-react";
-import { StatsSection } from "../StatsSection";
+import { StatsSection } from "../Component_mini/StatsSection";
 const stats = [
   {
     icon: TrendingUp,

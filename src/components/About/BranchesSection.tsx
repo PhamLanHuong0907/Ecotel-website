@@ -47,7 +47,7 @@ export const BranchesSection = () => {
               className="glass-card rounded-xl p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover-lift group animate-fade-up border border-white/10 bg-white/5 hover:bg-white/10 transition-all"
             >
               {/* Icon Box */}
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-primary/20">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-primary/20">
                 <MapPin className="w-8 h-8 text-white" />
               </div>
 

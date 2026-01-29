@@ -1,8 +1,8 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Component_mini/Header";
+import { Footer } from "@/components/Component_mini/Footer";
 import { HeroSection } from "@/components/MES_system/Conveyor_monitoring/HeroSection_Conveyor";
-import { FeatureSection } from "@/components/FeatureSection";
-import { CTASection } from "@/components/CTASection";
+import { FeatureSection } from "@/components/Component_mini/FeatureSection";
+import { CTASection } from "@/components/Component_mini/CTASection";
 // Bộ icon chuyên dụng cho Băng tải & Máy móc
 import { 
   RefreshCcw, // (Lưu ý: Nếu không có icon Conveyor, dùng Factory hoặc RefreshCw)

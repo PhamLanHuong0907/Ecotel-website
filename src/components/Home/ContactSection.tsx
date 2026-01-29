@@ -147,7 +147,7 @@ export const ContactSection = () => {
               </div>
               <button
                 type="submit"
-                className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold hover-lift"
+                className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] text-primary-foreground font-semibold hover-lift"
                 style={{ boxShadow: "var(--shadow-button)" }}
               >
                 Gửi yêu cầu tư vấn

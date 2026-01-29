@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Factory, BarChart3, Cpu, ArrowRight } from "lucide-react";
-import ScrollToTop from "../Scrolltotop";
+import ScrollToTop from "../Component_mini/Scrolltotop";
 import image_centralmanagement from "@/assets/Hethongql.png";
 import image_security from "@/assets/giamsoatantoanAI.png";
 import image_smartsurvey from "@/assets/khaosatthamdo.webp";
@@ -48,6 +48,11 @@ export const ServicesSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
+        <div className="text-center mb-20 mt-8">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary ">
+            Các sản phẩm của hệ thống AIoT
+          </h2>
+        </div>
         <div className="space-y-20">
           {services.map((service, index) => (
             <motion.div
@@ -75,7 +80,7 @@ export const ServicesSection = () => {
 
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-heading font-bold text-blue-500 whitespace-pre-line">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-primary whitespace-pre-line text-blue-500">
                   {service.title}
                 </h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">

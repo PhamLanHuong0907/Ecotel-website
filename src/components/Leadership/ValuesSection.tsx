@@ -1,6 +1,6 @@
 import { Star, Award, Briefcase } from "lucide-react";
 import { useSectionInView } from "@/hooks/useSectionInView";
-import { StatsSection } from "../StatsSection";
+import { StatsSection } from "../Component_mini/StatsSection";
 const companyValues = [
   { icon: Star, label: "Tầm nhìn xa", description: "Định hướng phát triển bền vững" },
   { icon: Award, label: "Chuyên nghiệp", description: "Chuẩn mực quốc tế" },

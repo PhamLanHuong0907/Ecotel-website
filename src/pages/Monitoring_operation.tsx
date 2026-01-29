@@ -1,8 +1,8 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Component_mini/Header";
+import { Footer } from "@/components/Component_mini/Footer";
 import { HeroSection } from "@/components/MES_system/Monitoring_operation/HeroSection_Monitor";
-import { FeatureSection } from "@/components/FeatureSection";
-import { CTASection } from "@/components/CTASection";
+import { FeatureSection } from "@/components/Component_mini/FeatureSection";
+import { CTASection } from "@/components/Component_mini/CTASection";
 // Bộ icon chuyên dụng cho Giám sát & IoT
 import { 
   Cpu, // Icon cho PLC/Controller

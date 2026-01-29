@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import ScrollToTop from "../Scrolltotop";
+import ScrollToTop from "../Component_mini/Scrolltotop";
 import image_qtnl from "@/assets/quantringuonluc_outside.png";
 import image_vhsx from "@/assets/vanhanh_sx.png";
 import image_kddv from "@/assets/KDDV.png";
