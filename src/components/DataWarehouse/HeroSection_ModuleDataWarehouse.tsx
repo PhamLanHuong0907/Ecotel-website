@@ -1,65 +1,117 @@
 import { motion } from "framer-motion";
-import { Factory } from "lucide-react";
-// Đừng quên import file video của bạn vào đây
-import industrialVideo from "@/assets/datawarehousemodule.png"; 
-import { TitleBanner } from "../Component_mini/TitleBanner";
+import erpDiagram from "@/assets/datawarehousemodule.png";
+import { ArrowRight } from "lucide-react";
+import { Button } from "../ui/button";
+import img_linhhoat from "@/assets/Screenshot 2026-01-29 164134.png";
+import img_dongbo from "@/assets/data_dongbodulieu1.png"
+const highlightCards = [
+  {
+    id: 1,
+    title: "Đồng bộ đa nguồn",
+    description: "Dữ liệu tập trung \ntại một nơi duy nhất \n Thiết kế chuẩn Data Lakehouse",
+    image: img_dongbo,
+  },
+  {
+    id: 2,
+    title: "Phân tích \n thông minh",
+    description: "Xử lý Big Data & hỗ trợ AI/ML \n Tích hợp BI trực quan hóa",
+    image: "https://cloud-web-cms-beta.s3.cloud.cmctelecom.vn/Cloud_Backup_1_b4706932aa.png",
+  },
+  {
+    id: 3,
+    title: "Bảo mật dữ liệu",
+    description: "Bảo mật đa lớp & Mã hóa dữ liệu \n Kiểm soát quyền truy cập chặt chẽ \n Đảm bảo dữ liệu sạch và chuẩn hóa",
+    image: "https://congnghethongtinaau.com/wp-content/uploads/2024/04/bao-mat-du-lieu-la-gi.jpg",
+  },
+];
+
 export const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden h-screen">
+    <div className="flex flex-col h-screen w-full overflow-hidden">
       
-      {/* --- PHẦN BACKGROUND VIDEO --- */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        {/* Video tag */}
-        <img
-          src={industrialVideo}
-          className="w-full h-full object-cover opacity-75"
-        />
-        {/* Lớp phủ tối màu để làm nổi bật text (Overlay) */}
-        <div className="absolute inset-0 bg-background/80 md:bg-black/60" />
-      </div>
+      {/* --- PHẦN 1: HERO BACKGROUND (65vh) --- */}
+      <section 
+        className="h-[70vh] flex items-center relative overflow-hidden bg-no-repeat bg-cover bg-left"
+        style={{ 
+          backgroundImage: `url(${erpDiagram})`, // Chèn ảnh vào đây
+        }}
+      >
+        {/* Lớp Overlay tối: Giúp chữ trắng dễ đọc hơn trên nền ảnh */}
+        <div className="absolute inset-0 bg-[#1a3a5c]/80" /> 
+        
+        {/* Background Effects: Giữ lại để tạo hiệu ứng ánh sáng lung linh */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/5 w-100 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute top-20 right-1/5 w-100 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+        
+        <div className="w-full mx-auto px-4 relative z-10 mt-16">
+          {/* Heading Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-6xl mx-auto text-center"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 drop-shadow-lg">
+              Kho dữ liệu tập trung
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-4 drop-shadow-md">
+              (Data Warehouse)
+            </p>
+            <p className="text-2xl md:text-3xl text-white/80 italic drop-shadow-md">
+              Đồng bộ - Thông minh - Bảo mật
+            </p>
+          </motion.div>
+        </div>
 
-      {/* Giữ lại gradient cũ nhưng để z-index thấp để hòa trộn với video */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent z-0 pointer-events-none" />
-      
-      {/* Nội dung chính (z-10 để nổi lên trên video) */}
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold  mb-8 drop-shadow-lg">
-           <div className="h-5"/>
-           <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent pt-5">KHO DỮ LIỆU TẬP TRUNG</span>
-            <br/>
-            <span className="text-white pt-5 text-4xl">(Data Warehouse)</span>
-          </h1>
-          
-          <div className="glass-card p-8 rounded-2xl text-left space-y-4 bg-background/60 backdrop-blur-md border border-white/10 shadow-xl">
-  <p className="text-foreground/90 leading-relaxed">
-    ECOTEL cung cấp <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold">giải pháp Kho dữ liệu tập trung (Data Lakehouse) </span> 
-    được thiết kế để <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> đồng bộ dữ liệu đa nguồn tại một nơi duy nhất và khai thác tối đa giá trị dữ liệu</span>
-    trong quá trình chuyển đổi số.
-  </p>
-  <p className="text-foreground/90 leading-relaxed">
-    Hệ thống mang đến khả năng lưu trữ linh hoạt để <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold">xử lý Big Data và hỗ trợ các mô hình AI/ML, </span> 
-    đồng thời tích hợp mạnh mẽ với công cụ BI để
-    <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> phân tích trực quan và hỗ trợ ra quyết định kinh doanh chính xác </span>
-    dựa trên dữ liệu thời gian thực đáng tin cậy.
-  </p>
-  <p className="text-foreground/90 leading-relaxed">
-    Giải pháp đảm bảo nguồn dữ liệu luôn 
-    <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> sạch, có cấu trúc và dễ dàng truy xuất, </span>
-    giúp doanh nghiệp loại bỏ các điểm nghẽn thông tin và sẵn sàng cho sự
-    <span className="bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent font-semibold"> đổi mới sáng tạo và tăng trưởng bền vững. </span>
-  </p>
-</div>
-        </motion.div>
-      </div>
-      <div className="absolute bottom-0 w-full z-20">
-        <TitleBanner />
-      </div>
-    </section>
+        {/* Gradient mờ dần ở đáy để chuyển tiếp mượt sang Section 2 */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
+      </section>
+
+      {/* --- PHẦN 2: HIGHLIGHT CARDS (50vh) --- */}
+      <section className="bg-background flex items-start ">
+        <div className="container mx-auto px-4 h-full py-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary items-center justify-center mb-10 mt-8 text-center">
+            Lợi ích nổi bật
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 h-full">
+            {highlightCards.map((card, index) => (
+  <motion.div
+    key={card.id}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+    className="relative h-full rounded-xl overflow-hidden group cursor-pointer shadow-lg border border-white/10 m"
+  >
+    {/* Layer 1: Background Image */}
+   {/* Giả sử thẻ cha bao quanh tất cả phải có class "group" */}
+
+  
+  {/* Layer 1: Background Image (Luôn hiện) */}
+  <div
+    className="absolute inset-0 bg-cover bg-left transition-transform duration-700 group-hover:scale-110"
+    style={{ backgroundImage: `url(${card.image})` }}
+  />
+
+  {/* Layer 2: Gradient Overlay (Ẩn, hiện khi hover) */}
+  <div className="absolute inset-0 bg-gradient-to-r from-[#1e5c8b]/90 via-[#1e5c8b]/40 to-transparent transition-opacity duration-500 opacity-100" />
+
+  {/* Layer 3: Content (Ẩn, hiện khi hover) */}
+  <div className="relative h-full flex flex-col justify-start p-6 w-full z-10 transition-opacity duration-500 whitespace-pre-line opacity-100 ">
+    <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight drop-shadow-md max-w-[250px]">
+      {card.title}
+    </h3>
+    <p className="text-white/90 text-sm md:text-base mb-6 line-clamp-none max-w-[300px]">
+      {card.description}
+    </p>
+  </div>
+
+  </motion.div>
+))}
+          </div>
+        </div>
+      </section>
+
+    </div>
   );
 };

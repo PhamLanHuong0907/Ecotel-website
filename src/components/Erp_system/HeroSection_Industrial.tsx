@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import erpDiagram from "@/assets/erp_bg.jpg";
 import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
-
+import img_linhhoat from "@/assets/Screenshot 2026-01-29 164134.png";
 const highlightCards = [
   {
     id: 1,
@@ -13,14 +13,14 @@ const highlightCards = [
   {
     id: 2,
     title: "Giải pháp \n ERP tổng thể",
-    description: "Kết nối liền mạch MES, AIoT, BI",
+    description: "Kết nối liền mạch \n MES, AIoT, BI",
     image: "https://cdn.fpt-is.com/vi/huong-dan-su-dung-he-thong-erp-2.png",
   },
   {
     id: 3,
     title: "Linh hoạt, \n dễ mở rộng",
-    description: "Phù hợp với nhiều mô hình doanh nghiệp, đồng hành chuyển đổi số và phát triển bền vững",
-    image: "https://file.hstatic.net/1000192210/file/mo-rong-kinh-doanh__1__f6dec23f5bd64650b141d84eee33a616.jpg",
+    description: "Phù hợp với nhiều mô hình doanh nghiệp, đồng hành chuyển đổi số \n và phát triển bền vững",
+    image: img_linhhoat,
   },
 ];
 

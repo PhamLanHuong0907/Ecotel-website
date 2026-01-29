@@ -56,7 +56,7 @@ export const HeroSection = () => {
               (Artificial Intelligence of Things)
             </p>
             <p className="text-2xl md:text-3xl text-white/80 italic drop-shadow-md">
-              Kết nối thông minh - Phân tích chi tiết - Dự báo kịp thời
+              Kết nối thông minh - Phân tích chi tiết - Cảnh báo kịp thời
             </p>
           </motion.div>
         </div>
