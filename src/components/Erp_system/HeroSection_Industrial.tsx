@@ -64,7 +64,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Gradient mờ dần ở đáy để chuyển tiếp mượt sang Section 2 */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* --- PHẦN 2: HIGHLIGHT CARDS (50vh) --- */}
