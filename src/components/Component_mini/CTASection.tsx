@@ -14,7 +14,7 @@ export const CTASection = () => {
         <HashLink
           smooth
           to="/#contact"
-          className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold hover-lift"
+          className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] text-primary-foreground font-semibold hover-lift"
         >
           Liên hệ ngay
           <ChevronRight className="w-4 h-4" />

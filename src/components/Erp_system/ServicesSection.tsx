@@ -104,7 +104,7 @@ export const ServicesSection = () => {
                   ))}
                 </div>
                 <Link to={service.path}>
-                    <Button className="group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 mt-3">
+                    <Button className="group bg-gradient-to-br from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]mt-3">
                       <ScrollToTop/>
                       Xem chi tiết
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -58,7 +58,7 @@ const Giaiphapkho = () => {
         transition={{ duration: 1, delay: 0.4 }}
         className="relative flex justify-center items-center"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10 text-center justify-center flex items-center" />
+       
         <img
           src={manufacturingHero}
           alt="Dây chuyền sản xuất công nghiệp"
@@ -110,7 +110,7 @@ const Giaiphapkho = () => {
           backgroundClass="bg-gradient-to-b from-secondary/30 to-background"
           glowClass="from-accent/20 to-primary/20"
         />
-        <a href="/erp"><Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 ">Trở về</Button></a>
+        <a href="/erp"><Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">Trở về</Button></a>
         <CTASection />
       </main>
 

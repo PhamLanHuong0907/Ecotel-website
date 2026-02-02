@@ -85,7 +85,7 @@ const VisionSensor = () => {
         />
 
         <a href="/AI&IoT">
-            <Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 ">
+            <Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">
                 Trở về
             </Button>
         </a>

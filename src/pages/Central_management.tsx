@@ -5,13 +5,7 @@ import { FeatureSection } from "@/components/Component_mini/FeatureSection";
 import { CTASection } from "@/components/Component_mini/CTASection";
 // Bộ icon chuyên dụng
 import { 
-  RefreshCcw, 
-  Factory, 
-  ThermometerSun, 
-  Eye, 
-  Activity, 
-  Settings, 
-  Link, 
+  Activity,
   Cpu,
   Database, // Thêm Database cho dữ liệu tập trung
   BarChart, // Thêm BarChart cho phân tích/xử lý
@@ -85,7 +79,7 @@ const Central_management = () => {
         />
 
         <a href="/AI&IoT">
-            <Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 ">
+            <Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">
                 Trở về
             </Button>
         </a>

@@ -105,8 +105,7 @@ const SmartSurvey= () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.4 }}
         className="relative flex justify-center items-center"
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10 text-center justify-center flex items-center" />
+      > 
         <img
           src={manufacturingHero}
           alt="Hệ thống khảo sát thông minh"
@@ -199,7 +198,7 @@ const SmartSurvey= () => {
         />
         
         <a href="/AI&IoT">
-            <Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 ">
+            <Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">
                 Trở về
             </Button>
         </a>

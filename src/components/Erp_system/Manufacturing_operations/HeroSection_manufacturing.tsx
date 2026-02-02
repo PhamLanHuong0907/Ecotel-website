@@ -46,7 +46,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-5xl mx-auto mt-8 text-center"
+          className="max-w-5xl mx-auto mt-8 text-left"
         >
           <div className="glass-card p-8 rounded-2xl space-y-4 ">
             <p className="text-lg leading-relaxed">

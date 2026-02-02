@@ -5,7 +5,6 @@ import { FeatureSection } from "@/components/Component_mini/FeatureSection";
 import { CTASection } from "@/components/Component_mini/CTASection";
 // Bộ icon chuyên dụng cho Băng tải & Máy móc
 import { 
-  RefreshCcw, // (Lưu ý: Nếu không có icon Conveyor, dùng Factory hoặc RefreshCw)
   Factory, 
   ThermometerSun, // Icon nhiệt độ cao/động cơ
   Eye, // Icon Camera/AI
@@ -114,7 +113,7 @@ const ConveyorMonitoring = () => {
         />
         
         <a href="/mes">
-            <Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 ">
+            <Button className="w-[100px] h-[50px] ml-[47%] mb-6 group bg-gradient-to-br from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">
                 Trở về
             </Button>
         </a>
