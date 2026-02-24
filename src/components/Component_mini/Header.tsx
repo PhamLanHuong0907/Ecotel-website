@@ -2,54 +2,40 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/ecotel-logo.png";
-import {HashLink} from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link';
+import { useNavigation } from "@/hooks/useNavigation"; // Ensure this path matches where you saved useNavigation.ts
+
 interface DropdownItem {
   label: string;
   href: string;
 }
 
 interface NavItem {
+  id?: string;
   label: string;
   href: string;
   dropdown?: DropdownItem[];
+  is_header?: boolean;
 }
-
-const navItems: NavItem[] = [
-  { label: "TRANG CHỦ", href: "/" },
-  {
-    label: "GIỚI THIỆU",
-    href: "#about",
-    dropdown: [
-      { label: "Giới thiệu chung", href: "/about" },
-      { label: "Đội ngũ lãnh đạo", href: "/about/leadership" },
-      { label: "Khách hàng", href: "/about/customers" },
-    ],
-  },
-  {
-    label: "SẢN PHẨM",
-    href: "#services",
-    dropdown: [
-      { label: "Hệ thống ERP (Enterprise Resource Planning)", href: "/erp" },
-      { label: "Hệ thống MES (Manufacturing Execution System)", href: "/mes"},
-      { label: "Hệ thống AIoT \n (Artificial Intelligence of Things)", href: "/AI&IoT" },
-      { label: "Kho dữ liệu tập trung", href:"/datawarehouse" }
-    ],
-  },
-  {
-    label: "NỔI BẬT",
-    href: "#highlights",
-    dropdown: [
-      { label: "Dự án", href: "#projects" },
-      { label: "Giải thưởng", href: "/prize" },
-      { label: "Triển lãm", href: "#exhibitions" },
-    ],
-  },
-  { label: "TIN TỨC", href: "#blog" },
-];
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  // Fetch data from Supabase
+  const { data: navigationData } = useNavigation();
+
+  // Transform database data to UI structure
+  // 1. Filter: Chỉ lấy các item có is_header = true
+  // 2. Map: Chuyển đổi cấu trúc dữ liệu sang NavItem
+  const navItems: NavItem[] = navigationData
+    ?.filter((item) => item.is_header) // <--- THÊM DÒNG NÀY
+    .map((item) => ({
+      id: item.id,
+      label: item.label,
+      href: item.href,
+      dropdown: (item.dropdown as unknown as DropdownItem[]) || undefined
+    })) || [];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/20">
@@ -57,15 +43,18 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#home" className="flex items-start ml-0 group select-none cursor-pointer">
-            <img src={logo} alt="ECOTEL Logo" className="  h-[53px] w-auto object-contain">
-            </img>
+            <img 
+              src={logo} 
+              alt="ECOTEL Logo" 
+              className="h-[53px] w-auto object-contain" 
+            />
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <div
-                key={item.label}
+                key={item.id || item.label}
                 className="relative"
                 onMouseEnter={() => setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
@@ -78,7 +67,7 @@ export const Header = () => {
                   )}
                 >
                   {item.label}
-                  {item.dropdown && (
+                  {item.dropdown && item.dropdown.length > 0 && (
                     <ChevronDown
                       className={cn(
                         "w-4 h-4 transition-transform duration-200",
@@ -89,12 +78,12 @@ export const Header = () => {
                 </a>
 
                 {/* Dropdown */}
-                {item.dropdown && activeDropdown === item.label && (
+                {item.dropdown && item.dropdown.length > 0 && activeDropdown === item.label && (
                   <div className="absolute top-full left-0 pt-2 animate-fade-up">
                     <div className="glass-card rounded-xl p-2 min-w-[220px] border border-border/50 bg-slate-950">
-                      {item.dropdown.map((subItem) => (
+                      {item.dropdown.map((subItem, index) => (
                         <a
-                          key={subItem.label}
+                          key={`${subItem.label}-${index}`}
                           href={subItem.href}
                           className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-primary hover:bg-secondary/50 rounded-lg transition-colors"
                         >
@@ -110,15 +99,15 @@ export const Header = () => {
 
           {/* CTA Button */}
           <HashLink
-  smooth
-  to="/#contact"
-  className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] text-white font-semibold text-sm hover-lift"
-  style={{ 
-    boxShadow: "0 4px 15px rgba(30, 92, 139, 0.3)", // Đổ bóng theo màu logo cho đồng bộ
-  }}
->
-  Liên hệ ngay
-</HashLink>
+            smooth
+            to="/#contact"
+            className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] text-white font-semibold text-sm hover-lift"
+            style={{ 
+              boxShadow: "0 4px 15px rgba(30, 92, 139, 0.3)", // Đổ bóng theo màu logo cho đồng bộ
+            }}
+          >
+            Liên hệ ngay
+          </HashLink>
 
           {/* Mobile Menu Button */}
           <button
@@ -133,19 +122,19 @@ export const Header = () => {
         {mobileMenuOpen && (
           <nav className="lg:hidden py-4 border-t border-border/30 animate-fade-up">
             {navItems.map((item) => (
-              <div key={item.label}>
+              <div key={item.id || item.label}>
                 <a
                   href={item.href}
                   className="block px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                  onClick={() => !item.dropdown && setMobileMenuOpen(false)}
+                  onClick={() => (!item.dropdown || item.dropdown.length === 0) && setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
-                {item.dropdown && (
+                {item.dropdown && item.dropdown.length > 0 && (
                   <div className="pl-6">
-                    {item.dropdown.map((subItem) => (
+                    {item.dropdown.map((subItem, index) => (
                       <a
-                        key={subItem.label}
+                        key={`${subItem.label}-${index}`}
                         href={subItem.href}
                         className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                         onClick={() => setMobileMenuOpen(false)}

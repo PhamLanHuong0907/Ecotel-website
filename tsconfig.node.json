@@ -3,7 +3,7 @@
     "target": "ES2022",
     "lib": ["ES2023"],
     "module": "ESNext",
-    "skipLibCheck": true,
+    "skiplibCheck": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",

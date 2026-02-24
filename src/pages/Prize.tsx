@@ -1,50 +1,30 @@
-import { Award, Trophy, Star, Medal, ChevronRight, X } from "lucide-react";
-import { useSectionInView } from "@/hooks/useSectionInView";
+import { Award, Trophy, Star, Medal, ChevronRight, X, Loader2 } from "lucide-react";
 import image_banquyen from "@/assets/banquyen.png";
-import { motion, AnimatePresence } from "framer-motion"; // Thêm AnimatePresence nếu muốn hiệu ứng mượt khi đóng
+import { motion, AnimatePresence } from "framer-motion"; 
 import { useState } from "react";
+import { usePrizes } from "@/hooks/usePrizes"; 
 
-// 1. Dữ liệu giải thưởng
-const awardsData = [
-  { 
-    period: "2005", 
-    title: "CUP Đồng Phần Mềm Đóng Gói", 
-    description: "Đạt CUP Đồng lĩnh vực 'Phần mềm thương phẩm' xuất sắc nhất năm 2005 cho sản phẩm phân tích lương.", 
-    icon: Medal,
-    color: "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]", 
-    textColor: "text-[#4eb9e6]",
-    borderColor: "border-amber-500/30"
-  },
-  { 
-    period: "2006", 
-    title: "Giải Sao Khuê 4 Sao", 
-    description: "Đạt giải Sao Khuê 4 sao của VINASA tổ chức cho sản phẩm phần mềm tính lương Esoft Financials.", 
-    icon: Star,
-    color: "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]",
-    textColor: "text-[#4eb9e6]",
-    borderColor: "border-amber-500/30"
-  },
-  { 
-    period: "2006", 
-    title: "CUP Đồng Phần Mềm Đóng Gói", 
-    description: "Đạt CUP Đồng lĩnh vực 'Phần mềm thương phẩm' xuất sắc nhất năm 2005 cho sản phẩm phân tích lương.", 
-    icon: Medal,
-    color: "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]",
-    textColor: "text-[#4eb9e6]",
-    borderColor: "border-amber-500/30"
-  },
-  { 
-    period: "2007", 
-    title: "Giải Sao Khuê 4 Sao", 
-    description: "Đoạt giải Sao Khuê 4 sao của Hiệp hội doanh nghiệp phần mềm Việt Nam trong lĩnh vực phần mềm tính lương.", 
-    icon: Trophy,
-    color: "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]",
-    textColor: "text-[#4eb9e6]",
-    borderColor: "border-amber-500/30"
-  },
-];
+// Type định nghĩa cho Prize item
+interface PrizeItem {
+  id?: string | number;
+  icon?: string;
+  color?: string;
+  text_color?: string;
+  border_color?: string;
+  period: string;
+  title: string;
+  description: string;
+}
 
-// 2. Dữ liệu Bản quyền
+// Hàm chuyển đổi tên Icon từ Database sang Component thực tế
+const resolveIcon = (iconName: string | null): React.ComponentType<{ className?: string }> => {
+  const icons: Record<string, React.ComponentType<{ className?: string }>> = {
+    Award, Trophy, Star, Medal
+  };
+  return iconName && icons[iconName] ? icons[iconName] : Award; 
+};
+
+// Dữ liệu Bản quyền tĩnh
 const copyrightData = {
   title: "Giấy Chứng Nhận Đăng Ký Quyền Tác Giả",
   productName: "Phần mềm Quản lý tài sản",
@@ -55,36 +35,67 @@ const copyrightData = {
   issuer: "Cục Bản Quyền Tác Giả - Bộ VH, TT & DL"
 };
 
-const AwardItem = ({ item, index, isVisible, totalItems }: { item: typeof awardsData[0]; index: number; isVisible: boolean; totalItems: number }) => {
+// Component AwardItem sử dụng trực tiếp framer-motion thay vì isVisible
+const AwardItem = ({ item, index, totalItems }: { item: PrizeItem; index: number; totalItems: number }) => {
+  const IconComponent = resolveIcon(item.icon);
+  
+  const colorClass = item.color || "from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]";
+  const textColorClass = item.text_color || "text-[#4eb9e6]";
+  const borderColorClass = item.border_color || "border-amber-500/30";
+
   return (
-    <div className="flex-1 flex flex-col items-center relative group min-w-[280px]">
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.15 }}
+      className="flex-1 flex flex-col items-center relative group min-w-[280px]"
+    >
       {/* Đường nối ngang */}
       {index < totalItems - 1 && (
-        <div className={`hidden md:block absolute top-10 left-1/2 w-full h-[2px] bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] transition-all duration-1000 ${isVisible ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"} origin-left z-0`} style={{ transitionDelay: `${index * 200 + 300}ms` }}>
+        <motion.div 
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: index * 0.15 + 0.3 }}
+          className={`hidden md:block absolute top-10 left-1/2 w-full h-[2px] bg-gradient-to-r ${colorClass} origin-left z-0`}
+        >
             <div className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 text-amber-500/50`}>
                <ChevronRight size={20} />
             </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Icon Section */}
       <div className="relative z-10 flex flex-col items-center">
-        <div className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg transition-all duration-500 ${isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"}`} style={{ transitionDelay: `${index * 200}ms` }}>
-          <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${item.color} animate-pulse-slow opacity-50 blur-md`} />
-          <item.icon className="w-10 h-10 text-white relative z-10" />
-        </div>
+        <motion.div 
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: "spring", stiffness: 100, delay: index * 0.15 }}
+          className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${colorClass} flex items-center justify-center shadow-lg`}
+        >
+          <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${colorClass} animate-pulse-slow opacity-50 blur-md`} />
+          <IconComponent className="w-10 h-10 text-white relative z-10" />
+        </motion.div>
         
         {/* Đường nối dọc */}
-        <div className={`w-1 h-12 bg-gradient-to-b from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] transition-all duration-500 ${isVisible ? "scale-y-100" : "scale-y-0"} origin-top`} style={{ transitionDelay: `${index * 200 + 150}ms` }} />
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
+          className={`w-1 h-12 bg-gradient-to-b ${colorClass} origin-top`} 
+        />
       </div>
 
       {/* Content Card */}
-      <div className={`w-full mt-2 px-2 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: `${index * 200 + 300}ms` }}>
+      <div className="w-full mt-2 px-2">
         <div className={`glass-card rounded-2xl p-6 hover-lift relative overflow-hidden h-full border-t-4 border-t-[#4eb9e6]`}>
           <div className="flex justify-center mb-4">
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${item.borderColor} bg-white backdrop-blur-sm`}>
-              <Award className={`w-4 h-4 ${item.textColor}`} />
-              <span className={`text-sm font-bold ${item.textColor}`}>{item.period}</span>
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${borderColorClass} bg-white backdrop-blur-sm`}>
+              <Award className={`w-4 h-4 ${textColorClass}`} />
+              <span className={`text-sm font-bold ${textColorClass}`}>{item.period}</span>
             </div>
           </div>
           <h3 className="text-lg font-bold text-foreground mb-3 text-center group-hover:text-primary transition-colors min-h-[56px] flex items-center justify-center">
@@ -95,13 +106,26 @@ const AwardItem = ({ item, index, isVisible, totalItems }: { item: typeof awards
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export const AwardsSection = () => {
-  const { ref, isVisible } = useSectionInView();
   const [showCert, setShowCert] = useState(false);
+  
+  // Gọi API lấy dữ liệu từ Supabase
+  const { data: prizes, isLoading } = usePrizes();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-[50vh] flex items-center justify-center">
+        <Loader2 className="w-10 h-10 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  // Khởi tạo mảng dữ liệu lấy từ DB
+  const awardsData = prizes || [];
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -123,23 +147,30 @@ export const AwardsSection = () => {
           </h2>
         </div>
         
-        <div className="overflow-x-auto pb-4 hide-scrollbar mb-24">
-            <div ref={ref} className="flex flex-col md:flex-row gap-8 md:gap-4 justify-between items-stretch min-w-[300px] md:min-w-0 max-w-7xl mx-auto">
-            {awardsData.map((item, index) => (
-                <AwardItem 
-                    key={index} 
-                    item={item} 
-                    index={index} 
-                    isVisible={isVisible} 
-                    totalItems={awardsData.length}
-                />
-            ))}
-            </div>
-        </div>
+        {awardsData.length > 0 ? (
+          <div className="overflow-x-auto pb-4 hide-scrollbar mb-24">
+              <div className="flex flex-col md:flex-row gap-8 md:gap-4 justify-between items-stretch min-w-[300px] md:min-w-0 max-w-7xl mx-auto">
+              {awardsData.map((item, index) => (
+                  <AwardItem 
+                      key={item.id || index} 
+                      item={item} 
+                      index={index} 
+                      totalItems={awardsData.length}
+                  />
+              ))}
+              </div>
+          </div>
+        ) : (
+          <p className="text-center text-muted-foreground mb-24">Chưa có dữ liệu giải thưởng.</p>
+        )}
 
         {/* === PHẦN 2: BẢN QUYỀN MỚI (Trigger Card) === */}
-        <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`} style={{ transitionDelay: '800ms' }}>
-            
+        <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+        >
             <div className="text-center mb-10">
                  <h3 className="text-3xl font-bold text-foreground">
                    Bản Quyền & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">Sở Hữu Trí Tuệ</span>
@@ -181,11 +212,10 @@ export const AwardsSection = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
       </div>
 
-      {/* === PHẦN MODAL POPUP (ĐƯA RA NGOÀI CÙNG) === */}
-      {/* Nằm ngoài các div transform để fixed hoạt động đúng */}
+      {/* === PHẦN MODAL POPUP === */}
       <AnimatePresence>
       {showCert && (
         <motion.div
@@ -193,10 +223,9 @@ export const AwardsSection = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', backdropFilter: 'blur(8px)' }} // Inline style để chắc chắn đè CSS khác
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', backdropFilter: 'blur(8px)' }}
             onClick={() => setShowCert(false)}
         >
-            {/* Nút đóng nổi bật */}
             <button
                 onClick={() => setShowCert(false)}
                 className="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-red-500 hover:rotate-90 transition-all duration-300 z-50 border border-white/20 backdrop-blur-md"
@@ -204,12 +233,11 @@ export const AwardsSection = () => {
                 <X className="w-6 h-6" />
             </button>
             
-            {/* Ảnh phóng to */}
             <motion.div 
                 initial={{ scale: 0.9, opacity: 0, y: 20 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                onClick={(e) => e.stopPropagation()} // Chặn click xuyên qua
+                onClick={(e) => e.stopPropagation()} 
                 className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center"
             >
                 <img
