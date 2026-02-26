@@ -7,7 +7,7 @@ export const HeroSection = () => {
 
   return (
     <div
-      className="relative w-full h-[90vh] overflow-hidden" // Thay đổi: h-screen (100vh) và overflow-hidden
+      className="relative w-full h-[90vh] overflow-hidden min-h-screen" // Thay đổi: h-screen (100vh) và overflow-hidden
       style={{
         backgroundImage: `url(${background_about1})`,
         backgroundSize: "cover", // Thay đổi: cover để ảnh phủ kín màn hình

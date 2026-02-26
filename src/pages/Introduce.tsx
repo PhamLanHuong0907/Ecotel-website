@@ -9,15 +9,16 @@ import { BranchesSection } from "@/components/About/BranchesSection";
 const About = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
+      
       <Header />
-      <main className="pt-24">
+        
         <HeroSection />
         <TimelineSection />
         <OrganizationSection />
         <VisionMissionSection />
         <TechnologiesSection />
         <BranchesSection />
-      </main>
+    
       <Footer />
     </div>
   );

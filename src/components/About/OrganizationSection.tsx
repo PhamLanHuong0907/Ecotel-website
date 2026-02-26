@@ -43,7 +43,7 @@ export const OrganizationSection = () => {
 
           {/* LEVEL 2: Branching Line (Horizontal) */}
           <div className="flex justify-between w-[60%] bg-slate-400">
-            <div className={`w-full border-t-2 ${lineColor} rounded-tl-lg`}></div>
+            <div className={`w-full  rounded-tl-lg`}></div>
             <div className={`w-full border-t-2 ${lineColor} rounded-tr-lg`}></div>
           </div>
 
@@ -52,7 +52,7 @@ export const OrganizationSection = () => {
             {orgStructure.departments.map((dept) => (
               <div key={dept.title} className="flex flex-col items-center w-1/2">
                 <div className={`h-8 w-[2px] bg-slate-400 -mt-[2px]`}></div>
-                <div className={`w-56 py-4 bg-gradient-to-b from-[#7EBDEF] to-[#2A70A5] text-white font-bold text-lg text-center uppercase border border-gray-400 rounded-md mb-6 ${nodeShadow}`}>{dept.title}</div>
+                <div className={`w-56 py-4 bg-gradient-to-b from-[#7EBDEF] to-[#2A70A5] text-white font-bold text-lg text-center uppercase rounded-md mb-6 ${nodeShadow}`}>{dept.title}</div>
                 <div className={`h-6 w-[2px] bg-slate-400 -mt-6`}></div>
                 <div className={`w-[90%] border-t-2  bg-slate-400 ${lineColor}`}></div>
 
@@ -61,7 +61,7 @@ export const OrganizationSection = () => {
                   {dept.children.map((child) => (
                     <div key={child} className="flex flex-col items-center px-2 flex-1">
                       <div className={`h-6 w-[2px] bg-slate-400`}></div>
-                      <div className={`w-full h-full min-h-[80px] flex items-center justify-center p-2 bg-gradient-to-b from-[#D0EFFF] to-[#7EBDEF] text-white font-semibold text-sm text-center  border border-slate-500 rounded-sm hover:-translate-y-1 transition-transform duration-300 ${nodeShadow}`}>
+                      <div className={`w-full h-full min-h-[80px] flex items-center justify-center p-2 bg-gradient-to-b from-[#D0EFFF] to-[#7EBDEF] text-white font-semibold text-sm text-center  rounded-sm hover:-translate-y-1 transition-transform duration-300 ${nodeShadow}`}>
                         {child}
                       </div>
                     </div>
