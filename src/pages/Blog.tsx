@@ -22,17 +22,21 @@ export const BlogsSection = () => {
   const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
+  // LỌC DỮ LIỆU: Chỉ lấy những bài viết có trạng thái published === true
+  const publishedBlogs = blogs?.filter(blog => blog.published) || [];
+
   // Pagination: 6 items mỗi trang (2 Card bên phải + 4 Card nhỏ bên dưới)
   const ITEMS_PER_PAGE = 6; 
   const AUTO_PLAY_DELAY = 5000;
   
-  const totalItems = blogs?.length || 0;
+  // Dùng publishedBlogs thay cho blogs
+  const totalItems = publishedBlogs.length;
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
-  const currentBlogs = blogs?.slice(
+  const currentBlogs = publishedBlogs.slice(
     currentPage * ITEMS_PER_PAGE,
     (currentPage + 1) * ITEMS_PER_PAGE
-  ) || [];
+  );
 
   useEffect(() => {
     if (isPaused || totalItems === 0) return;
@@ -61,16 +65,17 @@ export const BlogsSection = () => {
     );
   }
 
-  if (!blogs || blogs.length === 0) return null;
+  // Nếu không có bài viết nào được xuất bản thì ẩn section
+  if (publishedBlogs.length === 0) return null;
 
-  const featuredBlog = blogs[featuredIndex];
+  const featuredBlog = publishedBlogs[featuredIndex];
 
   return (
     <section id="Blogs" className="py-24 relative overflow-hidden bg-background">
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#1e5c8b]/10 text-[#4eb9e6] dark:bg-amber-900/30 dark:text-amber-400 mb-4">
-             Tin tức & Sự kiện
+              Tin tức & Sự kiện
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">Tin tức nổi bật</span>
@@ -82,11 +87,9 @@ export const BlogsSection = () => {
           onMouseEnter={() => setIsPaused(true)} 
           onMouseLeave={() => setIsPaused(false)}
         >
-            {/* Đã gỡ lg:auto-rows-[220px] để grid tự dãn hàng theo chiều cao các thẻ */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               
               {/* === KHỐI 1: ẢNH ĐỘNG TO (Bên trái) === */}
-              {/* Thêm lg:h-[464px] để ép chiều cao cho 2 rows */}
               <div
                 onClick={() => handleOpenBlog(featuredBlog)}
                 className="md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-2 relative group overflow-hidden rounded-xl cursor-pointer isolate shadow-md hover:shadow-xl transition-all min-h-[300px] lg:h-[464px]"
@@ -131,7 +134,8 @@ export const BlogsSection = () => {
 
                 {totalItems <= 10 && (
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-                    {blogs.map((_, idx) => (
+                    {/* Dùng publishedBlogs.map thay vì blogs.map */}
+                    {publishedBlogs.map((_, idx) => (
                       <button
                         key={idx}
                         onClick={(e) => {
@@ -152,7 +156,6 @@ export const BlogsSection = () => {
                 const isSideCard = index === 0 || index === 1;
                 const gridClass = isSideCard ? "md:col-span-1 lg:col-span-2 lg:row-span-1" : "col-span-1";
                 const paddingClass = isSideCard ? "p-4 lg:p-5" : "p-0"; 
-                // Xử lý chiều cao phân biệt cho 2 loại thẻ trên màn lg
                 const heightClass = isSideCard ? "lg:h-[220px]" : "lg:h-[348px]";
 
                 return (
@@ -162,9 +165,6 @@ export const BlogsSection = () => {
                     className={`flex flex-col glass-card rounded-xl cursor-pointer group hover:border-[#338bcf]/50 transition-all hover-lift bg-card overflow-hidden ${gridClass} ${heightClass} ${paddingClass}`}
                   >
                     {isSideCard ? (
-                      // ----------------------------------------------------
-                      // LAYOUT CHO 2 CARD BÊN PHẢI (Có ảnh thumbnail & tóm tắt)
-                      // ----------------------------------------------------
                       <>
                         <h3 className="font-bold text-foreground mb-3 line-clamp-2 group-hover:text-[#338bcf] transition-colors leading-snug text-lg">
                           {blog.title}
@@ -191,7 +191,6 @@ export const BlogsSection = () => {
                           </p>
                         </div>
 
-                        {/* Chân thẻ */}
                         <div className="flex items-center justify-between mt-auto pt-3 border-t-2  text-xs text-muted-foreground">
                           <div className="flex items-center gap-3">
                             <span className="flex items-center gap-1 font-medium text-foreground/80">
@@ -209,11 +208,7 @@ export const BlogsSection = () => {
                         </div>
                       </>
                     ) : (
-                      // ----------------------------------------------------
-                      // LAYOUT CHO CÁC CARD BÊN DƯỚI (Ảnh tràn viền toàn bộ)
-                      // ----------------------------------------------------
                       <>
-                        {/* Ảnh full viền chiều ngang */}
                         <div className="w-full h-[200px] relative bg-muted shrink-0 border-b border-border/50">
                           {blog.image ? (
                             <img 
@@ -228,13 +223,11 @@ export const BlogsSection = () => {
                           )}
                         </div>
                         
-                        {/* Khu vực nội dung bên dưới ảnh */}
                         <div className="p-4 flex flex-col flex-1">
                           <h3 className="font-bold text-foreground mb-3 line-clamp-2 group-hover:text-[#338bcf] transition-colors leading-snug text-base">
                             {blog.title}
                           </h3>
 
-                          {/* Chân thẻ */}
                           <div className="flex items-center justify-between mt-auto pt-3 border-t-2  text-xs text-muted-foreground">
                             <div className="flex items-center gap-3">
                               <span className="flex items-center gap-1 font-medium text-foreground/80">
@@ -281,7 +274,7 @@ export const BlogsSection = () => {
         isOpen={isViewerOpen}
         onClose={() => setIsViewerOpen(false)}
         fileUrl={selectedBlog?.url_word || null} 
-        title={selectedBlog?.title || "Chi tiết dự án"}
+        title={selectedBlog?.title || "Chi tiết bài viết"}
       />
     </section>
   );
