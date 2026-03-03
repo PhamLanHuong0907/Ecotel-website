@@ -3,7 +3,7 @@ import { Footer } from "@/components/Component_mini/Footer";
 import { HeroSection } from "@/components/Customer/HeroSection_Customer";
 import Customer_Card from "@/components/Customer/Customer_card";
 import Customer_Testimonials from "@/components/Customer/Testimonials";
-import { CTASection } from "@/components/Component_mini/CTASection";
+import { ContactSection } from "@/components/Home/ContactSection";
 
 export default function Customers() {
   return (
@@ -13,7 +13,7 @@ export default function Customers() {
         <HeroSection />
         <Customer_Card />
         <Customer_Testimonials/>
-        <CTASection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

@@ -1,30 +1,24 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { ArrowRight, Check } from "lucide-react";
 
 // 1. Định nghĩa kiểu dữ liệu cho thẻ Card
 export interface HighlightCard {
   id: string | number;
   title: string;
-  description: string; // Hỗ trợ xuống dòng bằng \n
+  description: string;
   image: string;
 }
 
 // 2. Định nghĩa Props cho toàn bộ Module
 interface HeroSectionModuleProps {
-  /** Ảnh nền chính cho phần Hero (Banner lớn) */
   backgroundImage: string;
-  /** Tiêu đề chính (VD: HỆ THỐNG AIoT) */
   title: string;
-  /** Phụ đề nằm trong ngoặc đơn (VD: Artificial Intelligence of Things) */
   subtitle?: string;
-  /** Câu Slogan in nghiêng bên dưới */
   slogan?: string;
-  /** Tiêu đề cho phần danh sách card (Mặc định: "Lợi ích nổi bật") */
   cardsSectionTitle?: string;
-  /** Danh sách các card lợi ích */
   cards: HighlightCard[];
-  /** Chiều cao của phần Hero (Mặc định: "75vh" hoặc "65vh" tùy chỉnh) */
-  heroHeight?: string; 
+  heroHeight?: string;
 }
 
 export const HeroSectionModule = ({
@@ -34,11 +28,11 @@ export const HeroSectionModule = ({
   slogan,
   cardsSectionTitle = "Lợi ích nổi bật",
   cards,
-  heroHeight = "50vh" // Giá trị trung bình giữa 65vh và 75vh
+  heroHeight = "70vh"
 }: HeroSectionModuleProps) => {
   const [currentTheme, setCurrentTheme] = useState('dark');
 
-  // --- Logic theo dõi Theme (Giữ nguyên từ code cũ) ---
+  // --- Logic theo dõi Theme ---
   useEffect(() => {
     const observer = new MutationObserver(() => {
       const isLight = document.documentElement.classList.contains('light');
@@ -69,10 +63,7 @@ export const HeroSectionModule = ({
           backgroundImage: `url(${backgroundImage})`,
         }}
       >
-        {/* Lớp Overlay tối */}
-        <div className="absolute inset-0 bg-[#1a3a5c]/80" /> 
-        
-        {/* Background Effects (Giữ nguyên hiệu ứng) */}
+        <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
         <div className="absolute top-0 left-1/5 w-100 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute top-20 right-1/5 w-100 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
@@ -84,64 +75,103 @@ export const HeroSectionModule = ({
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 drop-shadow-lg uppercase">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold animate-fade-up-delay-1 pt-6 pb-3 gradient-text -mt-12 ">
               {title}
             </h1>
             {subtitle && (
-              <p className="text-xl md:text-2xl text-white/90 mb-4 drop-shadow-md">
-                ({subtitle})
+              <p className="mt-3 pb-6 text-foreground text-[36px] font-bold animate-fade-up-delay-1 pt-3 [.light_&]:text-white">
+                {subtitle}
               </p>
             )}
             {slogan && (
-              <p className="text-2xl md:text-3xl text-white/80 italic drop-shadow-md">
+              <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 animate-fade-up-delay-2 font-medium">
                 {slogan}
               </p>
             )}
           </motion.div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 animate-fade-up-delay-3">
+            <a
+              href="#services"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] text-white font-semibold hover-lift shadow-lg shadow-primary/20"
+            >
+              Khám phá dịch vụ
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#about"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm text-foreground font-semibold hover:bg-secondary/80 transition-all"
+            >
+              Tìm hiểu thêm
+            </a>
+          </div>
         </div>
-
-        {/* Gradient mờ dần ở đáy (Ẩn khi light mode) */}
+        
         {currentTheme !== 'light' && (
           <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent" />
         )}
       </section>
 
-      {/* --- PHẦN 2: HIGHLIGHT CARDS --- */}
-      <section className="bg-background flex items-start flex-1">
-        <div className="container mx-auto px-4 h-full py-6">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary items-center justify-center mb-10 mt-10 text-center">
-            {cardsSectionTitle}
-          </h2>
+      {/* --- PHẦN 2: HIGHLIGHT CARDS (ĐÃ SỬA) --- */}
+      <section className="bg-background flex flex-col items-center w-full">
+        <div className="container mx-auto px-4 py-12">
           
-          <div className="grid md:grid-cols-3 gap-6 h-full pb-10">
-            {cards.map((card, index) => (
-              <motion.div
-                key={card.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="relative  min-h-[250px] rounded-xl overflow-hidden group cursor-pointer shadow-lg border border-white/10 "
-              >
-                {/* Layer 1: Background Image */}
-                <div
-                  className="absolute inset-0 bg-cover h-[35vh] bg-left transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${card.image})` }}
-                />
+          {/* Header Section */}
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
+              Lợi ích nổi bật
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2 mt-4">
+              {cardsSectionTitle}
+            </h2>
+          </div>
 
-                {/* Layer 2: Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1e5c8b]/90 via-[#1e5c8b]/40 to-transparent transition-opacity duration-500 opacity-100" />
+          {/* Cards Container */}
+          {/* SỬA: Bỏ grid ở thẻ cha này, chỉ dùng w-full */}
+          <div className="w-full pb-10"> 
+            {cards && cards.length > 0 && (
+  <motion.div 
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.4 }}
+    // Grid chính nằm ở đây: 1 cột trên mobile, 3 cột trên PC
+    className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
+  >
+    {cards.map((card) => (
+                  <div 
+                    key={card.id}
+                    // THÊM class glass-card VÀO ĐÂY
+                    className="glass-card group relative h-full flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                  >
+                    {/* Lớp 3: Content Container */}
+                    <div className="relative z-10 flex h-full flex-col p-8">
+                      
+                      {/* Title */}
+                      <h3 className="mb-6 text-2xl font-bold text-white transition-colors group-hover:text-primary drop-shadow-md">
+                        {card.title}
+                      </h3>
 
-                {/* Layer 3: Content */}
-                <div className="relative h-full flex flex-col justify-start p-6 w-full z-10 transition-opacity duration-500 whitespace-pre-line opacity-100">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight drop-shadow-md max-w-[250px]">
-                    {card.title}
-                  </h3>
-                  <p className="text-slate-50 text-sm md:text-base mb-6 line-clamp-none max-w-[280px]">
-                    {card.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                      {/* Description Bullet List */}
+                      <ul className="flex-1 space-y-4">
+                        {card.description
+                          .split('\n')
+                          .filter(line => line.trim() !== '')
+                          .map((line, index) => (
+                            <li key={index} className="flex items-start text-left">
+                              <div className="mt-1 mr-3 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary border border-primary/30 shadow-inner">
+                                <Check className="h-3 w-3" strokeWidth={3} />
+                              </div>
+                              
+                              <span className="text-base leading-relaxed text-gray-100 font-medium shadow-black drop-shadow-sm">
+                                {line.trim()}
+                              </span>
+                            </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+  </motion.div>
+)}
           </div>
         </div>
       </section>

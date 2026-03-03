@@ -29,7 +29,7 @@ export const ServicesSection = ({
   buttonText = "Xem chi tiết" 
 }: ServicesSectionProps) => {
   return (
-    <section className="py-20">
+    <section >
       <div className="container mx-auto px-4">
         
         {/* Section Title */}
@@ -75,7 +75,7 @@ export const ServicesSection = ({
                   {service.title}
                 </h3>
                 
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <div className="space-y-4 text-muted-foreground leading-relaxed text-justify">
                   {/* Tách chuỗi description dựa trên \n\n để tạo các đoạn văn riêng biệt */}
                   {service.description.split('\n\n').map((paragraph, idx) => (
                     <p key={idx}>{paragraph}</p>

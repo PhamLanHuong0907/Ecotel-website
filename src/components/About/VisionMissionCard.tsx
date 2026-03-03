@@ -40,7 +40,7 @@ export const VisionMissionSection = () => {
   const { ref, isVisible } = useSectionInView();
 
   return (
-    <section ref={ref} className="py-24 bg-secondary/30 relative overflow-hidden">
+    <section ref={ref} className="py-11 bg-secondary/30 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-accent/5 blur-3xl" />
@@ -58,8 +58,8 @@ export const VisionMissionSection = () => {
           ))}
         </div>
         <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold text-foreground mb-2">Giá trị cốt lõi</h3>
-          <p className="text-muted-foreground">Tập hợp những niềm tin, lý tưởng và định hướng của ECOTEL</p>
+          <h3 className="text-2xl font-bold text-foreground mb-2">Tập hợp những niềm tin, lý tưởng và định hướng của ECOTEL</h3>
+          
         </div>
         <div className="flex justify-center">
           <div className="relative w-[500px] h-[500px]">

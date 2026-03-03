@@ -4,7 +4,7 @@ const stats = [
   {
     icon: TrendingUp,
     value: 20,
-  suffix: "+",
+    suffix: "+",
     label: "Năm kinh nghiệm",
     description: "Tư vấn và triển khai các giải pháp chuyển đổi số đa lĩnh vực, kết hợp trí tuệ nhân tạo vạn vật ứng dụng (AIoT)",
   },

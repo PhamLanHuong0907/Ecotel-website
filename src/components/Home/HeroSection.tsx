@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Cpu, Network, Shield, TrendingUp, Briefcase, Users2, Trophy } from "lucide-react";
-import heroBackground from "@/assets/hero-background.webp";
+import heroBackground from "@/assets/Screenshot 2026-03-01 155032.png";
 import Home_StatsSection from "./StatsSection";
 
 export const HeroSection = () => {
@@ -11,42 +11,22 @@ export const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-"
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
-      
-      {/* FIX 1: Overlay
-         - Dark Mode: Giữ nguyên lớp phủ tối màu để làm nổi bật chữ trắng.
-         - Light Mode: Dùng lớp phủ trắng nhưng ĐẬM HƠN (90-95%) để che bớt ảnh nền, 
-           giúp chữ đen đọc được dễ dàng hơn.
-      */}
-
-
-          
-           <div 
-  className={
-    "absolute inset-0 " +
-    "bg-gradient-to-b from-background/80 via-background/40 to-background/80 " +
-    "[.light_&]:from-gray-950/80 [.light_&]:via-gray-300/30 [.light_&]:to-gray-600/20"
-  }
-/>
-      
-
-      {/* Floating Elements - Glass card tự động đẹp nhờ CSS glass-card đã sửa trước đó */}
-      
-
+      <div className="absolute inset-0 bg-black/30"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold  animate-fade-up-delay-1 pt-6 ">
-            <span className="pt-3 pb-3 gradient-text drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">ECOTEL</span>
+            <span className="pt-3 pb-3 gradient-text">ECOTEL</span>
           </h1>  
             <br/>
-            <span className="mt-3 pb-6 text-foreground text-[35px] font-bold animate-fade-up-delay-1 pt-3 [.light_&]:text-white">TIÊN PHONG CHUYỂN ĐỔI SỐ DOANH NGHIỆP</span>
+            <span className="mt-3 pb-6 text-foreground text-[30px] font-bold animate-fade-up-delay-1 pt-3 [.light_&]:text-white">TIÊN PHONG CHUYỂN ĐỔI SỐ DOANH NGHIỆP</span>
           <div className="h-6"/>
           {/* FIX 2: Subtitle Text Color
              - text-gray-600: Màu xám đậm cho Light Mode (để đọc được trên nền trắng).
              - dark:text-gray-200: Màu xám sáng cho Dark Mode (để đọc được trên nền đen).
           */}
-          <p className="text-lg md:text-xl text-gray-200 [.light_&]:text-black max-w-2xl mx-auto mb-10 animate-fade-up-delay-2 font-medium">
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 animate-fade-up-delay-2 font-medium">
   ECOTEL đồng hành cùng doanh nghiệp trong hành trình số hóa, <br className="hidden md:block" />
   tối ưu vận hành và nâng cao năng lực cạnh tranh.
 </p>

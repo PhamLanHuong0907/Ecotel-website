@@ -20,7 +20,7 @@ const highlights = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-7 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent" />
       
@@ -37,18 +37,18 @@ export const AboutSection = () => {
               <br />
               <span className="text-foreground">chuyển đổi số tại Việt Nam</span>
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-5 text-justify">
               ECOTEL - doanh nghiệp tiên phong trong chuyển đổi số ngành khai thác, sản xuất và chế biến, tối ưu hóa quy trình 
               vận hành và quản lý dữ liệu. Ứng dụng AI, IoT và Big Data, chúng tôi mang đến giải pháp thông minh, giúp doanh nghiệp
               nâng cao hiệu suất, giảm chi phí và đảm bảo an toàn.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="text-muted-foreground leading-relaxed mb-5 text-justify">
               Với kinh nghiệm sâu rộng triển khai các dự án quy mô lớn, độ phức tạp cao, 
               ECOTEL cam kết mang đến những giải pháp chất lượng, tối ưu chi phí và đảm bảo tiến độ thực hiện.
             </p>
 
             <div className="space-y-4">
-              {["Giải pháp chuyển đổi số toàn diện", "Tùy chỉnh linh hoạttheo nhu cầu khách hàng", "Khả năng mở rộng quy mô, đáp ứng quy mô phát triển dài hạn"].map((item, index) => (
+              {["Giải pháp chuyển đổi số toàn diện", "Tùy chỉnh linh hoạt theo nhu cầu khách hàng", "Khả năng mở rộng quy mô, đáp ứng quy mô phát triển dài hạn"].map((item, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
                   <span className="text-foreground">{item}</span>

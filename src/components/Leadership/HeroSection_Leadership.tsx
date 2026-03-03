@@ -1,6 +1,6 @@
 import { Sparkles, Quote } from "lucide-react";
 import { useSectionInView } from "@/hooks/useSectionInView";
-import leader from "@/assets/leader2.png"
+import leader from "@/assets/Screenshot 2026-03-01 155032.png"
 import Value_StatsSection from "./ValuesSection";
 export const HeroSection = () => {
   const { ref, isVisible } = useSectionInView();
@@ -15,17 +15,18 @@ export const HeroSection = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-    <section ref={ref} className="relative pt-32 pb-20 overflow-hidden min-h-screen">
+    <div className="absolute inset-0 bg-black/30"></div>
+    <section ref={ref} className="relative overflow-hidden min-h-screen">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
         {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+        
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 mt-32">
         <div className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6 ">
@@ -34,8 +35,8 @@ export const HeroSection = () => {
     
           </h1>
           
-          <p className="text-lg text-foreground max-w-2xl mx-auto leading-relaxed [.light_&]:text-white">
-            Đội ngũ lãnh đạo giàu kinh nghiệm và tâm huyết, luôn nỗ lực không ngừng để đưa công ty phát triển vững mạnh và mang đến những giải pháp công nghệ tốt nhất.
+          <p className="text-lg text-foreground max-w-3xl mx-auto leading-relaxed [.light_&]:text-white">
+            Đội ngũ lãnh đạo giàu kinh nghiệm và tâm huyết, luôn nỗ lực không ngừng để đưa <br/> công ty phát triển vững mạnh và mang đến những giải pháp công nghệ tốt nhất.
           </p>
         </div>
         

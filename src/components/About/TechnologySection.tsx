@@ -68,7 +68,7 @@ export const TechnologiesSection = () => {
   };
 
   return (
-    <section className="py-24">
+    <section className="py-11">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Năng lực công nghệ</span>

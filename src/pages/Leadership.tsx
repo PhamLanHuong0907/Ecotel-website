@@ -3,7 +3,7 @@ import { Footer } from "@/components/Component_mini/Footer";
 import { HeroSection } from "@/components/Leadership/HeroSection_Leadership";
 
 import {TeamSection} from "@/components/Leadership/TeamSection";
-import { CTASection } from "@/components/Component_mini/CTASection";
+import { ContactSection } from "@/components/Home/ContactSection";
 
 export default function Leadership() {
   return (
@@ -13,7 +13,7 @@ export default function Leadership() {
         <HeroSection />
        
         <TeamSection />
-        <CTASection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

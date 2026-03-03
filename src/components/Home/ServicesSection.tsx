@@ -1,4 +1,4 @@
-import { Factory, Home, Globe, ArrowRight, Activity, Settings, Cpu, ShieldCheck } from "lucide-react";
+import { Factory, Home, Globe, ArrowRight, Activity, Settings, Cpu, ShieldCheck, type LucideIcon } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { HashLink } from 'react-router-hash-link';
 import {
@@ -19,7 +19,7 @@ interface ServiceImage {
 }
 
 // 1. Tạo Map để ánh xạ tên icon từ Database sang Component Lucide
-const IconMap: Record<string, any> = {
+const IconMap: Record<string, LucideIcon> = {
   Factory: Factory,
   Home: Home,
   Globe: Globe,
@@ -37,7 +37,7 @@ export const ServicesSection = () => {
 
   if (isLoading) {
     return (
-      <section className="py-24 flex justify-center items-center min-h-[400px]">
+      <section className="py-7 flex justify-center items-center min-h-[400px]">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
       </section>
     );
@@ -49,7 +49,7 @@ export const ServicesSection = () => {
   }
 
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="py-11 relative">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
 
@@ -100,11 +100,11 @@ export const ServicesSection = () => {
                   <h3 className="text-xl md:text-2xl font-bold text-foreground">{service.title}</h3>
                   
                   {/* Xử lý hiển thị mô tả có xuống dòng */}
-                  <div className="text-muted-foreground leading-relaxed">
+                  <div className="text-muted-foreground leading-relaxed text-justify">
                     {service.description?.split('\n').map((line, i) => (
                       <span key={i}>
                         {line}
-                        <br />
+                        <div className="mb-5" />
                       </span>
                     ))}
                   </div>

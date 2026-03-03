@@ -17,6 +17,7 @@ import ServicePage from "./pages/ServicePage";
 import ProductsPage from "./pages/ProductsPage";
 import { BlogsSection } from "./pages/Blog";
 import BlogPage from "./pages/BlogPage";
+import ProjectsPage from "./pages/Projects";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/:serviceSlug" element={<ServicePage />} />
           <Route path="/:serviceSlug/:productSlug" element={<ProductsPage />} />
           <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/du-an" element={<ProjectsPage />} />
         </Routes>
 
         {/* [NEW] Đặt nút đổi màu ở góc màn hình. 

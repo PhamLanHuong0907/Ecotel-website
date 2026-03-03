@@ -7,12 +7,12 @@ export const BranchesSection = () => {
   const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressString)}`;
 
   return (
-    <section className="py-24 bg-secondary/30">
+    <section className="py-11 bg-secondary/30">
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
-            Liên hệ
+            Văn phòng
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
             Văn phòng <span className="gradient-text">tại Hà Nội</span>

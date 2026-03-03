@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { supabase } from "@/integration/client"; 
 import { Header } from "@/components/Component_mini/Header";
 import { Footer } from "@/components/Component_mini/Footer";
+import { ContactSection } from "@/components/Home/ContactSection";
 import { HeroSectionModule } from "@/components/Component_mini/HeroSection_Module";
 import { ServicesSection } from "@/components/Component_mini/ServicesSection_module";
 import { Database } from "@/integration/types"; 
@@ -170,14 +171,21 @@ const ServicePage = () => {
             cards={processedHeroCards} 
           />
         )}
-
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-6">
+            Danh sách sản phẩm
+          </span>
+        </div>
         {productsData.length > 0 && (
           <ServicesSection 
             sectionTitle={`Các sản phẩm của ${service.title}`}
             items={mappedServices} 
           />
         )}
+        
       </main>
+      <div className="h-11" />
+      <ContactSection />
       <Footer />
     </div>
   );

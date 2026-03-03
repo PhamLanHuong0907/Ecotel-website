@@ -15,7 +15,7 @@ export const OrganizationSection = () => {
   const nodeShadow = "shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]";
 
   return (
-    <section ref={ref} className="py-24 overflow-x-auto">
+    <section ref={ref} className="py-11 overflow-x-auto">
       <div className="container mx-auto px-4 min-w-[1000px]">
         <div className="text-center mb-16 sticky left-0 right-0">
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Cơ cấu tổ chức</span>

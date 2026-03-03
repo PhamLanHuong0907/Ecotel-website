@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="theme-noel">
+<html lang="vi" class="theme-noel">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/public/logo.png" /> 
@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ECOTEL" />
     <meta name="twitter:image" content="/public/logo.png" />
-
+    
     <script>
       (function() {
         const storedTheme = localStorage.getItem('theme');
@@ -34,6 +34,21 @@
 
   <body>
     <div id="root"></div>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>
+      window.gtranslateSettings = {
+        "default_language": "vi",      // Ngôn ngữ gốc là Tiếng Việt
+        "languages": ["vi", "en"],     // Chỉ cho phép chọn VI hoặc EN
+        "wrapper_selector": ".gtranslate_wrapper",
+        "alt_flags": {"en": "usa"},    // Dùng cờ Mỹ cho tiếng Anh (tùy chọn)
+        "native_language_names": true,  // Hiển thị tên ngôn ngữ bằng tiếng bản địa
+        "switcher_horizontal_position":"left",
+        "switcher_vertical_position":"bottom",
+        "float_switcher_open_direction":"top"
+      }
+    </script>
+    <script src="float.js" defer></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Send, MapPin, Phone, Mail, Clock, ExternalLink } from "lucide-react"; // Đã thêm ExternalLink (tuỳ chọn)
 import { toast } from "@/hooks/use-toast";
 
 export const ContactSection = () => {
@@ -11,21 +11,57 @@ export const ContactSection = () => {
     title: "",
     message: "",
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  // Trong component ContactSection
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Gửi thành công!",
-      description: "Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
-    });
-    setFormData({ name: "", email: "", phone: "", company: "", title: "", message: "" });
-  };
+    setIsSubmitting(true);
 
+    // URL của Supabase Edge Function (Thay bằng URL thật của bạn sau khi deploy)
+    // Ví dụ: https://project-ref.supabase.co/functions/v1/send-email
+    const SUPABASE_FUNCTION_URL = import.meta.env.VITE_SUPABASE_FUNCTION_URL; 
+    try {
+      const response = await fetch(SUPABASE_FUNCTION_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Có lỗi xảy ra");
+      }
+
+      toast({
+        title: "Gửi thành công!",
+        description: "Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.",
+      });
+
+      setFormData({ name: "", email: "", phone: "", company: "", title: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      toast({
+        variant: "destructive",
+        title: "Gửi thất bại",
+        description: "Vui lòng thử lại sau hoặc gọi hotline trực tiếp.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const contactInfo = [
     {
       icon: MapPin,
       label: "Địa chỉ",
       value: "Số 4-Q28, 136 Nguyễn An Ninh, Tương Mai, Hoàng Mai, Hà Nội",
+      // --- THÊM PHẦN NÀY ---
+      link: "https://www.google.com/maps/search/?api=1&query=Số+4-Q28,+136+Nguyễn+An+Ninh,+Tương+Mai,+Hoàng+Mai,+Hà+Nội",
+      linkText: "Xem chỉ đường trên GoogleMaps",
+      // ---------------------
     },
     {
       icon: Phone,
@@ -45,7 +81,7 @@ export const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section id="contact" className="py-11 relative">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
 
@@ -121,18 +157,18 @@ export const ContactSection = () => {
                   />
                 </div>
               </div>
-               <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Tiêu đề
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground placeholder:text-muted-foreground"
-                    placeholder="Tiêu đề"
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Tiêu đề
+                </label>
+                <input
+                  type="text"
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground placeholder:text-muted-foreground"
+                  placeholder="Tiêu đề"
+                />
+              </div>
               <div className="mb-6">
                 <label className="block text-sm font-medium text-foreground mb-2 mt-7">
                   Nội dung
@@ -172,6 +208,22 @@ export const ContactSection = () => {
                       {info.label}
                     </h4>
                     <p className="text-foreground">{info.value}</p>
+                    
+                    {/* --- THÊM PHẦN HIỂN THỊ LINK TẠI ĐÂY --- */}
+                    {/* Kiểm tra nếu có link thì hiển thị thẻ a */}
+                    {info.link && (
+                      <a 
+                        href={info.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary hover:underline mt-1 inline-flex items-center gap-1 font-medium"
+                      >
+                        {info.linkText}
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+                    {/* -------------------------------------- */}
+                    
                   </div>
                 </div>
               </div>

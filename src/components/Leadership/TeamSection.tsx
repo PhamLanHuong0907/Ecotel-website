@@ -8,7 +8,7 @@ const leadershipData = [
     position: "Giám đốc",
     company: "EcoTel", 
     bio: "Lãnh đạo trung tâm nghiên cứu phát triển và thử nghiệm sản phẩm lõi EcoTel. Với tầm nhìn chiến lược, ông đang dẫn dắt đội ngũ kế thừa công nghệ cũ, cập nhật công nghệ mới.",
-  }
+  },
 ];
 
 const LeaderCard = ({ leader, index, isVisible }: { leader: typeof leadershipData[0]; index: number; isVisible: boolean }) => {
@@ -90,15 +90,16 @@ export const TeamSection = () => {
   const { ref, isVisible } = useSectionInView();
 
   return (
-    <section ref={ref} className="py-20 relative overflow-hidden">
+    <section ref={ref} className="py-11 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/20 to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">Đội ngũ lãnh đạo</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="gradient-text">Ban lãnh đạo</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-muted-foreground max-w-3xl mx-auto text-xl text-center">
             Những người đứng đầu với tầm nhìn chiến lược và kinh nghiệm dày dặn
           </p>
         </div>

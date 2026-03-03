@@ -61,7 +61,7 @@ export const ProjectsSection = () => {
   }
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
+    <section id="projects" className="py-11 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -117,7 +117,7 @@ export const ProjectsSection = () => {
                         {project.client || "Khách hàng doanh nghiệp"}
                     </p>
                     
-                    <p className="text-muted-foreground line-clamp-3">
+                    <p className="text-muted-foreground line-clamp-3 text-justify">
                         {project.description}
                     </p>
                   </div>
