@@ -36,14 +36,11 @@ export const ProjectsSection = () => {
     setCurrentPage(index);
   };
 
-  // --- SỬA ĐỔI 1: Logic mở Viewer ---
   const handleOpenProject = (project: Project) => {
-    // Ưu tiên mở file Word nếu có, nếu không thì thôi (hoặc mở link ngoài tùy logic của bạn)
     if (project.url_word) {
       setSelectedProject(project);
       setIsViewerOpen(true);
     } else if (project.path) {
-        // Nếu không có file word mà có path (link web), mở tab mới
         window.open(project.path, '_blank');
     }
   };
@@ -66,7 +63,6 @@ export const ProjectsSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          {/* ... (Giữ nguyên phần Header) ... */}
            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-foreground">Các </span>
             <span className="gradient-text">dự án</span>
@@ -87,37 +83,40 @@ export const ProjectsSection = () => {
                 <div
                   key={project.id}
                   onClick={() => handleOpenProject(project)}
-                  className="glass-card rounded-2xl p-8 hover-lift group cursor-pointer animate-fade-in relative overflow-hidden"
+                  className="glass-card rounded-2xl p-8 hover-lift group cursor-pointer animate-fade-in relative overflow-hidden flex flex-col"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  {project.image && (
-                     <div 
-                        className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                        style={{ backgroundImage: `url(${project.image})` }}
-                     />
-                  )}
+                  {/* Đã xóa phần background image cũ ở đây */}
 
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-start justify-between mb-4">
                       <span className="px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent">
                         {project.services?.title || "Dự án"}
                       </span>
-                      {/* --- SỬA ĐỔI 2: Icon hiển thị logic đúng --- */}
-                      {/* Nếu có file Word -> Hiển thị icon FileText, nếu có Link -> ExternalLink */}
-                      
-                        <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      
+                      <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
                       {project.title}
                     </h3>
                     
-                    <p className="text-sm text-primary/80 mb-3 font-medium">
-                        {project.client || "Khách hàng doanh nghiệp"}
-                    </p>
+                    {/* --- CẬP NHẬT: Image nằm bên trái Client --- */}
+                    <div className="flex items-center gap-3 mb-4">
+                        {project.image && (
+                            <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/10 bg-white/5 shrink-0">
+                                <img 
+                                    src={project.image} 
+                                    alt={project.client || "Client Logo"} 
+                                    className="w-full h-full object-contain" 
+                                />
+                            </div>
+                        )}
+                        <p className="text-[18px] text-primary/80 font-medium">
+                             {project.client || "Khách hàng doanh nghiệp"}
+                        </p>
+                    </div>
                     
-                    <p className="text-muted-foreground line-clamp-3 text-justify">
+                    <p className="text-muted-foreground line-clamp-3 text-justify mt-auto">
                         {project.description}
                     </p>
                   </div>
@@ -125,10 +124,9 @@ export const ProjectsSection = () => {
               ))}
             </div>
 
-            {/* Pagination Controls (Giữ nguyên) */}
+            {/* Pagination Controls */}
             {totalPages > 1 && (
               <div className="flex justify-center items-center gap-3 mt-12">
-                 {/* ... (Giữ nguyên code phân trang) ... */}
                  {Array.from({ length: totalPages }).map((_, index) => (
                   <button
                     key={index}
@@ -145,7 +143,6 @@ export const ProjectsSection = () => {
         </div>
       </div>
 
-      {/* --- SỬA ĐỔI 3: Truyền đúng url_word vào Viewer --- */}
       <ProjectDocViewer 
         isOpen={isViewerOpen}
         onClose={() => setIsViewerOpen(false)}

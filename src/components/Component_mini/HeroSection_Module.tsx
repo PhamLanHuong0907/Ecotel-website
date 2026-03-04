@@ -156,7 +156,7 @@ export const HeroSectionModule = ({
                           .split('\n')
                           .filter(line => line.trim() !== '')
                           .map((line, index) => (
-                            <li key={index} className="flex items-start text-left">
+                            <li key={index} className="flex items-start  text-justify">
                               <div className="mt-1 mr-3 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary border border-primary/30 shadow-inner">
                                 <Check className="h-3 w-3" strokeWidth={3} />
                               </div>
