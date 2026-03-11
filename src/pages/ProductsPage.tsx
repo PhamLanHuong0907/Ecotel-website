@@ -10,16 +10,13 @@ import { CTASection } from "@/components/Component_mini/CTASection";
 import { Button } from "@/components/ui/button";
 import { Database } from "@/integration/types";
 
-import { 
-  ShieldCheck, ClipboardCheck, ScanEye, FileCheck, 
-  AlertOctagon, BadgeCheck, Microscope, CheckCircle2, Package,
-  LucideIcon,
-} from "lucide-react";
+// THAY ĐỔI 1: Import toàn bộ Icons để có thể map động từ chuỗi string
+import * as Icons from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 type Product = Database['public']['Tables']['products']['Row'];
 type Service = Database['public']['Tables']['services']['Row'];
 
-// MỚI: Cập nhật Interface để bao trùm cả cấu trúc cũ và cấu trúc DB hiện tại của bạn
 interface FeatureItemData {
   text?: string;
   subText?: string;
@@ -28,19 +25,16 @@ interface FeatureItemData {
 }
 
 interface ProductFeatureSectionData {
-  // Khớp với code cũ
   tagText?: string;
   tagColorClass?: string;
   imageSrc?: string;
   
-  // MỚI: Khớp với dữ liệu DB bạn vừa cung cấp
   tag?: {
     icon?: string;
     text?: string;
     colorClass?: string;
   };
   image?: string; 
-  
   title?: string;
   description?: string;
   imageAlt?: string;
@@ -48,6 +42,7 @@ interface ProductFeatureSectionData {
   backgroundClass?: string;
   glowClass?: string;
   floatingBadge?: {
+    icon?: string;
     title?: string;
     subtitle?: string;
   };
@@ -71,12 +66,15 @@ const ProductsPage = () => {
     return data.publicUrl;
   };
 
+  // THAY ĐỔI 2: Hàm resolveIcon động, tìm icon trong object Icons dựa trên tên
   const resolveIcon = (iconName?: string): LucideIcon => {
-    const iconMap: Record<string, LucideIcon> = {
-      ShieldCheck, ClipboardCheck, ScanEye, FileCheck, 
-      AlertOctagon, BadgeCheck, Microscope, CheckCircle2, Package
-    };
-    return iconName && iconMap[iconName] ? iconMap[iconName] : Package; 
+    if (!iconName) return Icons.Package; // Icon mặc định nếu không có tên
+
+    // Lấy icon từ thư viện dựa trên tên (ép kiểu any để truy cập dynamic key)
+    const IconComponent = (Icons as any)[iconName];
+
+    // Trả về Icon tìm thấy hoặc icon mặc định nếu tên sai
+    return IconComponent || Icons.HelpCircle; 
   };
 
   useEffect(() => {
@@ -136,11 +134,9 @@ const ProductsPage = () => {
     );
   }
 
-  // MỚI: Logic xử lý JSON thông minh để chống lỗi Stringified JSON
   let featureSections: ProductFeatureSectionData[] = [];
   try {
     if (product.features) {
-      // Nếu là chuỗi string thì dùng JSON.parse, nếu đã là object/array thì giữ nguyên
       const parsedFeatures = typeof product.features === 'string' 
         ? JSON.parse(product.features) 
         : product.features;
@@ -180,15 +176,18 @@ const ProductsPage = () => {
         )}
 
         {featureSections.map((section, idx) => {
-          // MỚI: Map linh hoạt cả trường hợp dùng tagText hoặc tag.text
           const safeTagText = section.tagText || section.tag?.text || "";
           const safeTagColorClass = section.tagColorClass || section.tag?.colorClass || "bg-primary/10 text-primary";
-          // Ưu tiên dùng imageSrc, nếu không có thì lấy image (từ DB của bạn)
           const targetImage = section.imageSrc || section.image || "";
-          
           const safeSubtitle = section.floatingBadge?.subtitle || "";
 
-          // Tính toán Icon hiển thị
+          // LOGIC MỚI: Tự động reverse nếu là phần tử chẵn (index lẻ: 1, 3, 5...)
+          // Index 0 (thứ 1) -> false
+          // Index 1 (thứ 2) -> true
+          // Index 2 (thứ 3) -> false
+          const isReversed = idx % 2 !== 0;
+
+          // ... (Giữ nguyên logic resolveIcon cũ) ...
           const TagIcon = section.tag?.icon 
             ? resolveIcon(section.tag.icon) 
             : resolveIcon(safeTagText.includes("Compliance") ? "BadgeCheck" : "ShieldCheck");
@@ -198,7 +197,7 @@ const ProductsPage = () => {
           const mappedItems = section.items?.map(item => ({
             text: item.text || "Tên tính năng",
             subText: item.subText || "",
-            icon: resolveIcon(item.iconName) ,
+            icon: resolveIcon(item.iconName),
             path: item.path
           })) || [];
 
@@ -213,19 +212,20 @@ const ProductsPage = () => {
               title={<span className="gradient-text">{section.title || product.title}</span>}
               description={section.description || ""}
               features={mappedItems}
-              // Sử dụng targetImage đã map ở trên
               imageSrc={getImageUrl(targetImage)}
               imageAlt={section.imageAlt || section.title || "Hình ảnh"}
               floatingBadge={{
-                icon: BadgeIcon,
+                icon: section.floatingBadge?.icon ? resolveIcon(section.floatingBadge.icon) : BadgeIcon,
                 title: section.floatingBadge?.title || "Hệ thống",
                 subtitle: section.floatingBadge?.subtitle || "Hoạt động",
-                iconBgClass: section.reverse ? "bg-accent" : "bg-primary",
-                iconColorClass: section.reverse ? "text-accent-foreground" : "text-primary-foreground"
+                // Cập nhật màu sắc badge dựa theo biến isReversed mới
+                iconBgClass: "bg-primary",
+                iconColorClass: "text-primary-foreground"
               }}
-              reverse={section.reverse || false}
+              // Cập nhật prop reverse
+              reverse={isReversed}
               backgroundClass={section.backgroundClass || ""}
-              glowClass={section.glowClass || "from-primary/20 to-accent/20"}
+              glowClass={section.glowClass || ""}
             />
           );
         })}

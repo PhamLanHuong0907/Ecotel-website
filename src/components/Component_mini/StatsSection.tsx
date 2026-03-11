@@ -6,7 +6,7 @@ export interface StatItem {
   value?: number;
   suffix?: string;
   label?: string;
-  description?: string;
+  description?: React.ReactNode;
 }
 
 interface StatsSectionProps {
@@ -71,7 +71,7 @@ export const StatsSection = ({ data, className }: StatsSectionProps) => {
                   </p>
 
                   {/* --- ĐÃ THÊM ĐOẠN NÀY ĐỂ HIỆN DESCRIPTION --- */}
-                  <p className="text-[12px] text-muted-foreground ">
+                  <p className="text-[12px] text-muted-foreground text-left">
                     {stat.description}
                   </p>
                 </>

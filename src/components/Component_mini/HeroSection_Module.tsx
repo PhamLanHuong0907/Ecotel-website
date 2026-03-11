@@ -28,7 +28,7 @@ export const HeroSectionModule = ({
   slogan,
   cardsSectionTitle = "Lợi ích nổi bật",
   cards,
-  heroHeight = "70vh"
+  heroHeight = "50vh"
 }: HeroSectionModuleProps) => {
   const [currentTheme, setCurrentTheme] = useState('dark');
 
@@ -68,14 +68,14 @@ export const HeroSectionModule = ({
         <div className="absolute top-0 left-1/5 w-100 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute top-20 right-1/5 w-100 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
         
-        <div className="w-full mx-auto px-4 relative z-10 mt-16">
+        <div className="w-full mx-auto px-4 relative z-10 mt-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold animate-fade-up-delay-1 pt-6 pb-3 gradient-text -mt-12 ">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold animate-fade-up-delay-1 pt-6 pb-3 gradient-text  ">
               {title}
             </h1>
             {subtitle && (
@@ -89,89 +89,82 @@ export const HeroSectionModule = ({
               </p>
             )}
           </motion.div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4 animate-fade-up-delay-3">
-            <a
-              href="#services"
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] text-white font-semibold hover-lift shadow-lg shadow-primary/20"
-            >
-              Khám phá dịch vụ
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#about"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm text-foreground font-semibold hover:bg-secondary/80 transition-all"
-            >
-              Tìm hiểu thêm
-            </a>
-          </div>
+          
         </div>
-        
-        {currentTheme !== 'light' && (
-          <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent" />
-        )}
       </section>
 
-      {/* --- PHẦN 2: HIGHLIGHT CARDS (ĐÃ SỬA) --- */}
+      {/* --- PHẦN 2: HIGHLIGHT CARDS --- */}
       <section className="bg-background flex flex-col items-center w-full">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-8">
           
           {/* Header Section */}
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
-              Lợi ích nổi bật
+          <div className="text-center mb-8">
+            <span className="inline-block px-4 pb-1 pt-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4 shadow-[0_0_15px_rgba(34,211,238,0.4)] 
+                 backdrop-blur-sm">
+              Lợi ích
             </span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2 mt-4">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary ">
               {cardsSectionTitle}
             </h2>
           </div>
 
           {/* Cards Container */}
-          {/* SỬA: Bỏ grid ở thẻ cha này, chỉ dùng w-full */}
           <div className="w-full pb-10"> 
             {cards && cards.length > 0 && (
-  <motion.div 
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.4 }}
-    // Grid chính nằm ở đây: 1 cột trên mobile, 3 cột trên PC
-    className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
-  >
-    {cards.map((card) => (
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full"
+              >
+                {cards.map((card) => (
                   <div 
                     key={card.id}
-                    // THÊM class glass-card VÀO ĐÂY
-                    className="glass-card group relative h-full flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                    // THÊM: border, shadow glow khi hover, background gradient nhẹ
+                    className="glass-card group relative h-full flex flex-col overflow-hidden rounded-2xl   backdrop-blur-md transition-all duration-500 -translate-y-2 border-primary/40 border-[2px] shadow-[0_8px_30px_-5px_rgba(34,211,238,0.3)] [.light_&]:bg-neutral-100"
                   >
-                    {/* Lớp 3: Content Container */}
-                    <div className="relative z-10 flex h-full flex-col p-8">
-                      
-                      {/* Title */}
-                      <h3 className="mb-6 text-2xl font-bold text-white transition-colors group-hover:text-primary drop-shadow-md">
-                        {card.title}
-                      </h3>
+                    {/* THÊM: Gradient overlay mờ ảo xuất hiện khi hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10  to-transparent  transition-opacity duration-500 opacity-100" />
 
-                      {/* Description Bullet List */}
-                      <ul className="flex-1 space-y-4">
-                        {card.description
-                          .split('\n')
-                          .filter(line => line.trim() !== '')
-                          .map((line, index) => (
-                            <li key={index} className="flex items-start  text-justify">
-                              <div className="mt-1 mr-3 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary border border-primary/30 shadow-inner">
-                                <Check className="h-3 w-3" strokeWidth={3} />
-                              </div>
-                              
-                              <span className="text-base leading-relaxed text-gray-100 font-medium shadow-black drop-shadow-sm">
-                                {line.trim()}
-                              </span>
-                            </li>
-                        ))}
-                      </ul>
+                    {/* Lớp Content Container - Đã bỏ p-8 ở đây để dải màu tràn viền */}
+                    <div className="relative z-10 flex h-full flex-col">
+                      
+                      {/* Title: Khối nền màu xanh, chữ trắng giống ảnh */}
+                      {/* Lưu ý: Bạn có thể thay đổi bg-[#12b3d8] thành bg-primary nếu muốn đồng bộ với màu theme hiện tại */}
+                      <div className="w-full bg-gradient-to-br from-[#0B84DA] to-[#3DC7F5] py-4 px-6">
+                        <h3 className="text-xl md:text-2xl font-bold text-center tracking-wide text-white ">
+                          {card.title}
+                        </h3>
+                      </div>
+
+                      {/* Description Bullet List - Thêm lại padding p-8 ở khu vực nội dung này */}
+                      <div className="flex-1 p-8">
+                        <ul className="flex-1 space-y-5">
+                          {card.description
+                            .split('\n')
+                            .filter(line => line.trim() !== '')
+                            .map((line, index) => (
+                              <li key={index} className="flex items-start text-justify group/item">
+                                
+                                {/* Nút Tick: Làm sáng hơn, to ra một chút khi hover card, thêm shadow glow */}
+                                <div className="mt-1 mr-4 flex h-6 w-6 shrink-0 items-center justify-center rounded-full  text-primary border  transition-all duration-500 bg-primary/30 border-primary shadow-[0_0_15px_rgba(34,211,238,0.6)] ">
+                                  <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                                </div>
+                                
+                                {/* Text content: Đổi màu xám sáng, hover sáng trắng */}
+                                <span className="text-base leading-relaxed  font-medium transition-colors duration-300 text-white drop-shadow-sm [.light_&]:text-gray-600">
+                                  {line.trim()}
+                                </span>
+                              </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
                     </div>
                   </div>
                 ))}
-  </motion.div>
-)}
+              </motion.div>
+            )}
           </div>
         </div>
       </section>

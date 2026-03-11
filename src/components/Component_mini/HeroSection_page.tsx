@@ -47,7 +47,7 @@ export const HeroSection = ({ title, highlight, description }: HeroSectionProps)
         >
           {/* CHANGE 3: Responsive Font Size & Margin Bottom */}
           {/* text-3xl (Mobile) -> sm:text-4xl -> md:text-5xl -> lg:text-6xl */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-8 md:mb-12 lg:mb-[60px] px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-8 md:mb-12 lg:mb-[60px] whitespace-pre-line px-2">
             <span className="gradient-text leading-tight block">
               {title}
             </span>
@@ -65,13 +65,13 @@ export const HeroSection = ({ title, highlight, description }: HeroSectionProps)
           <div className="glass-card p-5 md:p-8 rounded-2xl space-y-3 md:space-y-4 shadow-sm border border-white/10">
             {/* Phần Highlight */}
             {/* CHANGE 5: Text size responsive (text-base -> text-lg -> text-xl) */}
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed whitespace-pre-line">
               <span className="text-primary font-semibold">{highlight}</span>
             </p>
             
             {/* Phần Description */}
             {/* CHANGE 6: Thay text-[19px] cứng thành text-base md:text-lg để dễ đọc trên mọi màn hình */}
-            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg text-justify md:text-left">
+            <p className="text-muted-foreground whitespace-pre-line leading-relaxed text-sm sm:text-base md:text-lg text-justify md:text-left">
               {description}
             </p>
           </div>

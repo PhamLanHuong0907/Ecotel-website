@@ -101,9 +101,9 @@ const AwardItem = ({ item, index, totalItems }: { item: PrizeItem; index: number
           <h3 className="text-lg font-bold text-foreground mb-3 text-center group-hover:text-primary transition-colors min-h-[56px] flex items-center justify-center">
             {item.title}
           </h3>
-          <p className="text-muted-foreground leading-relaxed text-sm text-center">
-            {item.description}
-          </p>
+          <p className="text-muted-foreground leading-relaxed text-sm text-justify whitespace-pre-line">
+  {item.description}
+</p>
         </div>
       </div>
     </motion.div>

@@ -1,22 +1,18 @@
 import { Sparkles, Quote } from "lucide-react";
 import { useSectionInView } from "@/hooks/useSectionInView";
-import leader from "@/assets/Screenshot 2026-03-01 155032.png"
+import leader from "@/assets/background-home7.jpg"
 import Value_StatsSection from "./ValuesSection";
 export const HeroSection = () => {
   const { ref, isVisible } = useSectionInView();
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${leader})`,
-        height: "auto",
-        width: "100%",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-    <div className="absolute inset-0 bg-black/30"></div>
+   
     <section ref={ref} className="relative overflow-hidden min-h-screen">
+        <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-"
+        style={{ backgroundImage: `url(${leader})` }}
+      />
+    <div className="absolute inset-0 bg-black/5"></div>
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
@@ -53,7 +49,5 @@ export const HeroSection = () => {
       <div className="h-20"/>
        <Value_StatsSection />
     </section>
-   
-    </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useSectionInView } from "@/hooks/useSectionInView";
-import customer from "@/assets/Screenshot 2026-03-01 155032.png";
+import customer from "@/assets/background-home7.jpg";
 import Customer_StatsSection from "./StatsSection";
 import { Quote } from "lucide-react"; // --- BỔ SUNG: Import icon Quote ---
 
@@ -7,17 +7,12 @@ export const HeroSection = () => {
   const { ref, isVisible } = useSectionInView();
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${customer})`,
-        height: "auto",
-        width: "100%",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="absolute inset-0 bg-black/30"></div>
-      <section ref={ref} className="relative overflow-hidden min-h-screen">
+      <section ref={ref} className="relative min-h-screen flex-col items-center justify-center overflow-hidden pt-20">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-"
+        style={{ backgroundImage: `url(${customer})` }}
+      />
+      <div className="absolute inset-0 bg-black/5"></div>
         {/* Animated background - Giống file Leadership */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
@@ -28,13 +23,13 @@ export const HeroSection = () => {
           />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 mt-32">
+        <div className="container mx-auto px-4 relative z-10 ">
           <div
             className={`text-center max-w-4xl mx-auto transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 mt-12">
               <span className="gradient-text">Khách hàng tin cậy</span>
               <br className="hidden md:block" />{" "}
               <span className="gradient-text">của chúng tôi</span>
@@ -65,7 +60,8 @@ export const HeroSection = () => {
         
         <div className="h-20" />
         <Customer_StatsSection />
+      
       </section>
-    </div>
+    
   );
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Cpu, Network, Shield, TrendingUp, Briefcase, Users2, Trophy } from "lucide-react";
-import heroBackground from "@/assets/Screenshot 2026-03-01 155032.png";
+import heroBackground from "@/assets/background-home7.jpg";
 import Home_StatsSection from "./StatsSection";
 
 export const HeroSection = () => {
@@ -11,7 +11,7 @@ export const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-"
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
-      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="absolute inset-0 bg-black/5"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
 
