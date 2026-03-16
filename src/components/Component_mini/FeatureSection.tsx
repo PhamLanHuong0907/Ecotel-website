@@ -79,7 +79,7 @@ export const FeatureSection = ({
                 <span>{tag.text}</span>
               </div>
               
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 whitespace-pre-line">
                 {title}
               </h2>
 

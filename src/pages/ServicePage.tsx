@@ -177,11 +177,11 @@ const ServicePage = () => {
           </span>
         </div>
         {productsData.length > 0 && (
-          <ServicesSection 
-            sectionTitle={`Các sản phẩm của ${service.title}`}
-            items={mappedServices} 
-          />
-        )}
+  <ServicesSection 
+    sectionTitle={`Các sản phẩm của ${service?.title?.split('\n')[0].trim() || "chúng tôi"}`}
+    items={mappedServices} 
+  />
+)}
         
       </main>
       <div className="h-11" />

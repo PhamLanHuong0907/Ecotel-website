@@ -90,13 +90,15 @@ export const ProjectsSection = () => {
 
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-start justify-between mb-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent">
-                        {project.services?.title || "Dự án"}
-                      </span>
+                      <span className="inline-block max-w-full px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent truncate">
+  {project.services?.title 
+    ? project.services.title.split('\n')[0].trim() 
+    : "Dự án"}
+</span>
                       <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                     </div>
                     
-                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors ">
                       {project.title}
                     </h3>
                     

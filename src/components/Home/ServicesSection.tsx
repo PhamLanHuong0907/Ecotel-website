@@ -97,7 +97,7 @@ export const ServicesSection = () => {
                     <IconComponent className="w-7 h-7 text-white" />
                   </div>
                   
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground">{service.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground whitespace-pre-line">{service.title}</h3>
                   
                   {/* Xử lý hiển thị mô tả có xuống dòng */}
                   <div className="text-muted-foreground leading-relaxed text-justify">
