@@ -140,7 +140,7 @@ export const FeatureSection = ({
                 <img
                   src={imageSrc}
                   alt={imageAlt}
-                  className="w-full h-[350px] lg:h-[450px] object-cover"
+                  className="w-full h-[350px] lg:h-[450px] object-fill"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
 

@@ -9,6 +9,13 @@ const leadershipData = [
     company: "EcoTel", 
     bio: "Lãnh đạo trung tâm nghiên cứu phát triển và thử nghiệm sản phẩm lõi EcoTel. Với tầm nhìn chiến lược, ông đang dẫn dắt đội ngũ kế thừa công nghệ cũ, cập nhật công nghệ mới.",
   },
+  {
+    name: "Trần Thái Giang",
+    position: "Chuyên gia tư vấn và giải pháp",
+    company: "EcoTel", 
+    bio: "Chuyên gia ERP, DWH & BI với hơn 10 năm kinh nghiệm",
+  
+  }
 ];
 
 const LeaderCard = ({ leader, index, isVisible }: { leader: typeof leadershipData[0]; index: number; isVisible: boolean }) => {
