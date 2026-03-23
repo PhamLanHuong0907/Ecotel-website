@@ -115,11 +115,7 @@ const ProductsPage = () => {
   }, [serviceSlug, productSlug]);
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <p className="text-xl">Đang tải dữ liệu sản phẩm...</p>
-      </div>
-    );
+    return
   }
 
   if (!product) {
