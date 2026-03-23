@@ -24,6 +24,12 @@ export const ProjectsSection = () => {
     (currentPage + 1) * ITEMS_PER_PAGE
   ) || [];
 
+  // [CẬP NHẬT 1]: Tạo một mảng hiển thị luôn có độ dài bằng ITEMS_PER_PAGE (4)
+  const displayProjects = [...currentProjects];
+  while (displayProjects.length < ITEMS_PER_PAGE) {
+    displayProjects.push(null as any); // Thêm các phần tử rỗng để giữ layout
+  }
+
   useEffect(() => {
     if (isPaused || totalPages <= 1) return;
     const timer = setInterval(() => {
@@ -79,51 +85,63 @@ export const ProjectsSection = () => {
           onMouseLeave={() => setIsPaused(false)}
         >
             <div className="grid md:grid-cols-2 gap-8 min-h-[400px]">
-              {currentProjects.map((project, index) => (
-                <div
-                  key={project.id}
-                  onClick={() => handleOpenProject(project)}
-                  className="glass-card rounded-2xl p-8 hover-lift group cursor-pointer animate-fade-in relative overflow-hidden flex flex-col"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {/* Đã xóa phần background image cũ ở đây */}
+              {/* [CẬP NHẬT 2]: Map qua mảng displayProjects đã được độn phần tử */}
+              {displayProjects.map((project, index) => {
+                
+                // Nếu là phần tử rỗng, render một thẻ div tàng hình để chiếm không gian
+                if (!project) {
+                  return (
+                    <div 
+                      key={`placeholder-${index}`} 
+                      className="hidden md:block invisible min-h-[280px] lg:min-h-[300px] pointer-events-none"
+                      aria-hidden="true"
+                    />
+                  );
+                }
 
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="flex items-start justify-between mb-4">
-                      <span className="inline-block max-w-full px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent truncate">
-  {project.services?.title 
-    ? project.services.title.split('\n')[0].trim() 
-    : "Dự án"}
-</span>
-                      <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                return (
+                  <div
+                    key={project.id}
+                    onClick={() => handleOpenProject(project)}
+                    className="glass-card rounded-2xl p-8 hover-lift group cursor-pointer animate-fade-in relative overflow-hidden flex flex-col"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex items-start justify-between mb-4">
+                        <span className="inline-block max-w-full px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent truncate">
+                          {project.services?.title 
+                            ? project.services.title.split('\n')[0].trim() 
+                            : "Dự án"}
+                        </span>
+                        <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </div>
+                      
+                      <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors ">
+                        {project.title}
+                      </h3>
+                      
+                      <div className="flex items-center gap-3 mb-4">
+                          {project.image && (
+                              <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/10 bg-white/5 shrink-0">
+                                  <img 
+                                      src={project.image} 
+                                      alt={project.client || "Client Logo"} 
+                                      className="w-full h-full object-contain" 
+                                  />
+                              </div>
+                          )}
+                          <p className="text-[18px] text-primary/80 font-medium">
+                               {project.client || "Khách hàng doanh nghiệp"}
+                          </p>
+                      </div>
+                      
+                      <p className="text-muted-foreground line-clamp-3 text-justify mt-auto">
+                          {project.description}
+                      </p>
                     </div>
-                    
-                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors ">
-                      {project.title}
-                    </h3>
-                    
-                    {/* --- CẬP NHẬT: Image nằm bên trái Client --- */}
-                    <div className="flex items-center gap-3 mb-4">
-                        {project.image && (
-                            <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/10 bg-white/5 shrink-0">
-                                <img 
-                                    src={project.image} 
-                                    alt={project.client || "Client Logo"} 
-                                    className="w-full h-full object-contain" 
-                                />
-                            </div>
-                        )}
-                        <p className="text-[18px] text-primary/80 font-medium">
-                             {project.client || "Khách hàng doanh nghiệp"}
-                        </p>
-                    </div>
-                    
-                    <p className="text-muted-foreground line-clamp-3 text-justify mt-auto">
-                        {project.description}
-                    </p>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
             {/* Pagination Controls */}
