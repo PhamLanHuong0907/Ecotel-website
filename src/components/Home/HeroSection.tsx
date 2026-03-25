@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Cpu, Network, Shield, TrendingUp, Briefcase, Users2, Trophy } from "lucide-react";
-import heroBackground from "@/assets/background-home7.jpg";
+import heroBackground from "@/assets/background-home7.webp";
 import Home_StatsSection from "./StatsSection";
 
 export const HeroSection = () => {

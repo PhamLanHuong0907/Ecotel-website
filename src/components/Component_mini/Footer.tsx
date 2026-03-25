@@ -1,5 +1,5 @@
 import { Facebook, Linkedin, Youtube, Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/ecotel-logo.png";
+import logo from "@/assets/ecotel-logo.webp";
 const footerLinks = {
   company: [
     { label: "Giới thiệu", href: "#about" },

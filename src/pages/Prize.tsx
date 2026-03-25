@@ -1,5 +1,5 @@
 import { Award, Trophy, Star, Medal, ChevronRight, X, Loader2 } from "lucide-react";
-import image_banquyen from "@/assets/banquyen.png";
+import image_banquyen from "@/assets/banquyen.webp";
 import { motion, AnimatePresence } from "framer-motion"; 
 import { useState } from "react";
 import { usePrizes } from "@/hooks/usePrizes"; 

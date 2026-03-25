@@ -1,6 +1,6 @@
 import { Linkedin, Mail, Briefcase, Sparkles, Quote } from "lucide-react";
 import { useSectionInView } from "@/hooks/useSectionInView";
-import image_leader from "@/assets/Leadership.png"
+
 
 const leadershipData = [
   {

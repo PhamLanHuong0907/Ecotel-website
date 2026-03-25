@@ -1,6 +1,6 @@
 import { Sparkles, Quote } from "lucide-react";
 import { useSectionInView } from "@/hooks/useSectionInView";
-import leader from "@/assets/background-home7.jpg"
+import leader from "@/assets/background-home7.webp"
 import Value_StatsSection from "./ValuesSection";
 export const HeroSection = () => {
   const { ref, isVisible } = useSectionInView();

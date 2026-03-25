@@ -11,11 +11,9 @@ import Customers from "./pages/Customer";
 import ScrollToTop from "./components/Component_mini/Scrolltotop";
 // [NEW] Import ThemeToggle
 import ThemeToggle from "./components/ThemeToogle"; 
-import ChristmasIntro from "./components/Component_mini/ChiristmasIntro";
 import Award from "./pages/Prize_page";
 import ServicePage from "./pages/ServicePage";
 import ProductsPage from "./pages/ProductsPage";
-import { BlogsSection } from "./pages/Blog";
 import BlogPage from "./pages/BlogPage";
 import ProjectsPage from "./pages/Projects";
 const queryClient = new QueryClient();
@@ -28,7 +26,6 @@ const App = () => (
       <Sonner />
       
       <BrowserRouter>
-        <ChristmasIntro />
         <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Index />} />

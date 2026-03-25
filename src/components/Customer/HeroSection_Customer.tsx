@@ -1,5 +1,5 @@
 import { useSectionInView } from "@/hooks/useSectionInView";
-import customer from "@/assets/background-home7.jpg";
+import customer from "@/assets/background-home7.webp";
 import Customer_StatsSection from "./StatsSection";
 import { Quote } from "lucide-react"; // --- BỔ SUNG: Import icon Quote ---
 

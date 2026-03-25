@@ -1,6 +1,6 @@
-import React from 'react';
+
 // Thay thế dòng này bằng đường dẫn đến file ảnh to (ghép 15 logo) của bạn
-import AllPartnersImage from "@/assets/Screenshot 2026-01-05 125315.png";
+import AllPartnersImage from "@/assets/Screenshot 2026-01-05 125315.webp";
 
 const CustomerCard = () => {
   return (

@@ -1,8 +1,8 @@
-import app from "@/assets/image-removebg-preview (3).png";
-import cloud from "@/assets/image-removebg-preview (4).png";
-import data from "@/assets/image-removebg-preview (5).png";
-import repair from "@/assets/image-removebg-preview (6).png";
-import iot from "@/assets/image-removebg-preview (7).png"
+import app from "@/assets/image-removebg-preview (3).webp";
+import cloud from "@/assets/image-removebg-preview (4).webp";
+import data from "@/assets/image-removebg-preview (5).webp";
+import repair from "@/assets/image-removebg-preview (6).webp";
+import iot from "@/assets/image-removebg-preview (7).webp"
 const technologies = [
   // Item 0: Cột Trái - Dùng Ảnh (biến app)
   { icon: app, title: "PHÁT TRIỂN ỨNG DỤNG", color: "bg-blue-500", items: ["Lập kế hoạch, thiết kế , phát triển ứng dụng gốc và đa nền tảng"] },
