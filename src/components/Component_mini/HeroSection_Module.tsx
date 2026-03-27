@@ -131,7 +131,7 @@ export const HeroSectionModule = ({
                       
                       {/* Title: Khối nền màu xanh, chữ trắng giống ảnh */}
                       {/* Lưu ý: Bạn có thể thay đổi bg-[#12b3d8] thành bg-primary nếu muốn đồng bộ với màu theme hiện tại */}
-                      <div className="w-full bg-gradient-to-br from-[#0B84DA] to-[#3DC7F5] py-4 px-6">
+                      <div className="w-full bg-primary py-4 px-6">
                         <h3 className="text-xl md:text-2xl font-bold text-center tracking-wide text-white ">
                           {card.title}
                         </h3>
