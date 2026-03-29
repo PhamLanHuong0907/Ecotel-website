@@ -75,7 +75,7 @@ export const ProjectsSection = () => {
             <span className="text-foreground"> đã triển khai</span>
           </h2>
            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Chúng tôi tự hào với các dự án thành công cho các doanh nghiệp lớn trong và ngoài nước
+            Chúng tôi tự hào với các dự án thành công cho các doanh nghiệp lớn <br/> trong và ngoài nước
           </p>
         </div>
 
@@ -153,8 +153,8 @@ export const ProjectsSection = () => {
                     onClick={() => handlePageChange(index)}
                     className={`h-3 rounded-full transition-all duration-300 ease-in-out ${
                       currentPage === index
-                        ? "w-12 bg-orange-500"
-                        : "w-3 bg-gray-600 hover:bg-gray-500"
+                        ? "w-8 bg-primary"
+                        : "w-3 bg-primary/30 hover:bg-primary/50"
                     }`}
                   />
                 ))}

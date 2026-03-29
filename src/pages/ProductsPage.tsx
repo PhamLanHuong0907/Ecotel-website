@@ -6,7 +6,7 @@ import { Header } from "@/components/Component_mini/Header";
 import { Footer } from "@/components/Component_mini/Footer";
 import { HeroSection } from "@/components/Component_mini/HeroSection_page";
 import { FeatureSection } from "@/components/Component_mini/FeatureSection";
-import { CTASection } from "@/components/Component_mini/CTASection";
+
 import { Button } from "@/components/ui/button";
 import { Database } from "@/integration/types";
 
@@ -235,7 +235,7 @@ const ProductsPage = () => {
           </Button>
         </div>
 
-        <CTASection />
+       
       </main>
 
       <Footer />

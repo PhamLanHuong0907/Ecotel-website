@@ -27,7 +27,7 @@ const LeaderCard = ({ leader, index, isVisible }: { leader: typeof leadershipDat
       {/* items-stretch: QUAN TRỌNG - Ép 2 cột (Text và Ảnh) phải cao bằng nhau
          gap-6: Khoảng cách giữa 2 cột
       */}
-      <div className="flex flex-col-reverse md:flex-row items-stretch gap-6">
+      <div className="flex flex-col-reverse md:flex-row items-stretch gap-6 mb-14">
         
         {/* === PHẦN 1: CARD THÔNG TIN === */}
         <div className="w-full md:flex-[1.5]">
@@ -111,7 +111,7 @@ export const TeamSection = () => {
           </p>
         </div>
         
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto ">
           {leadershipData.map((leader, index) => (
             <LeaderCard key={leader.name} leader={leader} index={index} isVisible={isVisible} />
           ))}

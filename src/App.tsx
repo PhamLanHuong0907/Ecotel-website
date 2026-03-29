@@ -16,6 +16,7 @@ import ServicePage from "./pages/ServicePage";
 import ProductsPage from "./pages/ProductsPage";
 import BlogPage from "./pages/BlogPage";
 import ProjectsPage from "./pages/Projects";
+import AnimatedLogo from "./components/Component_mini/Logo";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/:serviceSlug/:productSlug" element={<ProductsPage />} />
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/du-an" element={<ProjectsPage />} />
+          <Route path="/logo" element={<AnimatedLogo />} />
         </Routes>
 
         {/* [NEW] Đặt nút đổi màu ở góc màn hình. 

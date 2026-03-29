@@ -1,5 +1,6 @@
 import { Facebook, Linkedin, Youtube, Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/ecotel-logo.webp";
+import AnimatedLogo from "./Logo";
+import textLogo from "@/assets/ecotel-logo.png";
 const footerLinks = {
   company: [
     { label: "Giới thiệu", href: "#about" },
@@ -39,9 +40,18 @@ export const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <a href="#home" className="flex items-center gap-3 mb-6">
-              <img src={logo} alt="ECOTEL Logo" className="w-40 h-20 object-contain mt-[-50px] flex items-center justify-center mb-[-10px]" />
-            </a>
+             <a href="#home" className="flex items-center ml-0 group select-none cursor-pointer">
+            {/* Wrapper cho AnimatedLogo để kiểm soát kích thước trong Header */}
+            <div className="w-[60px] h-[60px] flex-shrink-0">
+              <AnimatedLogo />
+            </div>
+            {/* Ảnh Ecotel (chữ) bên cạnh */}
+            <img 
+              src={textLogo} 
+              alt="ECOTEL Logo" 
+              className="h-[60px] w-auto object-contain -ml-2" 
+            />
+          </a>
             <p className="text-muted-foreground mb-6 max-w-sm">
               ECOTEL cập nhật xu hướng công nghệ phù hợp, vận hành theo hệ thống được cải tiến linh hoạt và chuyên nghiệp, thấu hiểu, chân thành, cam kết lợi ích để triển khai nhiều dự án chất lượng hơn trong năm 2025.
               

@@ -84,7 +84,7 @@ export const TestimonialsSection = ({title, testimonials}:TestimonialsSectionPro
                 onClick={() => scrollTo(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === selectedIndex 
-                    ? 'bg-primary w-8' 
+                    ? ' bg-primary w-8' 
                     : 'bg-primary/30 hover:bg-primary/50'
                 }`}
               />

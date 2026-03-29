@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/ecotel-logo.webp";
 import { HashLink } from 'react-router-hash-link';
 import { useNavigation } from "@/hooks/useNavigation"; // Ensure this path matches where you saved useNavigation.ts
+
+// --- THÊM IMPORT TẠI ĐÂY ---
+import AnimatedLogo from "@/components/Component_mini/Logo"; // Cập nhật lại đường dẫn này nếu file để ở thư mục khác
+import textLogo from "@/assets/ecotel-logo.png"; // Ảnh chữ Ecotel đi kèm
 
 interface DropdownItem {
   label: string;
@@ -26,10 +29,8 @@ export const Header = () => {
   const { data: navigationData } = useNavigation();
 
   // Transform database data to UI structure
-  // 1. Filter: Chỉ lấy các item có is_header = true
-  // 2. Map: Chuyển đổi cấu trúc dữ liệu sang NavItem
   const navItems: NavItem[] = navigationData
-    ?.filter((item) => item.is_header) // <--- THÊM DÒNG NÀY
+    ?.filter((item) => item.is_header)
     .map((item) => ({
       id: item.id,
       label: item.label,
@@ -41,12 +42,18 @@ export const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/20">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a href="#home" className="flex items-start ml-0 group select-none cursor-pointer">
+          
+          {/* SỬA PHẦN LOGO Ở ĐÂY: Đặt AnimatedLogo và textLogo cùng hàng ngang */}
+          <a href="#home" className="flex items-center ml-0 group select-none cursor-pointer">
+            {/* Wrapper cho AnimatedLogo để kiểm soát kích thước trong Header */}
+            <div className="w-[60px] h-[60px] flex-shrink-0">
+              <AnimatedLogo />
+            </div>
+            {/* Ảnh Ecotel (chữ) bên cạnh */}
             <img 
-              src={logo} 
+              src={textLogo} 
               alt="ECOTEL Logo" 
-              className="h-[53px] w-auto object-contain" 
+              className="h-[60px] w-auto object-contain -ml-2" 
             />
           </a>
 
@@ -103,7 +110,7 @@ export const Header = () => {
             to="/#contact"
             className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6] text-white font-semibold text-sm hover-lift"
             style={{ 
-              boxShadow: "0 4px 15px rgba(30, 92, 139, 0.3)", // Đổ bóng theo màu logo cho đồng bộ
+              boxShadow: "0 4px 15px rgba(30, 92, 139, 0.3)",
             }}
           >
             Liên hệ ngay

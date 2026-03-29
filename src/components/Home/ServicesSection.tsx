@@ -64,7 +64,7 @@ export const ServicesSection = () => {
             <span className="gradient-text">chuyên môn</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Đa dạng giải pháp chuyển đổi số và AIoT phù hợp với mọi quy mô và đặc thù doanh nghiệp
+            Đa dạng giải pháp chuyển đổi số và AIoT phù hợp <br/> với mọi quy mô và đặc thù doanh nghiệp
           </p>
         </div>
 
