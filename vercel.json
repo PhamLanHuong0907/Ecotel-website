@@ -4,11 +4,6 @@
       "source": "/vi/:path*",
       "destination": "/:path*",
       "permanent": true
-    },
-    {
-      "source": "/vi",
-      "destination": "/",
-      "permanent": true
     }
   ],
   "rewrites": [
