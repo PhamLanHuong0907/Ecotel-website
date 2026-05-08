@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useServices } from "@/hooks/useServices"; 
+import { useServices } from "@/hooks/useServices";
 import { Loader2 } from "lucide-react";
 
 // Định nghĩa kiểu dữ liệu cho ảnh khớp với file Admin
@@ -28,7 +28,7 @@ const IconMap: Record<string, LucideIcon> = {
   Cpu: Cpu,
   ShieldCheck: ShieldCheck,
   // Icon mặc định nếu không tìm thấy tên khớp
-  Default: Factory 
+  Default: Factory
 };
 
 export const ServicesSection = () => {
@@ -45,7 +45,7 @@ export const ServicesSection = () => {
 
   // Nếu không có dữ liệu
   if (!services || services.length === 0) {
-    return null; 
+    return null;
   }
 
   return (
@@ -64,7 +64,7 @@ export const ServicesSection = () => {
             <span className="gradient-text">chuyên môn</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Đa dạng giải pháp chuyển đổi số và AIoT phù hợp <br/> với mọi quy mô và đặc thù doanh nghiệp
+            Đa dạng giải pháp chuyển đổi số và AIoT phù hợp <br /> với mọi quy mô và đặc thù doanh nghiệp
           </p>
         </div>
 
@@ -72,15 +72,15 @@ export const ServicesSection = () => {
         <div className="space-y-16">
           {services.map((service, index) => {
             // Xử lý Icon
-            const IconComponent = (service.icon && IconMap[service.icon]) 
-              ? IconMap[service.icon] 
+            const IconComponent = (service.icon && IconMap[service.icon])
+              ? IconMap[service.icon]
               : IconMap.Default;
 
             // Xử lý mảng features
-            const features = Array.isArray(service.features) 
-              ? (service.features as unknown as string[]) 
+            const features = Array.isArray(service.features)
+              ? (service.features as unknown as string[])
               : [];
-            
+
             // --- SỬA ĐỔI: Xử lý mảng images theo cấu trúc ServiceImage object ---
             const images = Array.isArray(service.images)
               ? (service.images as unknown as ServiceImage[])
@@ -96,9 +96,9 @@ export const ServicesSection = () => {
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient || 'from-blue-500 to-cyan-500'} flex items-center justify-center`}>
                     <IconComponent className="w-7 h-7 text-white" />
                   </div>
-                  
+
                   <h3 className="text-xl md:text-2xl font-bold text-foreground whitespace-pre-line">{service.title}</h3>
-                  
+
                   {/* Xử lý hiển thị mô tả có xuống dòng */}
                   <div className="text-muted-foreground leading-relaxed text-justify">
                     {service.description?.split('\n').map((line, i) => (
@@ -120,7 +120,7 @@ export const ServicesSection = () => {
 
                   <HashLink
                     smooth
-                    to={service.href || "/#contact"} 
+                    to={service.href || "/#contact"}
                     className="inline-flex items-center gap-2 text-primary text-sm font-medium group"
                   >
                     Tìm hiểu thêm
@@ -149,9 +149,9 @@ export const ServicesSection = () => {
                           <CarouselItem key={imgObj.id || imgIndex}>
                             <div className="relative aspect-[16/9] rounded-2xl overflow-hidden glass-card">
                               <img
-                                src={imgObj.url} 
+                                src={imgObj.url}
                                 alt={imgObj.alt || `${service.title} ${imgIndex + 1}`}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-fit"
                                 onError={(e) => {
                                   // Fallback nếu ảnh lỗi
                                   (e.target as HTMLImageElement).src = 'https://via.placeholder.com/800x450?text=No+Image';
