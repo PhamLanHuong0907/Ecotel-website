@@ -30,7 +30,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/vi/gioi-thieu" element={<Index />} />
-          <Route path="/vi/gioi-thieu-chung" element={<About />} />
+          <Route path="/gioi-thieu-chung" element={<About />} />
           <Route path="/doi-ngu-lanh-dao" element={<Leadership />} />
           <Route path="/khach-hang" element={<Customers />} />
           <Route path="/giai-thuong" element={<Award />} />
