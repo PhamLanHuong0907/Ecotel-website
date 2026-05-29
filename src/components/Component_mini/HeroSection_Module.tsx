@@ -56,10 +56,13 @@ export const HeroSectionModule = ({
     <div className="flex flex-col min-h-screen w-full overflow-hidden">
       
       {/* --- PHẦN 1: HERO BACKGROUND --- */}
+      {/* --- PHẦN 1: HERO BACKGROUND --- */}
       <section 
-        className="flex items-center relative overflow-hidden bg-no-repeat bg-cover bg-left"
+        // 1. Giữ overflow-hidden cho hiệu ứng blur, nhưng đổi sang dùng padding-y để nội dung luôn có khoảng thở
+        className="flex items-center relative overflow-hidden bg-no-repeat bg-cover bg-left py-16 md:py-24"
         style={{ 
-          height: heroHeight,
+          // 2. QUAN TRỌNG: Đổi 'height' thành 'minHeight' để section có thể tự động giãn ra nếu chữ quá dài
+          minHeight: heroHeight,
           backgroundImage: `url(${backgroundImage})`,
         }}
       >
@@ -68,28 +71,29 @@ export const HeroSectionModule = ({
         <div className="absolute top-0 left-1/5 w-100 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute top-20 right-1/5 w-100 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
         
-        <div className="w-full mx-auto px-4 relative z-10 mt-20">
+        {/* 3. Đổi mt-20 thành relative padding để không bóp méo container trên mobile */}
+        <div className="w-full mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-6xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold animate-fade-up-delay-1 pt-6 pb-3 gradient-text  ">
+            {/* 4. Responsive cỡ chữ mượt hơn (thêm sm, md) và thêm leading-tight, text-balance để ngắt dòng đẹp, không tốn diện tích */}
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold animate-fade-up-delay-1 pb-3 pt-4 gradient-text leading-tight text-balance">
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-3 pb-6 text-foreground text-[36px] font-bold animate-fade-up-delay-1 pt-3 [.light_&]:text-white">
+              <p className="mt-2 md:mt-3 pb-4 md:pb-6 text-foreground text-2xl md:text-[36px] font-bold animate-fade-up-delay-1 [.light_&]:text-white text-balance">
                 {subtitle}
               </p>
             )}
             {slogan && (
-              <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 animate-fade-up-delay-2 font-medium">
+              <p className="text-base md:text-xl text-gray-200 max-w-2xl mx-auto mb-4 md:mb-10 animate-fade-up-delay-2 font-medium">
                 {slogan}
               </p>
             )}
           </motion.div>
-          
         </div>
       </section>
 

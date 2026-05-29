@@ -41,21 +41,28 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/20">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        
           
           {/* SỬA PHẦN LOGO Ở ĐÂY: Đặt AnimatedLogo và textLogo cùng hàng ngang */}
+          {/* Sửa h-20 thành h-16 md:h-20 để header trên mobile gọn gàng hơn */}
+        <div className="flex items-center justify-between h-16 md:h-20">
+          
+          {/* SỬA PHẦN LOGO Ở ĐÂY: Làm cho logo responsive */}
           <a href="#home" className="flex items-center ml-0 group select-none cursor-pointer">
-            {/* Wrapper cho AnimatedLogo để kiểm soát kích thước trong Header */}
-            <div className="w-[60px] h-[60px] flex-shrink-0">
+            {/* Wrapper cho AnimatedLogo: Mobile 40px, Desktop 60px */}
+            <div className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex-shrink-0 transition-all duration-300">
               <AnimatedLogo />
             </div>
-            {/* Ảnh Ecotel (chữ) bên cạnh */}
+            
+            {/* Ảnh Ecotel (chữ): Mobile giảm chiều cao xuống 32px, Desktop 48px/60px */}
             <img 
               src={textLogo} 
               alt="ECOTEL Logo" 
-              className="h-[60px] w-auto object-contain -ml-2" 
+              className="h-[32px] md:h-[50px] w-auto object-contain -ml-1 md:-ml-2 transition-all duration-300" 
             />
           </a>
+
+          
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
