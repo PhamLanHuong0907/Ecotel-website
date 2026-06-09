@@ -4,7 +4,7 @@ import CircuitOverlay from '@/components/Component_mini/CircuitOverlay';
 import CountdownTimer from './CountdownTimer';
 import { ArrowLeft, Share2, Clipboard, Copy, Check, DollarSign, Award, ClipboardCheck, Clock, MapPin, UploadCloud, AlertCircle, PhoneCall, HelpCircle, Users } from 'lucide-react';
 import { Job } from '@/integration/types';
-
+import background from '@/assets/background-home7.webp'
 interface JobDetailProps {
   jobId: string;
   jobs: Job[];
@@ -20,7 +20,6 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [cvFile, setCvFile] = useState<File | null>(null);
   const [isDragActive, setIsDragActive] = useState(false);
   const [formError, setFormError] = useState('');
   const [isLinkCopied, setIsLinkCopied] = useState(false);
@@ -41,20 +40,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
     }
   };
 
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragActive(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      setCvFile(e.dataTransfer.files[0]);
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setCvFile(e.target.files[0]);
-    }
-  };
+ 
 
   const handleCopyLink = () => {
     const jobLink = `${window.location.origin}/careers/job/${job.id}`;
@@ -85,14 +71,6 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
       return;
     }
 
-    if (!cvFile) {
-      setFormError('Vui lòng tải lên CV để hoàn tất ứng tuyển');
-      return;
-    }
-
-    // Submit details
-    onSubmitApplication(fullName, email, phone, job.id, cvFile.name);
-
     // Call callback to show Success screen
     onShowSuccess({
       name: fullName,
@@ -104,48 +82,49 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
     setFullName('');
     setEmail('');
     setPhone('');
-    setCvFile(null);
   };
 
   return (
     <div className="bg-[#070c16] text-[#c9d1d9] min-h-screen pb-20">
       
       {/* Back Button and Navigation Path */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <button
-          onClick={onBack}
-          className="flex items-center space-x-2 text-slate-400 hover:text-[#00f2fe] text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          <span>Quay lại các vị trí tuyển dụng</span>
-        </button>
-      </div>
+      
 
       {/* 2. HEADER DETAILS HERO */}
-      <section className="relative overflow-hidden py-16 mt-4">
-        <CircuitOverlay />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          
-          <h1 id="job-detail-header-title" className="text-3xl md:text-4xl lg:text-5xl font-sans font-extrabold tracking-tight text-white mb-4">
-            {job.title}
-          </h1>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm text-slate-400">
-            <span className="px-3 py-1 rounded bg-[#00f2fe]/10 text-[#00f2fe] border border-[#00f2fe]/20 font-bold uppercase tracking-wider">
-              Bộ phận: {job.department}
-            </span>
-            <span className="flex items-center space-x-2">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
-              <span>Khu vực: {job.location}</span>
-            </span>
-          </div>
+      
+      {/* 1. HERO HOME SECT */}
+      <section 
+        className="relative overflow-hidden pt-20 pb-16 border-b border-slate-900 bg-cover bg-center bg-no-repeat min-h-[45vh] flex flex-col justify-center"
+        style={{ backgroundImage: `url(${background})` }}
+      >
+        <div className="max-w-7xl mx-auto px-4  gap-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-4 gap-4 sm:px-6 lg:px-8 relative z-10 text-center">
+  
+  {/* Tăng mb-8 để tạo khoảng cách lớn hơn với hàng bên dưới */}
+  <h1 id="job-detail-header-title" className="text-3xl md:text-4xl lg:text-5xl font-sans font-extrabold tracking-tight text-white mb-8">
+    {job.title}
+  </h1>
+
+  <div className="flex flex-wrap items-center justify-center gap-4 text-xl md:text-sm text-white">
+    <span className="px-3 py-1 rounded bg-[#4eb9e6]/10 text-[#4eb9e6] border border-[#4eb9e6]/20 font-bold uppercase tracking-wider">
+      Bộ phận: {job.department}
+    </span>
+    <span className="flex items-center space-x-3">
+      <span className="px-3 py-1 rounded bg-[#4eb9e6]/10 text-[#4eb9e6] border border-[#4eb9e6]/20 font-bold uppercase tracking-wider">
+      Khu vực: {job.location}
+    </span>
+    </span>
+  </div>
+</div>
 
           <div className="mt-8">
             <button
               onClick={() => document.getElementById('apply-sidebar-form')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 bg-[#00f2fe] hover:bg-[#00e1ff] text-slate-950 text-xs font-extrabold uppercase tracking-widest rounded-xl shadow-[0_0_20px_rgba(3,242,254,0.3)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#1e5c8b] via-[#4eb9e6] to-[#4eb9e6] text-white font-semibold hover-lift shadow-lg shadow-primary/20"
             >
               Ứng tuyển ngay
+             
             </button>
           </div>
         </div>
@@ -227,7 +206,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
             {/* Mô tả công việc */}
             <div id="job-desc-section">
               <div className="flex items-center space-x-3 pb-3 border-b border-slate-800 mb-5">
-                <div className="w-8 h-8 rounded-lg bg-[#00f2fe]/10 flex items-center justify-center text-[#00f2fe]">
+                <div className="w-8 h-8 rounded-lg bg-[#4eb9e6]/10 flex items-center justify-center text-[#4eb9e6]">
                   <ClipboardCheck className="w-4.5 h-4.5" />
                 </div>
                 <h3 className="text-sm font-bold uppercase tracking-wider text-white font-sans">Mô tả công việc</h3>
@@ -235,8 +214,8 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
               <ul className="space-y-3.5">
                 {job.description.map((item, idx) => (
                   <li key={idx} className="flex items-start space-x-3 text-sm text-slate-300 leading-relaxed leading-normal">
-                    <span className="w-5 h-5 rounded-full bg-[#00f2fe]/10 flex items-center justify-center text-[#00f2fe] shrink-0 text-[10px] font-bold mt-0.5">
-                      {idx + 1}
+                    <span className="w-5 h-5 flex items-center justify-center text-white shrink-0 text-[17px] font-bold mt-0.5">
+                      -
                     </span>
                     <span>{item}</span>
                   </li>
@@ -247,7 +226,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
             {/* Yêu cầu ứng viên */}
             <div id="job-reqs-section">
               <div className="flex items-center space-x-3 pb-3 border-b border-slate-800 mb-5">
-                <div className="w-8 h-8 rounded-lg bg-[#00f2fe]/10 flex items-center justify-center text-[#00f2fe]">
+                <div className="w-8 h-8 rounded-lg bg-[#4eb9e6]/10 flex items-center justify-center text-[#4eb9e6]">
                   <Award className="w-4.5 h-4.5" />
                 </div>
                 <h3 className="text-sm font-bold uppercase tracking-wider text-white font-sans">Yêu cầu ứng viên</h3>
@@ -255,8 +234,8 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
               <ul className="space-y-3.5">
                 {job.requirements.map((item, idx) => (
                   <li key={idx} className="flex items-start space-x-3 text-sm text-slate-300 leading-relaxed leading-normal">
-                    <span className="w-5 h-5 rounded-full bg-[#00f2fe]/10 flex items-center justify-center text-[#00f2fe] shrink-0 text-[10px] font-bold mt-0.5">
-                      ✓
+                    <span className="w-5 h-5  flex items-center justify-center text-white  shrink-0 text-[17px] font-bold mt-0.5">
+                      -
                     </span>
                     <span>{item}</span>
                   </li>
@@ -267,7 +246,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
             {/* Quyền lợi được hưởng */}
             <div id="job-benefits-section">
               <div className="flex items-center space-x-3 pb-3 border-b border-slate-800 mb-5">
-                <div className="w-8 h-8 rounded-lg bg-[#00f2fe]/10 flex items-center justify-center text-[#00f2fe]">
+                <div className="w-8 h-8 rounded-lg bg-[#4eb9e6]/10 flex items-center justify-center text-[#4eb9e6]">
                   <DollarSign className="w-4.5 h-4.5" />
                 </div>
                 <h3 className="text-sm font-bold uppercase tracking-wider text-white font-sans">Quyền lợi được hưởng</h3>
@@ -275,8 +254,8 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
               <ul className="space-y-3.5">
                 {job.benefits.map((item, idx) => (
                   <li key={idx} className="flex items-start space-x-3 text-sm text-slate-300 leading-relaxed leading-normal">
-                    <span className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0 text-[10px] font-bold mt-0.5">
-                      ✦
+                    <span className="w-5 h-5 flex items-center justify-center text-white shrink-0 text-[17px] font-bold mt-0.5">
+                      -
                     </span>
                     <span>{item}</span>
                   </li>
@@ -310,7 +289,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Tên của bạn"
-                    className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#00f2fe] focus:ring-1 focus:ring-[#00f2fe] transition-all"
+                    className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#4eb9e6] focus:ring-1 focus:ring-[#4eb9e6] transition-all"
                   />
                 </div>
 
@@ -325,7 +304,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter email"
-                    className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#00f2fe] focus:ring-1 focus:ring-[#00f2fe] transition-all"
+                    className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#4eb9e6] focus:ring-1 focus:ring-[#4eb9e6] transition-all"
                   />
                 </div>
 
@@ -340,54 +319,12 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Số điện thoại"
-                    className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#00f2fe] focus:ring-1 focus:ring-[#00f2fe] transition-all"
+                    className="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-xs text-white focus:outline-none focus:border-[#4eb9e6] focus:ring-1 focus:ring-[#4eb9e6] transition-all"
                   />
                 </div>
 
                 {/* CV File Input Area */}
-                <div>
-                  <label className="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
-                    Tải lên CV <span className="text-rose-500">*</span>
-                  </label>
-                  
-                  <div
-                    onDragEnter={handleDrag}
-                    onDragOver={handleDrag}
-                    onDragLeave={handleDrag}
-                    onDrop={handleDrop}
-                    className={`border border-dashed rounded-xl p-4 text-center cursor-pointer transition-all ${
-                      isDragActive 
-                        ? 'border-[#00f2fe] bg-[#00f2fe]/5' 
-                        : cvFile 
-                          ? 'border-emerald-500/60 bg-emerald-500/5' 
-                          : 'border-slate-800 hover:border-slate-700 bg-slate-900/60'
-                    }`}
-                  >
-                    <input
-                      type="file"
-                      id="sidebar-cv-input"
-                      onChange={handleFileChange}
-                      className="hidden"
-                      accept=".pdf,.doc,.docx"
-                    />
-                    <label htmlFor="sidebar-cv-input" className="cursor-pointer">
-                      <div className="flex flex-col items-center">
-                        <UploadCloud className={`w-7 h-7 mb-1.5 ${cvFile ? 'text-emerald-400' : 'text-[#00f2fe]/80'}`} />
-                        {cvFile ? (
-                          <div className="text-[11px]">
-                            <p className="text-emerald-400 font-bold truncate max-w-[180px]">{cvFile.name}</p>
-                            <p className="text-slate-500 mt-0.5">{(cvFile.size / (1024 * 1024)).toFixed(2)} MB</p>
-                          </div>
-                        ) : (
-                          <div className="text-[11px] text-slate-400 leading-normal">
-                            <span className="text-[#00f2fe] font-semibold hover:underline">Ấn tải lên CV</span>
-                            <span> hoặc kéo thả file tại đây</span>
-                          </div>
-                        )}
-                      </div>
-                    </label>
-                  </div>
-                </div>
+                
 
                 {formError && (
                   <div className="flex items-center space-x-1.5 text-[10px] text-rose-400 bg-rose-500/10 p-2.5 rounded-lg border border-rose-500/20">
@@ -398,7 +335,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
 
                 <button
                   type="submit"
-                  className="w-full mt-2 py-3 bg-[#00f2fe] hover:bg-[#00e1ff] text-slate-950 text-xs font-bold uppercase tracking-wider rounded-xl shadow-[0_0_15px_rgba(3,242,254,0.15)] transition-all cursor-pointer text-center font-sans"
+                  className="w-full mt-2 py-3 bg-[#4eb9e6] hover:bg-[#00e1ff] text-slate-950 text-xs font-bold uppercase tracking-wider rounded-xl shadow-[0_0_15px_rgba(3,242,254,0.15)] transition-all cursor-pointer text-center font-sans"
                 >
                   Ứng tuyển ngay
                 </button>
@@ -408,49 +345,63 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
 
             {/* Share and Socials card */}
             <div className="bg-[#0b1322] border border-slate-800/80 rounded-2xl p-6 shadow-md space-y-4">
-              <h3 className="text-xs font-bold uppercase tracking-widest text-[#00f2fe]">Chia sẻ tin tuyển dụng</h3>
-              
-              <div className="space-y-1.5">
-                <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Sao chép đường dẫn</span>
-                <div className="flex">
-                  <input
-                    type="text"
-                    readOnly
-                    value={`${window.location.origin}/careers/job/${job.id}`}
-                    className="w-full px-3 py-2 bg-slate-900 border border-slate-800 rounded-l-lg text-[10px] text-slate-400 focus:outline-none focus:border-slate-800"
-                  />
-                  <button
-                    onClick={handleCopyLink}
-                    className={`px-3 py-2 text-xs font-bold rounded-r-lg transition-all border-y border-r cursor-pointer shrink-0 ${
-                      isLinkCopied 
-                        ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' 
-                        : 'bg-slate-800 hover:bg-slate-700 text-[#00f2fe] border-slate-800'
-                    }`}
-                  >
-                    {isLinkCopied ? (
-                      <Check className="w-3.5 h-3.5" />
-                    ) : (
-                      <Copy className="w-3.5 h-3.5" />
-                    )}
-                  </button>
-                </div>
-              </div>
+  <h3 className="text-xs font-bold uppercase tracking-widest text-[#4eb9e6]">Chia sẻ tin tuyển dụng</h3>
+  
+  {/* Phần Địa chỉ - Mới thêm */}
+  <div className="space-y-1.5 pt-2 border-t border-slate-800">
+    <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Địa điểm làm việc</span>
+    <a 
+      href="https://www.google.com/maps/search/?api=1&query=Số+4-Q28,+136+Nguyễn+An+Ninh,+Tương+Mai,+Hoàng+Mai,+Hà+Nội" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="flex items-start space-x-2 text-xs text-slate-300 hover:text-[#4eb9e6] transition-colors group"
+    >
+      <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#4eb9e6]" />
+      <span>Số 4-Q28, 136 Nguyễn An Ninh, Tương Mai, Hoàng Mai, Hà Nội</span>
+    </a>
+  </div>
 
-              <div className="pt-2">
-                <span className="block text-[10px] text-slate-500 font-semibold uppercase tracking-wider mb-2">Talk with us</span>
-                <div className="flex items-center space-x-2">
-                  {['Twitter', 'Facebook', 'LinkedIn'].map((platform) => (
-                    <button
-                      key={platform}
-                      onClick={() => alert(`Kết nối với ECOTEL qua ${platform}!`)}
-                      className="bg-slate-900 hover:bg-[#00f2fe]/10 hover:text-[#00f2fe] text-slate-400 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-slate-800 transition-all cursor-pointer"
-                    >
-                      {platform}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
+  <div className="space-y-1.5">
+    <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Sao chép đường dẫn</span>
+    <div className="flex">
+      <input
+        type="text"
+        readOnly
+        value={`${window.location.origin}/tuyen-dung`}
+        className="w-full px-3 py-2 bg-slate-900 border border-slate-800 rounded-l-lg text-[10px] text-slate-400 focus:outline-none focus:border-slate-800"
+      />
+      <button
+        onClick={handleCopyLink}
+        className={`px-3 py-2 text-xs font-bold rounded-r-lg transition-all border-y border-r cursor-pointer shrink-0 ${
+          isLinkCopied 
+            ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' 
+            : 'bg-slate-800 hover:bg-slate-700 text-[#4eb9e6] border-slate-800'
+        }`}
+      >
+        {isLinkCopied ? (
+          <Check className="w-3.5 h-3.5" />
+        ) : (
+          <Copy className="w-3.5 h-3.5" />
+        )}
+      </button>
+    </div>
+  </div>
+
+  <div className="pt-2">
+    <span className="block text-[10px] text-slate-500 font-semibold uppercase tracking-wider mb-2">Talk with us</span>
+    <div className="flex items-center space-x-2">
+      {['Twitter', 'Facebook', 'LinkedIn'].map((platform) => (
+        <button
+          key={platform}
+          onClick={() => alert(`Kết nối với ECOTEL qua ${platform}!`)}
+          className="bg-slate-900 hover:bg-[#4eb9e6]/10 hover:text-[#4eb9e6] text-slate-400 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-slate-800 transition-all cursor-pointer"
+        >
+          {platform}
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
 
           </div>
 

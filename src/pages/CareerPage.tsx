@@ -76,7 +76,7 @@ export default function CareersPage() {
     email: string, 
     phone: string, 
     jobId: string, 
-    cvName: string
+    cvName?: string
   ) => {
     const currentJob = jobs.find(j => j.id === jobId);
     const jobTitle = currentJob?.title || 'Không xác định';

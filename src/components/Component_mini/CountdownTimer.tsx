@@ -71,9 +71,9 @@ export default function CountdownTimer({ targetDateString, className = '', compa
   if (compact) {
     return (
       <span className={`inline-flex items-center space-x-1.5 text-xs ${className}`}>
-        <Clock className="w-3.5 h-3.5 text-[#00f2fe]" />
+        <Clock className="w-3.5 h-3.5 text-[#4eb9e6]" />
         <span className="text-slate-400">Hạn nộp: <span className="text-slate-350 font-semibold">{readableDeadline}</span></span>
-        <span className="text-[#00f2fe] font-mono font-bold bg-[#00f2fe]/5 px-1.5 py-0.5 rounded border border-[#00f2fe]/20">
+        <span className="text-[#4eb9e6] font-mono font-bold bg-[#4eb9e6]/5 px-1.5 py-0.5 rounded border border-[#4eb9e6]/20">
           Còn {timeLeft.days > 0 ? `${timeLeft.days} ngày ` : ''}{padZero(timeLeft.hours)}:{padZero(timeLeft.minutes)}:{padZero(timeLeft.seconds)}
         </span>
       </span>
@@ -82,12 +82,12 @@ export default function CountdownTimer({ targetDateString, className = '', compa
 
   return (
     <div className={`space-y-3 ${className}`}>
-      <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#00f2fe]">
+      <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#4eb9e6]">
         <Clock className="w-4 h-4 animate-pulse" />
         <span>Khung thời gian ứng tuyển & Đếm ngược</span>
       </div>
 
-      <div className="bg-[#050912]/85 border border-[#00f2fe]/20 rounded-xl p-4 shadow-[0_0_15px_rgba(0,242,254,0.05)]">
+      <div className="bg-[#050912]/85 border border-[#4eb9e6]/20 rounded-xl p-4 shadow-[0_0_15px_rgba(0,242,254,0.05)]">
         
         {/* Recruitment timeframe */}
         <div className="flex justify-between items-center text-xs text-slate-400 pb-3 border-b border-slate-850 mb-3.5">
@@ -110,7 +110,7 @@ export default function CountdownTimer({ targetDateString, className = '', compa
 
           {/* Hours */}
           <div className="bg-slate-900/50 rounded-lg p-2 border border-slate-850">
-            <span className="block text-xl md:text-2xl font-mono font-extrabold text-[#00f2fe] tracking-tight">
+            <span className="block text-xl md:text-2xl font-mono font-extrabold text-[#4eb9e6] tracking-tight">
               {padZero(timeLeft.hours)}
             </span>
             <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold">Giờ</span>
@@ -118,7 +118,7 @@ export default function CountdownTimer({ targetDateString, className = '', compa
 
           {/* Minutes */}
           <div className="bg-slate-900/50 rounded-lg p-2 border border-slate-850">
-            <span className="block text-xl md:text-2xl font-mono font-extrabold text-[#00f2fe] tracking-tight">
+            <span className="block text-xl md:text-2xl font-mono font-extrabold text-[#4eb9e6] tracking-tight">
               {padZero(timeLeft.minutes)}
             </span>
             <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold">Phút</span>
@@ -126,7 +126,7 @@ export default function CountdownTimer({ targetDateString, className = '', compa
 
           {/* Seconds */}
           <div className="bg-slate-900/50 rounded-lg p-2 border border-slate-850 relative overflow-hidden group">
-            <span className="block text-xl md:text-2xl font-mono font-extrabold text-[#00f2fe] tracking-tight animate-pulse">
+            <span className="block text-xl md:text-2xl font-mono font-extrabold text-[#4eb9e6] tracking-tight animate-pulse">
               {padZero(timeLeft.seconds)}
             </span>
             <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold">Giây</span>
