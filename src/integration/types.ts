@@ -14,6 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
+      
       blogs: {
         Row: {
           author: string | null
@@ -405,6 +406,101 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      },
+      jobs: {
+        Row: {
+          id: string
+          title: string
+          department: string
+          location: string
+          level: string
+          type: string
+          salary: string
+          description: Json
+          requirements: Json
+          benefits: Json
+          vacancies: number
+          deadline: string
+          created_at: string | null
+        }
+        Insert: {
+          id?: string
+          title: string
+          department: string
+          location: string
+          level: string
+          type: string
+          salary: string
+          description?: Json
+          requirements?: Json
+          benefits?: Json
+          vacancies?: number
+          deadline: string
+          created_at?: string | null
+        }
+        Update: {
+          id?: string
+          title?: string
+          department?: string
+          location?: string
+          level?: string
+          type?: string
+          salary?: string
+          description?: Json
+          requirements?: Json
+          benefits?: Json
+          vacancies?: number
+          deadline?: string
+          created_at?: string | null
+        }
+        Relationships: []
+      },
+      applications: {
+        Row: {
+          id: string
+          job_id: string | null
+          job_title: string | null
+          full_name: string
+          email: string
+          phone: string
+          cv_name: string | null
+          status: string
+          applied_at: string | null
+          notes: string | null
+        }
+        Insert: {
+          id?: string
+          job_id?: string | null
+          job_title?: string | null
+          full_name: string
+          email: string
+          phone: string
+          cv_name?: string | null
+          status?: string
+          applied_at?: string | null
+          notes?: string | null
+        }
+        Update: {
+          id?: string
+          job_id?: string | null
+          job_title?: string | null
+          full_name?: string
+          email?: string
+          phone?: string
+          cv_name?: string | null
+          status?: string
+          applied_at?: string | null
+          notes?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "applications_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {
@@ -552,3 +648,32 @@ export const Constants = {
     },
   },
 } as const
+export interface Job {
+  id: string;
+  title: string;
+  department: 'Kỹ thuật' | 'Kinh doanh' | 'Hành chính';
+  location: 'Hà Nội' | 'TP. Hồ Chí Minh';
+  type: string;
+  level: string;
+  salary: string;
+  description: string[];
+  requirements: string[];
+  benefits: string[];
+  vacancies: number;
+  deadline: string; // ISO date string or YYYY-MM-DD
+}
+
+export interface Application {
+  id: string;
+  jobId: string;
+  jobTitle: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  cvName?: string;
+  status: 'Mới nhận' | 'Đã liên hệ' | 'Phỏng vấn' | 'Đã nhận việc' | 'Không phù hợp';
+  appliedAt: string;
+  notes?: string;
+}
+
+export type ActiveTab = 'home' | 'job-detail' | 'admin';
