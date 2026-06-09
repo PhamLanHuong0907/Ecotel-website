@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { mockJobs } from '@/data'; // Keep in case as absolute fallback
 import CircuitOverlay from '@/components/Component_mini/CircuitOverlay';
 import CountdownTimer from './CountdownTimer';
-import { ArrowLeft, Share2, Clipboard, Copy, Check, DollarSign, Award, ClipboardCheck, Clock, MapPin, UploadCloud, AlertCircle, PhoneCall, HelpCircle, Users } from 'lucide-react';
+import { Phone, Copy, Check, DollarSign, Award, ClipboardCheck, Clock, MapPin, AlertCircle, Users } from 'lucide-react';
 import { Job } from '@/integration/types';
 import background from '@/assets/background-home7.webp'
 interface JobDetailProps {
@@ -359,6 +359,16 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
       <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#4eb9e6]" />
       <span>Số 4-Q28, 136 Nguyễn An Ninh, Tương Mai, Hoàng Mai, Hà Nội</span>
     </a>
+    <div className="space-y-1.5">
+      <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Hotline liên hệ</span>
+      <a 
+        href="tel:02412345678" 
+        className="flex items-center space-x-2 text-xs text-slate-300 hover:text-[#338BCF] transition-colors"
+      >
+        <Phone className="w-4 h-4 text-[#338BCF]" />
+        <span className="font-medium">024 1234 5678</span>
+      </a>
+    </div>
   </div>
 
   <div className="space-y-1.5">
