@@ -101,7 +101,7 @@ export default function CareersPage() {
     }
 
     // 2. Tự động mở tab Web Gmail với nội dung điền sẵn
-    const companyEmail = "huongnguyendusctn@gmail.com"; 
+    const companyEmail = "info@ecotel.com.vn"; 
     const subject = encodeURIComponent(`Ứng tuyển vị trí: ${jobTitle} - ${fullName}`);
     const body = encodeURIComponent(
       `Kính gửi Bộ phận Nhân sự,\n\n` +
