@@ -193,7 +193,7 @@ export const ProjectsSection = () => {
                         )}
                       </div>
                       
-                      <div className="text-muted-foreground text-justify flex flex-col space-y-4">
+                      <div className="text-muted-foreground text-justify flex flex-col space-y-4 text-[15px]">
                         {/* Thêm dấu ? để tránh lỗi khi description null */}
                         {project.description?.split('\n').map((paragraph, index) => (
                           <p key={index}>{paragraph}</p>
