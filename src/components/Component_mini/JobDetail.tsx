@@ -362,7 +362,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
     <div className="space-y-1.5">
       <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Hotline liên hệ</span>
       <a 
-        href="tel:02412345678" 
+        href="tel:0378665822" 
         className="flex items-center space-x-2 text-xs text-slate-300 hover:text-[#338BCF] transition-colors"
       >
         <Phone className="w-4 h-4 text-[#338BCF]" />
@@ -371,46 +371,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
     </div>
   </div>
 
-  <div className="space-y-1.5">
-    <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Sao chép đường dẫn</span>
-    <div className="flex">
-      <input
-        type="text"
-        readOnly
-        value={`${window.location.origin}/tuyen-dung`}
-        className="w-full px-3 py-2 bg-slate-900 border border-slate-800 rounded-l-lg text-[10px] text-slate-400 focus:outline-none focus:border-slate-800"
-      />
-      <button
-        onClick={handleCopyLink}
-        className={`px-3 py-2 text-xs font-bold rounded-r-lg transition-all border-y border-r cursor-pointer shrink-0 ${
-          isLinkCopied 
-            ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' 
-            : 'bg-slate-800 hover:bg-slate-700 text-[#4eb9e6] border-slate-800'
-        }`}
-      >
-        {isLinkCopied ? (
-          <Check className="w-3.5 h-3.5" />
-        ) : (
-          <Copy className="w-3.5 h-3.5" />
-        )}
-      </button>
-    </div>
-  </div>
-
-  <div className="pt-2">
-    <span className="block text-[10px] text-slate-500 font-semibold uppercase tracking-wider mb-2">Talk with us</span>
-    <div className="flex items-center space-x-2">
-      {['Twitter', 'Facebook', 'LinkedIn'].map((platform) => (
-        <button
-          key={platform}
-          onClick={() => alert(`Kết nối với ECOTEL qua ${platform}!`)}
-          className="bg-slate-900 hover:bg-[#4eb9e6]/10 hover:text-[#4eb9e6] text-slate-400 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-slate-800 transition-all cursor-pointer"
-        >
-          {platform}
-        </button>
-      ))}
-    </div>
-  </div>
+  
 </div>
 
           </div>

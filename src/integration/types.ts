@@ -267,7 +267,7 @@ export type Database = {
       projects: {
         Row: {
           category_id: string | null
-          client: string | null
+          client_ids: string[] | null
           created_at: string | null
           description: string | null
           id: string
@@ -279,7 +279,7 @@ export type Database = {
         }
         Insert: {
           category_id?: string | null
-          client?: string | null
+          client_ids: string[] | null
           created_at?: string | null
           description?: string | null
           id?: string
@@ -291,7 +291,7 @@ export type Database = {
         }
         Update: {
           category_id?: string | null
-          client?: string | null
+          client_ids: string[] | null
           created_at?: string | null
           description?: string | null
           id?: string
@@ -452,6 +452,36 @@ export type Database = {
           vacancies?: number
           deadline?: string
           created_at?: string | null
+        }
+        Relationships: []
+      },
+       clients: {
+        Row: {
+          id: string
+          name: string
+          logo: string | null
+          address: string | null
+          email: string | null
+          created_at: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          name: string
+          logo?: string | null
+          address?: string | null
+          email?: string | null
+          created_at?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          name?: string
+          logo?: string | null
+          address?: string | null
+          email?: string | null
+          created_at?: string | null
+          updated_at?: string | null
         }
         Relationships: []
       },

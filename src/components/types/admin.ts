@@ -102,7 +102,7 @@ export interface Product {
 export interface Project {
   id: string;
   title: string;
-  client: string;
+  client_ids: string[];
   description: string;
   category: string;
   path: string;
@@ -116,4 +116,11 @@ export interface Testimonial {
   author: string;
   position: string;
   company: string;
+}
+export interface Client {
+  id: string;
+  name: string;
+  logo: string;
+  address: string;
+  email: string;
 }

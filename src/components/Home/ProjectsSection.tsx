@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Loader2 } from "lucide-react";
+import { ExternalLink, Loader2, Users } from "lucide-react";
 import { useProjects, Project } from "@/hooks/useProjects"; 
+import { useClients } from "@/hooks/useClients"; // THÊM IMPORT NÀY
 import { ProjectDocViewer } from "../Component_mini/ProjectDocViewer"; 
 
 export const ProjectsSection = () => {
-  const { data: projects, isLoading } = useProjects();
+  const { data: projects, isLoading: projectsLoading } = useProjects();
+  const { data: clients, isLoading: clientsLoading } = useClients(); // GỌI DATA CLIENTS
   
   const [currentPage, setCurrentPage] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   
-  // State quản lý Viewer
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  const ITEMS_PER_PAGE = 4;
+  const ITEMS_PER_PAGE = 3;
   const AUTO_PLAY_DELAY = 5000;
   
   const totalItems = projects?.length || 0;
@@ -24,10 +25,9 @@ export const ProjectsSection = () => {
     (currentPage + 1) * ITEMS_PER_PAGE
   ) || [];
 
-  // [CẬP NHẬT 1]: Tạo một mảng hiển thị luôn có độ dài bằng ITEMS_PER_PAGE (4)
   const displayProjects = [...currentProjects];
   while (displayProjects.length < ITEMS_PER_PAGE) {
-    displayProjects.push(null as any); // Thêm các phần tử rỗng để giữ layout
+    displayProjects.push(null as any); 
   }
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export const ProjectsSection = () => {
     }
   };
 
-  if (isLoading) {
+  if (projectsLoading || clientsLoading) {
     return (
       <section className="py-24 flex justify-center items-center min-h-[400px]">
         <Loader2 className="w-8 h-8 animate-spin text-primary" />
@@ -84,11 +84,9 @@ export const ProjectsSection = () => {
           onMouseEnter={() => setIsPaused(true)} 
           onMouseLeave={() => setIsPaused(false)}
         >
-            <div className="grid md:grid-cols-2 gap-8 min-h-[400px]">
-              {/* [CẬP NHẬT 2]: Map qua mảng displayProjects đã được độn phần tử */}
+            <div className="grid md:grid-cols-3 gap-8 min-h-[400px]">
               {displayProjects.map((project, index) => {
                 
-                // Nếu là phần tử rỗng, render một thẻ div tàng hình để chiếm không gian
                 if (!project) {
                   return (
                     <div 
@@ -99,6 +97,13 @@ export const ProjectsSection = () => {
                   );
                 }
 
+                // XỬ LÝ LẤY THÔNG TIN KHÁCH HÀNG TỪ client_ids
+                // Ép kiểu (project as any) tạm thời nếu Types.ts bên Client chưa được cập nhật mảng client_ids
+                const projectClientIds = (project as any).client_ids || [];
+                const projectClients = projectClientIds
+                  .map((id: string) => clients?.find(c => c.id === id))
+                  .filter(Boolean);
+
                 return (
                   <div
                     key={project.id}
@@ -107,44 +112,99 @@ export const ProjectsSection = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="relative z-10 flex flex-col h-full">
-                      <div className="flex items-start justify-between mb-4">
-                        <span className="inline-block max-w-full px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent truncate">
-                          {project.services?.title 
-                            ? project.services.title.split('\n')[0].trim() 
+                      
+                      <div className="flex items-start justify-between gap-4 mb-3">
+                        <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-accent/20 text-accent shrink-0">
+                          {/* Ép kiểu any cho services nếu TypeScript báo lỗi thiếu type */}
+                          {(project as any).services?.title 
+                            ? (project as any).services.title.split('\n')[0].trim() 
                             : "Dự án"}
                         </span>
-                        <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                        
+                        {(project.url_word || project.path) && (
+                          <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                        )}
                       </div>
-                      
-                      <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors ">
+
+                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-5">
                         {project.title}
                       </h3>
                       
-                      <div className="flex items-center gap-3 mb-4">
-                          {project.image && (
-                              <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/10 bg-white/5 shrink-0">
+                      {/* KHU VỰC HIỂN THỊ KHÁCH HÀNG */}
+                      <div className="flex items-center gap-3 mb-4 relative z-20">
+                        {projectClients.length > 0 ? (
+                          <div className="flex items-center gap-2 group/tooltip relative">
+                            {/* Hiển thị khách hàng đầu tiên */}
+                            <div className="flex items-center gap-2">
+                              {projectClients[0].logo ? (
+                                <div className="w-10 h-10 rounded-full overflow-hidden border border-primary/10 bg-white/5 shrink-0">
                                   <img 
-                                      src={project.image} 
-                                      alt={project.client || "Client Logo"} 
+                                      src={projectClients[0].logo} 
+                                      alt={projectClients[0].name} 
                                       className="w-full h-full object-contain" 
                                   />
+                                </div>
+                              ) : (
+                                <div className="w-10 h-10 rounded-full flex items-center justify-center border border-primary/10 bg-secondary shrink-0">
+                                  <Users className="w-5 h-5 text-muted-foreground" />
+                                </div>
+                              )}
+                              <p className="text-[16px] text-primary/80 font-medium line-clamp-1">
+                                {projectClients[0].name}
+                              </p>
+                            </div>
+
+                            {/* Nếu có nhiều hơn 1 khách hàng, hiện badge +X */}
+                            {projectClients.length > 1 && (
+                              <div className="relative cursor-help">
+                                <span className="flex items-center justify-center px-2 py-1 h-8 rounded-full bg-secondary hover:bg-secondary/80 transition-colors text-xs font-medium text-foreground border border-border">
+                                  +{projectClients.length - 1}
+                                </span>
+
+                                {/* Tooltip hiển thị danh sách khi hover */}
+                                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max max-w-[220px] bg-popover text-popover-foreground text-sm rounded-lg shadow-lg border border-border p-3 opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50">
+                                  <div className="flex flex-col gap-3">
+                                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
+                                      Đồng triển khai ({projectClients.length})
+                                    </p>
+                                    {projectClients.slice(1).map((client: any, idx: number) => (
+                                      <div key={idx} className="flex items-center gap-2">
+                                        {client.logo ? (
+                                          <img src={client.logo} alt={client.name} className="w-6 h-6 object-contain rounded-full bg-white/5" />
+                                        ) : (
+                                          <div className="w-6 h-6 flex items-center justify-center rounded-full bg-secondary shrink-0">
+                                            <Users className="w-3 h-3 text-muted-foreground" />
+                                          </div>
+                                        )}
+                                        <span className="truncate">{client.name}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                  {/* Mũi tên trỏ xuống của Tooltip */}
+                                  <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-popover border-b border-r border-border transform rotate-45"></div>
+                                </div>
                               </div>
-                          )}
-                          <p className="text-[18px] text-primary/80 font-medium">
-                               {project.client || "Khách hàng doanh nghiệp"}
-                          </p>
+                            )}
+                          </div>
+                        ) : (
+                           <p className="text-[16px] text-primary/80 font-medium">
+                                Khách hàng doanh nghiệp
+                           </p>
+                        )}
                       </div>
                       
-                      <p className="text-muted-foreground line-clamp-3 text-justify mt-auto">
-                          {project.description}
-                      </p>
+                      <div className="text-muted-foreground text-justify flex flex-col space-y-4">
+                        {/* Thêm dấu ? để tránh lỗi khi description null */}
+                        {project.description?.split('\n').map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 )
               })}
             </div>
 
-            {/* Pagination Controls */}
             {totalPages > 1 && (
               <div className="flex justify-center items-center gap-3 mt-12">
                  {Array.from({ length: totalPages }).map((_, index) => (
