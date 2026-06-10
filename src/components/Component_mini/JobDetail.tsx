@@ -366,7 +366,7 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
         className="flex items-center space-x-2 text-xs text-slate-300 hover:text-[#338BCF] transition-colors"
       >
         <Phone className="w-4 h-4 text-[#338BCF]" />
-        <span className="font-medium">024 1234 5678</span>
+        <span className="font-medium">0378665822</span>
       </a>
     </div>
   </div>
