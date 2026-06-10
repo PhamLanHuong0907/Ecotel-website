@@ -162,7 +162,7 @@ export const ProjectsSection = () => {
                                 </span>
 
                                 {/* Tooltip hiển thị danh sách khi hover */}
-                                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max max-w-[220px] bg-popover text-popover-foreground text-sm rounded-lg shadow-lg border border-border p-3 opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50">
+                                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max max-w-[300px] bg-popover text-popover-foreground text-sm rounded-lg shadow-lg border border-border p-3 opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50">
                                   <div className="flex flex-col gap-3">
                                     <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
                                       Đồng triển khai ({projectClients.length})
