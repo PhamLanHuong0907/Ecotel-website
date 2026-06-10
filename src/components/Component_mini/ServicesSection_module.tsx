@@ -57,7 +57,7 @@ export const ServicesSection = ({
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-[300px] lg:h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-[300px] lg:h-[400px] object-fit transition-transform duration-500 group-hover:scale-105"
                   />
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -92,7 +92,7 @@ export const ServicesSection = () => {
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}
               >
                 {/* Text Content - 1/3 width */}
-                <div className="lg:w-1/3 space-y-5">
+                <div className="lg:w-2/5 space-y-5">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient || 'from-blue-500 to-cyan-500'} flex items-center justify-center`}>
                     <IconComponent className="w-7 h-7 text-white" />
                   </div>
@@ -129,7 +129,7 @@ export const ServicesSection = () => {
                 </div>
 
                 {/* Image Carousel - 2/3 width */}
-                <div className="lg:w-2/3 w-full">
+                <div className="lg:w-3/5 w-full">
                   {images.length > 0 ? (
                     <Carousel
                       className="w-full"
