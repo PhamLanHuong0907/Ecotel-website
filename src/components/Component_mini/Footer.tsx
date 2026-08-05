@@ -123,11 +123,17 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
-
         {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} ECOTEL Co.,LTD .
+            <a
+              href="/policy_ecotel.html"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              © {new Date().getFullYear()}{' '}ECOTEL Co., LTD.
+            </a>
           </p>
 
           {/* Social Links */}
