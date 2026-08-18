@@ -15,6 +15,48 @@ export type Database = {
   public: {
     Tables: {
       
+      copyrights: {
+        Row: {
+          id: string
+          title: string
+          product_name: string | null
+          author: string | null
+          owner: string | null
+          issue_date: string | null
+          cert_number: string | null
+          issuer: string | null
+          image: string | null
+          created_at: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          title: string
+          product_name?: string | null
+          author?: string | null
+          owner?: string | null
+          issue_date?: string | null
+          cert_number?: string | null
+          issuer?: string | null
+          image?: string | null
+          created_at?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          title?: string
+          product_name?: string | null
+          author?: string | null
+          owner?: string | null
+          issue_date?: string | null
+          cert_number?: string | null
+          issuer?: string | null
+          image?: string | null
+          created_at?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       blogs: {
         Row: {
           author: string | null

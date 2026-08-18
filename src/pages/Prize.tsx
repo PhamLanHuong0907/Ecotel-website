@@ -2,7 +2,8 @@ import { Award, Trophy, Star, Medal, ChevronRight, X, Loader2 } from "lucide-rea
 import image_banquyen from "@/assets/banquyen.webp";
 import { motion, AnimatePresence } from "framer-motion"; 
 import { useState } from "react";
-import { usePrizes } from "@/hooks/usePrizes"; 
+import { usePrizes } from "@/hooks/usePrizes";
+import { useCopyrights } from "@/hooks/useCopyrights";
 
 // Type định nghĩa cho Prize item
 interface PrizeItem {
@@ -24,15 +25,17 @@ const resolveIcon = (iconName: string | null): React.ComponentType<{ className?:
   return iconName && icons[iconName] ? icons[iconName] : Award; 
 };
 
-// Dữ liệu Bản quyền tĩnh
-const copyrightData = {
+// Dữ liệu mặc định khi chưa có trong DB
+const defaultCopyright = {
+  id: "default-copyright",
   title: "Giấy Chứng Nhận Đăng Ký Quyền Tác Giả",
-  productName: "Phần mềm Quản lý tài sản",
+  product_name: "Phần mềm Quản lý tài sản",
   author: "Nguyễn Tuấn Anh",
   owner: "CÔNG TY ECOTEL",
-  issueDate: "21/10/2025",
-  certNumber: "9057/2025/QTG",
-  issuer: "Cục Bản Quyền Tác Giả - Bộ VH, TT & DL"
+  issue_date: "21/10/2025",
+  cert_number: "9057/2025/QTG",
+  issuer: "Cục Bản Quyền Tác Giả - Bộ VH, TT & DL",
+  image: null as string | null
 };
 
 // Component AwardItem sử dụng trực tiếp framer-motion thay vì isVisible
@@ -111,10 +114,13 @@ const AwardItem = ({ item, index, totalItems }: { item: PrizeItem; index: number
 };
 
 export const AwardsSection = () => {
-  const [showCert, setShowCert] = useState(false);
-  
+  const [activeCopyrightId, setActiveCopyrightId] = useState<string | null>(null);
+
   // Gọi API lấy dữ liệu từ Supabase
-  const { data: prizes, isLoading } = usePrizes();
+  const { data: prizes, isLoading: isLoadingPrizes } = usePrizes();
+  const { data: copyrights, isLoading: isLoadingCopyrights } = useCopyrights();
+
+  const isLoading = isLoadingPrizes || isLoadingCopyrights;
 
   if (isLoading) {
     return (
@@ -126,6 +132,11 @@ export const AwardsSection = () => {
 
   // Khởi tạo mảng dữ liệu lấy từ DB
   const awardsData = prizes || [];
+  const copyrightsData = copyrights?.length ? copyrights : [defaultCopyright];
+
+  // Tìm bản quyền đang được xem trong modal
+  const activeCopyright = copyrightsData.find(c => c.id === activeCopyrightId) || null;
+  const activeCopyrightImage = activeCopyright?.image || image_banquyen;
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -164,8 +175,8 @@ export const AwardsSection = () => {
           <p className="text-center text-muted-foreground mb-24">Chưa có dữ liệu giải thưởng.</p>
         )}
 
-        {/* === PHẦN 2: BẢN QUYỀN MỚI (Trigger Card) === */}
-        <motion.div 
+        {/* === PHẦN 2: BẢN QUYỀN (Render tất cả) === */}
+        <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -178,75 +189,80 @@ export const AwardsSection = () => {
                  <p className="text-muted-foreground mt-2">Dấu ấn công nghệ mới nhất năm 2025</p>
             </div>
 
-            <div className="max-w-4xl mx-auto flex flex-col items-center">
-                {/* THẺ ĐỂ BẤM (TRIGGER) */}
-                <div 
-                    onClick={() => setShowCert(true)}
-                    className="w-full glass-card p-6 md:p-8 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 cursor-pointer hover:shadow-blue-500/20 hover:scale-[1.01] transition-all duration-300 relative group"
-                >
-                    <div className="flex flex-col md:flex-row items-center gap-6">
-                        {/* Thumbnail ảnh nhỏ bên trái */}
-                        <div className="relative w-32 h-24 md:w-40 md:h-28 flex-shrink-0 rounded-lg overflow-hidden border border-white/10 shadow-md">
-                            <img 
-                                src={image_banquyen} 
-                                alt="Thumbnail" 
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span className="text-white text-xs font-bold bg-black/50 px-2 py-1 rounded">Xem</span>
+            <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
+                {copyrightsData.map((copyright) => {
+                  const imgSrc = copyright.image || image_banquyen;
+                  return (
+                    <div
+                      key={copyright.id || copyright.cert_number}
+                      onClick={() => setActiveCopyrightId(copyright.id)}
+                      className="w-full glass-card p-6 md:p-8 rounded-2xl border border-blue-500/30 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 cursor-pointer hover:shadow-blue-500/20 hover:scale-[1.01] transition-all duration-300 relative group"
+                    >
+                        <div className="flex flex-col md:flex-row items-center gap-6">
+                            {/* Thumbnail ảnh nhỏ bên trái */}
+                            <div className="relative w-32 h-24 md:w-40 md:h-28 flex-shrink-0 rounded-lg overflow-hidden border border-white/10 shadow-md">
+                                <img
+                                    src={imgSrc}
+                                    alt="Thumbnail"
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                />
+                                <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <span className="text-white text-xs font-bold bg-black/50 px-2 py-1 rounded">Xem</span>
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Thông tin văn bản */}
-                        <div className="flex-1 text-center md:text-left space-y-2">
-                            <h4 className="text-xl font-bold text-blue-500">{copyrightData.title}</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-sm text-muted-foreground">
-                                <p><span className="font-semibold text-foreground">Tác phẩm:</span> {copyrightData.productName}</p>
-                                <p><span className="font-semibold text-foreground">Số GCN:</span> {copyrightData.certNumber}</p>
-                                <p><span className="font-semibold text-foreground">Tác giả:</span> {copyrightData.author}</p>
-                                <p><span className="font-semibold text-foreground">Ngày cấp:</span> {copyrightData.issueDate}</p>
+                            {/* Thông tin văn bản */}
+                            <div className="flex-1 text-center md:text-left space-y-2">
+                                <h4 className="text-xl font-bold text-blue-500">{copyright.title}</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-sm text-muted-foreground">
+                                    <p><span className="font-semibold text-foreground">Tác phẩm:</span> {copyright.product_name}</p>
+                                    <p><span className="font-semibold text-foreground">Số GCN:</span> {copyright.cert_number}</p>
+                                    <p><span className="font-semibold text-foreground">Tác giả:</span> {copyright.author}</p>
+                                    <p><span className="font-semibold text-foreground">Ngày cấp:</span> {copyright.issue_date}</p>
+                                </div>
                             </div>
+
+                            <ChevronRight className="w-6 h-6 text-blue-500 group-hover:translate-x-1 transition-transform hidden md:block" />
                         </div>
-                        
-                        <ChevronRight className="w-6 h-6 text-blue-500 group-hover:translate-x-1 transition-transform hidden md:block" />
                     </div>
-                </div>
+                  );
+                })}
             </div>
         </motion.div>
       </div>
 
       {/* === PHẦN MODAL POPUP === */}
       <AnimatePresence>
-      {showCert && (
+      {activeCopyright && (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)', backdropFilter: 'blur(8px)' }}
-            onClick={() => setShowCert(false)}
+            onClick={() => setActiveCopyrightId(null)}
         >
             <button
-                onClick={() => setShowCert(false)}
+                onClick={() => setActiveCopyrightId(null)}
                 className="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-red-500 hover:rotate-90 transition-all duration-300 z-50 border border-white/20 backdrop-blur-md"
             >
                 <X className="w-6 h-6" />
             </button>
-            
-            <motion.div 
+
+            <motion.div
                 initial={{ scale: 0.9, opacity: 0, y: 20 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                onClick={(e) => e.stopPropagation()} 
+                onClick={(e) => e.stopPropagation()}
                 className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center"
             >
                 <img
-                    src={image_banquyen}
+                    src={activeCopyrightImage}
                     alt="Giấy chứng nhận bản quyền"
                     className="w-auto h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl border-4 border-white/10 bg-white"
                 />
                 <p className="text-white/80 mt-4 text-sm font-medium bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm">
-                    {copyrightData.title} - {copyrightData.certNumber}
+                    {activeCopyright.title} - {activeCopyright.cert_number}
                 </p>
             </motion.div>
         </motion.div>
