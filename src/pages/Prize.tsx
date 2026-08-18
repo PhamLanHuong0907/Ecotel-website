@@ -130,9 +130,19 @@ export const AwardsSection = () => {
     );
   }
 
-  // Khởi tạo mảng dữ liệu lấy từ DB
+  // Khởi tạo mảng dữ liệu lấy từ DB, sắp xếp theo ngày cấp mới nhất
   const awardsData = prizes || [];
-  const copyrightsData = copyrights?.length ? copyrights : [defaultCopyright];
+  const copyrightsData = copyrights?.length
+    ? [...copyrights].sort((a, b) => {
+        // Parse ngày cấp (định dạng DD/MM/YYYY) để so sánh
+        const parseDate = (d: string | null) => {
+          if (!d) return 0;
+          const [day, month, year] = d.split("/").map(Number);
+          return new Date(year, month - 1, day).getTime();
+        };
+        return parseDate(b.issue_date) - parseDate(a.issue_date);
+      })
+    : [defaultCopyright];
 
   // Tìm bản quyền đang được xem trong modal
   const activeCopyright = copyrightsData.find(c => c.id === activeCopyrightId) || null;
@@ -186,7 +196,7 @@ export const AwardsSection = () => {
                  <h3 className="text-3xl font-bold text-foreground">
                    Bản Quyền & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1e5c8b] via-[#338bcf] to-[#4eb9e6]">Sở Hữu Trí Tuệ</span>
                  </h3>
-                 <p className="text-muted-foreground mt-2">Dấu ấn công nghệ mới nhất năm 2025</p>
+                 <p className="text-muted-foreground mt-2">Dấu ấn công nghệ mới nhất năm {new Date().getFullYear()}</p>
             </div>
 
             <div className="max-w-4xl mx-auto flex flex-col items-center gap-6">
