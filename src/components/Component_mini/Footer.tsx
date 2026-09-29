@@ -69,7 +69,7 @@ export const Footer = () => {
               </a>
               <div className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Số 4-Q28, 136 Nguyễn An Ninh, Tương Mai, Hoàng Mai, Hà Nội</span>
+                <span>Số 6 C4 Lô 2 Khu đô thị Nam Trung Yên, Phường Yên Hòa, Thành phố Hà Nội</span>
               </div>
             </div>
           </div>

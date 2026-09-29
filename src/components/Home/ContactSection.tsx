@@ -57,9 +57,9 @@ export const ContactSection = () => {
     {
       icon: MapPin,
       label: "Địa chỉ",
-      value: "Số 4-Q28, 136 Nguyễn An Ninh, Tương Mai, Hoàng Mai, Hà Nội",
+      value: "Số 6 C4 Lô 2 Khu đô thị Nam Trung Yên, Phường Yên Hòa, Thành phố Hà Nội",
       // --- THÊM PHẦN NÀY ---
-      link: "https://www.google.com/maps/search/?api=1&query=Số+4-Q28,+136+Nguyễn+An+Ninh,+Tương+Mai,+Hoàng+Mai,+Hà+Nội",
+      link: "https://www.google.com/maps/search/?api=1&query=Số+6+C4+Lô+2+Khu+đô+thị+Nam+Trung+Yên,+Phường+Yên+Hòa,+Thành+phố+Hà+Nội",
       linkText: "Xem chỉ đường trên GoogleMaps",
       // ---------------------
     },

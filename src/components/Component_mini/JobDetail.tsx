@@ -351,13 +351,13 @@ export default function JobDetail({ jobId, jobs, onBack, onSubmitApplication, on
   <div className="space-y-1.5 pt-2 border-t border-slate-800">
     <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Địa điểm làm việc</span>
     <a 
-      href="https://www.google.com/maps/search/?api=1&query=Số+4-Q28,+136+Nguyễn+An+Ninh,+Tương+Mai,+Hoàng+Mai,+Hà+Nội" 
+      href="https://www.google.com/maps/search/?api=1&query=Số+6+C4+Lô+2+Khu+đô+thị+Nam+Trung+Yên,+Phường+Yên+Hòa,+Thành+phố+Hà+Nội" 
       target="_blank" 
       rel="noopener noreferrer"
       className="flex items-start space-x-2 text-xs text-slate-300 hover:text-[#4eb9e6] transition-colors group"
     >
       <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#4eb9e6]" />
-      <span>Số 4-Q28, 136 Nguyễn An Ninh, Tương Mai, Hoàng Mai, Hà Nội</span>
+      <span>Số 6 C4 Lô 2 Khu đô thị Nam Trung Yên, Phường Yên Hòa, Thành phố Hà Nội</span>
     </a>
     <div className="space-y-1.5">
       <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Hotline liên hệ</span>

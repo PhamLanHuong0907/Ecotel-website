@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react";
 
 export const BranchesSection = () => {
   // Địa chỉ cụ thể
-  const addressString = "Số 4- Q28, ngõ 136 Nguyễn An Ninh, Tương Mai, Thành phố Hà Nội";
+  const addressString = "Số 6 C4 Lô 2 Khu đô thị Nam Trung Yên, Phường Yên Hòa, Thành phố Hà Nội";
   // Tạo link Google Maps để người dùng click vào mở tab mới
   const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressString)}`;
 
