@@ -59,10 +59,9 @@ export const HeroSection = ({ title, highlight, description }: HeroSectionProps)
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-5xl mx-auto mt-4 md:mt-8 text-left"
+          className="max-w-[1100px] mx-auto mt-4 md:mt-8 text-center"
         >
-          {/* CHANGE 4: Padding Responsive (p-5 cho mobile, p-8 cho desktop) */}
-          <div className="glass-card p-5 md:p-8 rounded-2xl space-y-3 md:space-y-4 shadow-sm border border-white/10">
+          <div className="space-y-3 md:space-y-4">
             {/* Phần Highlight */}
             {/* CHANGE 5: Text size responsive (text-base -> text-lg -> text-xl) */}
             <p className="text-base md:text-lg lg:text-xl leading-relaxed whitespace-pre-line">
@@ -71,7 +70,7 @@ export const HeroSection = ({ title, highlight, description }: HeroSectionProps)
             
             {/* Phần Description */}
             {/* CHANGE 6: Thay text-[19px] cứng thành text-base md:text-lg để dễ đọc trên mọi màn hình */}
-            <p className="text-muted-foreground whitespace-pre-line leading-relaxed text-sm sm:text-base md:text-lg text-justify md:text-left">
+            <p className="text-muted-foreground whitespace-pre-line leading-relaxed text-sm sm:text-base md:text-lg text-center">
               {description}
             </p>
           </div>
