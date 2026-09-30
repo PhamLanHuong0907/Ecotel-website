@@ -134,7 +134,7 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden py-4 border-t border-border/30 animate-fade-up">
+          <nav className="absolute top-full inset-x-0 lg:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto px-4 py-4 border-t border-border/30 bg-background/95 backdrop-blur-xl shadow-lg animate-fade-up">
             {navItems.map((item) => (
               <div key={item.id || item.label}>
                 <a
